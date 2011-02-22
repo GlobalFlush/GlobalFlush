@@ -10,12 +10,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110221211524) do
+ActiveRecord::Schema.define(:version => 20110222150312) do
 
   create_table "attributes", :force => true do |t|
     t.integer  "bathroom_id",                :null => false
     t.string   "key",                        :null => false
     t.string   "value",                      :null => false
+    t.integer  "moderated",   :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "bathroom_id",                :null => false
+    t.integer  "user_id",                    :null => false
+    t.string   "text"
+    t.integer  "rating_id",                  :null => false
     t.integer  "moderated",   :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -29,5 +39,7 @@ ActiveRecord::Schema.define(:version => 20110221211524) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "ratings", ["id"], :name => "rating_id"
 
 end
