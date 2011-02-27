@@ -1,4 +1,20 @@
 Globalflush::Application.routes.draw do
+  get "user_sessions/new"
+
+  root :to => "welcome#index"
+
+  resources :user_sessions
+  resources :users
+
+  match 'login' => 'user_sessions#new', :as => :login
+  match 'logout' => 'user_sessions#destroy', :as => :logout
+  match 'register' => 'users#new', :as => :register
+
+
+
+
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

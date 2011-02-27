@@ -29,3 +29,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+
+gem 'authlogic'
+gem 'rails3-generators'

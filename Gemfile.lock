@@ -29,6 +29,8 @@ GEM
       activesupport (= 3.0.3)
     activesupport (3.0.3)
     arel (2.0.8)
+    authlogic (2.1.6)
+      activesupport
     builder (2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -53,6 +55,8 @@ GEM
       activesupport (= 3.0.3)
       bundler (~> 1.0)
       railties (= 3.0.3)
+    rails3-generators (0.17.4)
+      railties (>= 3.0.0)
     railties (3.0.3)
       actionpack (= 3.0.3)
       activesupport (= 3.0.3)
@@ -71,5 +75,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  authlogic
   rails (= 3.0.3)
+  rails3-generators
   sqlite3-ruby
