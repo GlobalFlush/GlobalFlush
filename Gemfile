@@ -33,3 +33,4 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 gem 'authlogic'
 gem 'rails3-generators'
+gem "haml-rails"

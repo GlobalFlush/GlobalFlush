@@ -1,0 +1,9 @@
+<h1>HOME#INDEX</h1>
+<p>Find me in app/views/home/index.html.haml</p>
+<h1>THIS WILL BE THE HOMEPAGE!</h1>
+#user_nav
+  - if current_user
+    = "Signed in as #{current_user.email}. Not you?"
+    = link_to "Sign out", logout_path
+  - else
+    = link_to "Sign in", login_path
