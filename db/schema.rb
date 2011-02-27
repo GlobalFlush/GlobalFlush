@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110227195140) do
+ActiveRecord::Schema.define(:version => 20110227201020) do
 
   create_table "attributes", :force => true do |t|
     t.integer  "bathroom_id",                :null => false
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(:version => 20110227195140) do
     t.datetime "updated_at"
   end
 
+  create_table "graffitis", :force => true do |t|
+    t.integer  "bathroom_id",                :null => false
+    t.string   "name",                       :null => false
+    t.string   "description"
+    t.integer  "moderated",   :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "ratings", :force => true do |t|
     t.integer  "bathroom_id", :null => false
     t.integer  "smell",       :null => false
@@ -41,6 +50,12 @@ ActiveRecord::Schema.define(:version => 20110227195140) do
   end
 
   add_index "ratings", ["id"], :name => "rating_id"
+
+  create_table "tags", :force => true do |t|
+    t.string   "name",       :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login",                              :null => false
