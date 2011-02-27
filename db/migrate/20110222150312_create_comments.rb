@@ -8,7 +8,6 @@ class CreateComments < ActiveRecord::Migration
 	  t.integer :moderated, :default => 0
       t.timestamps
 
-	  add_index :ratings, :id, :name => "rating_id"
     end
   end
 

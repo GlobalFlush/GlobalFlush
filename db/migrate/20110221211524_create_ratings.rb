@@ -5,8 +5,8 @@ class CreateRatings < ActiveRecord::Migration
 	  t.integer :smell, :null => false
 	  t.integer :clean, :null => false
 	  t.integer :overall, :null => false
-	  
       t.timestamps
+
     end
   end
 
