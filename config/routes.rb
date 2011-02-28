@@ -6,6 +6,7 @@ Globalflush::Application.routes.draw do
 
   resources :user_sessions
   resources :users
+  resources :password_resets
 
   get "users/show"
   match 'users/show' => 'users#show', :as => :user_show

@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user_session, :current_user
 
+  before_filter :mailer_set_url_options
+
+  def mailer_set_url_options
+    ActionMailer::Base.default_url_options[:host] = request.host_with_port
+  end
+
   private
     def current_user_session
       logger.debug "ApplicationController::current_user_session"

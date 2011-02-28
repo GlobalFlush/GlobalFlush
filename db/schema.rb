@@ -64,6 +64,8 @@ ActiveRecord::Schema.define(:version => 20110227205713) do
     t.datetime "updated_at"
   end
 
+  add_index "ratings", ["id"], :name => "rating_id"
+
   create_table "tags", :force => true do |t|
     t.string   "name",       :null => false
     t.datetime "created_at"
