@@ -1,5 +1,10 @@
 <%= form.label :login %><br />
-<%= form.text_field :login %><br />
+<% if form.object.login.nil? %>
+    <%= form.text_field :login %><br />
+<% else %>
+    <%= form.label form.object.login %><br />
+<% end %>
+
 <br />
 <%= form.label :email %><br />
 <%= form.text_field :email %><br />

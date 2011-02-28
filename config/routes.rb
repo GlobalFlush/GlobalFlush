@@ -1,21 +1,20 @@
 Globalflush::Application.routes.draw do
   get "home/index"
-
   get "user_sessions/new"
 
 #  root :to => "welcome#index"
 
-
   resources :user_sessions
   resources :users
+
+  get "users/show"
+  match 'users/show' => 'users#show', :as => :user_show
 
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
   match 'register' => 'users#new', :as => :register
 
-
   root :to => "home#index"
-
 
 
 
