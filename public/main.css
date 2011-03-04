@@ -93,7 +93,8 @@ body
 #left_column
 {
   width:300px;
-  margin
+  margin-right:20px;
+  float:left;
 }
 #map
 {
@@ -102,7 +103,6 @@ body
   margin-right:12px;
   margin-bottom:12px;
   background-image:url(images/map_shadow.png);
-  float:left;
 }
 #tools
 {
