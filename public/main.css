@@ -8,7 +8,6 @@ body
   margin-left:auto;
   margin-right:auto;
   width:1000px;
-  background-image: url(images/body_tile.png);
 }
 #header
 {
@@ -17,11 +16,15 @@ body
   background-image: url(images/header.png);
   position:relative;
 }
+#header img{
+  padding-left:20px;
+  padding-top:20px;
+}
 #nav
 {
   width:960px;
   height:30px;
-  margin:0px 20px 0px 20px;
+  margin:0px -20px 0px -20px;
   padding:0px;
   background-image: url(images/nav_tile.gif);
 }
@@ -82,34 +85,32 @@ body
 }
 #content
 {
+  width:920px;
+  background-image: url(images/body_tile.png);
+  padding:0px 40px 0px 40px;
   position:relative;
-  margin-left:40px;
-  margin-top:20px;
-  margin-bottom:20px;
-  margin-right:40px;
-
+  margin:0px;
   font-family:Arial;
 }
 #left_column
 {
   width:300px;
-  margin-right:20px;
   float:left;
+  margin-right:20px;
 }
 #map
 {
   height:308px;
   width:308px;
-  margin-right:12px;
-  margin-bottom:12px;
   background-image:url(images/map_shadow.png);
+  margin-bottom:12px;
 }
 #tools
 {
   font-family:arial;
   position:absolute;
-  right:0px;
-  top:3px;
+  right:40px;
+  top:33px;
   font-size:12px;
 }
 #tools a:link
@@ -127,7 +128,7 @@ body
 }
 #content h1
 {
-  margin:-20px -20px 20px -20px;
+  margin:0px -20px 20px -20px;
   height:60px;
   padding-left:20px;
   line-height:60px;
@@ -138,7 +139,6 @@ body
   width:208px;
   height:141px;
   background-image: url(images/image_shadow.png);
-  margin-right:-8px;
   margin-bottom:12px;
 }
 #content h2
@@ -148,13 +148,22 @@ body
   height:40px;
   padding:0px 20px 0px 20px;
   max-width:920px;
-  min-width:260px;
+  min-width:340px;
   line-height:40px;
   background-image:url(images/h2_tile.png);
+}
+#left_column h2
+{
+  min-width:260px;
 }
 #content p
 {
   margin:0px 0px 20px 0px;
+}
+#content textarea
+{
+  width:370px;
+  height:100px;
 }
 #images
 {
@@ -170,7 +179,9 @@ img
 }
 #rating_box
 {
-  width:300px;
+  overflow:hidden;
+  padding:0px;
+  padding-left:20px;
 }
 #rating_box div
 {
@@ -179,7 +190,7 @@ img
 #rating_box div ul
 {
   list-style-type:none;
-  margin-left:20px;
+  margin:0px 10px 0px 10px;
   padding-left:0px;
 }
 #rating_box div ul li
@@ -187,4 +198,35 @@ img
   font-weight: bold;
   height:21px;
   line-height:21px;
+}
+#attribute_box div
+{
+  float:left;
+  width:180px;
+  margin:0px 5px 20px 5px;
+}
+#attribute_box div ul
+{
+  list-style-type:none;
+  padding:0px;
+  margin:0px;
+}
+#attribute_box div ul li
+{
+  height:21px;
+  line-height:21px;
+}
+
+#ab_left ul li
+{
+  text-align:right;
+  font-weight:bold;
+}
+#footer_shadow
+{
+  height:20px;
+  width:1000px;
+  background-image: url(images/footer.png);
+  margin-left:auto;
+  margin-right:auto;
 }
