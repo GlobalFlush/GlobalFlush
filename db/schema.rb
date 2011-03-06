@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110227205713) do
+ActiveRecord::Schema.define(:version => 20110306193520) do
 
   create_table "attributes", :force => true do |t|
     t.integer  "bathroom_id",                :null => false
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(:version => 20110227205713) do
     t.integer  "bathroom_id",                :null => false
     t.integer  "user_id",                    :null => false
     t.string   "text"
-    t.integer  "rating_id",                  :null => false
     t.integer  "moderated",   :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -62,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20110227205713) do
     t.integer  "overall",     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "comment_id"
   end
 
   add_index "ratings", ["id"], :name => "rating_id"
