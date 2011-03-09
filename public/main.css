@@ -87,7 +87,7 @@ body
 {
   width:920px;
   background-image: url(images/body_tile.png);
-  padding:0px 40px 0px 40px;
+  padding:0px 40px 1px 40px; /* 1px bottom fixes a CSS rendering bug */
   position:relative;
   margin:0px;
   font-family:Arial;
@@ -125,6 +125,12 @@ body
 #tools a:hover
 {
   color:blue;
+}
+#big_stars
+{
+  position:absolute;
+  right:40px;
+  top:50px;
 }
 #content h1
 {
@@ -164,12 +170,17 @@ body
 {
   width:370px;
   height:100px;
+  font-family:Arial;
+  background-color: white;
+  border: 2px solid #000000;
+
 }
 #images
 {
   float:right;
   width:208px;
   margin-right: -8px;
+  height:100%;
 }
 img
 {
@@ -229,4 +240,34 @@ img
   background-image: url(images/footer.png);
   margin-left:auto;
   margin-right:auto;
+}
+.review
+{
+  background-color:#CCCCCC;
+  position:relative;
+  margin-bottom:20px;
+  padding:5px;
+}
+.review h4
+{
+  position:absolute;
+  right:5px;
+  top:5px;
+  margin:0px;
+  font-size:14px;
+}
+.review h3
+{
+  margin:0px 0px 10px 0px;
+  font-size:16px;
+}
+#byline
+{
+  margin-bottom: 0px;
+  font-size:9px;
+  text-align: center;
+}
+.full
+{
+  width:880px;
 }
