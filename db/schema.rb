@@ -10,10 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110306193520) do
+ActiveRecord::Schema.define(:version => 20110310163233) do
 
-  create_table "attributes", :force => true do |t|
-    t.integer  "bathroom_id",                :null => false
+  create_table "addresses", :force => true do |t|
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "longitude"
+    t.string   "latitude"
+    t.integer  "bathroom_id"
+    t.string   "inside_location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bathroom_specs", :force => true do |t|
+    t.integer  "bathroom_id"
     t.string   "key",                        :null => false
     t.string   "value",                      :null => false
     t.integer  "moderated",   :default => 0
@@ -22,31 +35,29 @@ ActiveRecord::Schema.define(:version => 20110306193520) do
   end
 
   create_table "bathrooms", :force => true do |t|
-    t.string   "building_name",                   :null => false
+    t.string   "title"
+    t.string   "gender"
+    t.integer  "user_id"
     t.decimal  "longitude"
     t.decimal  "latitude"
-    t.string   "address"
-    t.string   "location",                        :null => false
-    t.integer  "gender",                          :null => false
     t.text     "description"
-    t.integer  "user_id",                         :null => false
-    t.boolean  "hidden",        :default => true
-    t.integer  "moderated",     :default => 0
+    t.boolean  "hidden",      :default => true
+    t.integer  "moderated",   :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "comments", :force => true do |t|
-    t.integer  "bathroom_id",                :null => false
-    t.integer  "user_id",                    :null => false
-    t.string   "text"
+    t.integer  "bathroom_id"
+    t.integer  "user_id"
+    t.string   "body"
     t.integer  "moderated",   :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "graffitis", :force => true do |t|
-    t.integer  "bathroom_id",                :null => false
+    t.integer  "bathroom_id"
     t.string   "name",                       :null => false
     t.string   "description"
     t.integer  "moderated",   :default => 0
@@ -55,7 +66,7 @@ ActiveRecord::Schema.define(:version => 20110306193520) do
   end
 
   create_table "ratings", :force => true do |t|
-    t.integer  "bathroom_id", :null => false
+    t.integer  "bathroom_id"
     t.integer  "smell",       :null => false
     t.integer  "clean",       :null => false
     t.integer  "overall",     :null => false
@@ -63,8 +74,6 @@ ActiveRecord::Schema.define(:version => 20110306193520) do
     t.datetime "updated_at"
     t.integer  "comment_id"
   end
-
-  add_index "ratings", ["id"], :name => "rating_id"
 
   create_table "tags", :force => true do |t|
     t.string   "name",       :null => false
@@ -92,7 +101,6 @@ ActiveRecord::Schema.define(:version => 20110306193520) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["id"], :name => "user_id"
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
   add_index "users", ["persistence_token"], :name => "index_users_on_persistence_token", :unique => true
 
