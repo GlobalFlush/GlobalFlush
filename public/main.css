@@ -11,10 +11,8 @@ body
 }
 #header
 {
-  margin-left:auto;
-  margin-right:auto;
-  width:1000px;
   height:120px;
+  width:100%;
   background-image: url(images/header.png);
   position:relative;
 }
@@ -24,10 +22,9 @@ body
 }
 #nav
 {
-  margin-left:auto;
-  margin-right:auto;
   width:960px;
   height:30px;
+  margin:0px -20px 0px -20px;
   padding:0px;
   background-image: url(images/nav_tile.gif);
 }
@@ -266,11 +263,6 @@ img
 }
 #byline
 {
-  margin-left:auto;
-  margin-right:auto;
-  width:1000px;
-  font-family:Arial;
-  background-image: url(images/body_tile.png);
   margin-bottom: 0px;
   font-size:9px;
   text-align: center;
