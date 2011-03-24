@@ -5,5 +5,5 @@ class Comment < ActiveRecord::Base
 
   accepts_nested_attributes_for :rating, :allow_destroy => true
 
-  attr_accessible :rating_attributes
+  attr_accessible :rating_attributes, :user_id, :bathroom_id, :body, :moderated
 end

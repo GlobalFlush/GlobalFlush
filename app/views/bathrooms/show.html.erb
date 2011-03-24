@@ -1,0 +1,91 @@
+<div id="tools">
+  <a href="#">Add to Favorites</a> |
+  <a href="#">Check In</a> |
+  <a href="#">Share</a> |
+  <a href="#">Add Photo</a> |
+  <a href="#">Edit Content</a>
+</div>
+
+<%= @bathroom.inspect %>
+
+<div id="big_stars">
+  <img src="/images/big_five_star.png" alt="4 Stars">
+</div>
+
+
+<h1><%= @bathroom.title %> -
+<% if @bathroom.gender == "Male" %>
+  &#9794;
+<% elsif @bathroom.gender == "Female" %>
+  &#9792;
+<% end %>
+</h1>
+
+
+<div id="left_column">
+  <div id="map">
+    <a href="#"><img src="/images/map.png"></a>
+  </div>
+  <h2>Detailed Ratings</h2>
+
+  <div id="rating_box">
+    <div id="rb_left">
+      <ul>
+        <li>Overall Rating</li>
+        <li>Cleanliness</li>
+        <li>Maintenance</li>
+        <li>Ambience</li>
+      </ul>
+    </div>
+    <div id="rb_right">
+      <ul>
+        <li><img src="/images/five_star.png"></li>
+        <li><img src="/images/five_star.png"></li>
+        <li><img src="/images/five_star.png"></li>
+        <li><img src="/images/five_star.png"></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="images">
+  <div><a href="#"><img src="/images/sample_bathroom.jpg"/></a></div>
+  <div><a href="#"><img src="/images/sample_bathroom.jpg"/></a></div>
+  <div><a href="#"><img src="/images/sample_bathroom.jpg"/></a></div>
+  <p><a href="#">View All</a> | <a href="#">Add More</a></p>
+</div>
+
+<h2>Attributes</h2>
+<div id="attribute_box">
+  <div id="ab_left">
+    <ul>
+      <% @bathroom.bathroom_specs.each do |spec| %>
+      <li><%= spec.key %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div id="ab_right">
+    <ul>
+      <% @bathroom.bathroom_specs.each do |spec| %>
+      <li><%= spec.value %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<h2>Write a Review</h2>
+<form action="whatever_rails_wants" method="whatever_rails_needs">
+  <textarea></textarea>
+  <input type="submit">
+</form>
+<div style="clear:both;"></div>
+<h2 class="full">Reviews</h2>
+
+<% @bathroom.comments.each do |comment| %>
+<div class="review">
+    <h3><%= comment.user.login %></h3>
+    <p><%= comment.body %></p>
+</div>
+
+<% end %>
+
+
