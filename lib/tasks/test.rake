@@ -1,4 +1,4 @@
-namespace :globalflush do
+namespace :test do
 
   task :insert_data => :environment do
     puts "## Inserting sample data to the database"
@@ -34,4 +34,3 @@ namespace :globalflush do
   end
 end
 
-task :all => ["globalflush:insert_data"]
