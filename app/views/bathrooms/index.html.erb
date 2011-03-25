@@ -1,4 +1,11 @@
 <h1>THIS IS THE BROWSE PAGE</h1>
 
-<%= @bathrooms.inspect %>
+<% @bathrooms.each do |bathroom| %>
+
+    
+    <%= link_to bathroom.title, bathroom_path(bathroom.id) %>
+    <p>
+    <%= bathroom.inspect %>
+    </p>
+<% end %>
 

@@ -1,3 +1,39 @@
+
+<script type="text/javascript"
+          src="http://maps.google.com/maps/api/js?sensor=true">
+</script>
+<script type="text/javascript">
+  var your_city = new google.maps.LatLng(42.72996, -73.676529);
+  var your_place = new google.maps.LatLng(42.72996, -73.676529);
+  var marker;
+  var map;
+  function initialize() {
+      var mapOptions = {
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          center: your_city
+      };
+      map = new google.maps.Map(document.getElementById("map"),
+              mapOptions);
+      marker = new google.maps.Marker({
+          map:map,
+          draggable:true,
+          animation: google.maps.Animation.DROP,
+          position: your_place
+      });
+      google.maps.event.addListener(marker, 'click', toggleBounce);
+  }
+  function toggleBounce() {
+      if (marker.getAnimation() != null) {
+          marker.setAnimation(null);
+      } else {
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+      }
+  }
+</script>
+
+<!--  BOT -->
+
 <div id="tools">
   <a href="#">Add to Favorites</a> |
   <a href="#">Check In</a> |
@@ -22,10 +58,14 @@
 </h1>
 
 
-<div id="left_column">
-  <div id="map">
-    <a href="#"><img src="/images/map.png"></a>
-  </div>
+<div id="left_column" onload="initialize()">
+  <!--<div id="map">-->
+    <!--<a href="#"><img src="/images/map.png"></a>-->
+  <!--</div>-->
+
+  <%#= render :partial => "bathrooms/map" %>
+  <div id="map" ></div>
+  
   <h2>Detailed Ratings</h2>
 
   <div id="rating_box">
