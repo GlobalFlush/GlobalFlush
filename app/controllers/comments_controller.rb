@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     
     def create
         @comment = Comment.new
-        @comment.user_id = @current_user
+        @comment.user_id = @current_user.id
         @commentparams = params[:comment]
         @comment.body = @commentparams.body
         @comment.bathroom_id = @commentparams.bathroom_id
