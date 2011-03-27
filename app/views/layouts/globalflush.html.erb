@@ -7,18 +7,16 @@
 
 <title>Global Flush</title>
 <head>
-<%= render :partial => "layouts/header" %>
-<%= render :partial => "layouts/navigation" %>
+
 </head>
 <body>
-<div id="main">
+  <%= render :partial => "layouts/header" %>
+  <%= render :partial => "layouts/navigation" %>
   <div id="content">
 
     <%= yield %>
 
   </div>
-</div>
-
 </body>
 <%= render :partial => "layouts/footer" %>
 

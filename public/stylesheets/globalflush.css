@@ -3,12 +3,6 @@ body
   background-image: url(/images/bg_tile.gif);
   margin:0px;
 }
-#main
-{
-  margin-left:auto;
-  margin-right:auto;
-  width:1000px;
-}
 #header
 {
   margin-left:auto;
@@ -26,9 +20,15 @@ body
 {
   margin-left:auto;
   margin-right:auto;
-  width:960px;
+  background-image: url(/images/body_tile.png);
   height:30px;
-  padding:0px;
+  padding-left:20px;
+  padding-right:20px;
+  width:960px;
+}
+#bar
+{
+  width:960px;
   background-image: url(/images/nav_tile.gif);
 }
 #nav a:link
@@ -88,11 +88,12 @@ body
 }
 #content
 {
+  margin-left:auto;
+  margin-right:auto;
   width:920px;
   background-image: url(/images/body_tile.png);
   padding:0px 40px 1px 40px; /* 1px bottom fixes a CSS rendering bug */
   position:relative;
-  margin:0px;
   font-family:Arial;
 }
 #left_column
