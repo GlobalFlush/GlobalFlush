@@ -1,0 +1,11 @@
+<%= form.label :title    %><br />
+<% if form.object.title.nil? %>
+    <%= form.text_field :title %><br />
+<% else %>
+    <%= form.label form.object.title %><br />
+<% end %>
+<br />
+
+<%= form.label :gender %><br />
+<%= form.text_field :gender %><br />
+<br />
