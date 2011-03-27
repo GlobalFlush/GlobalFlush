@@ -1,5 +1,13 @@
 class BathroomsController < ApplicationController
 
+  def new
+    @bathroom = Bathroom.new
+  end
+
+  def create
+
+  end
+  
   def index
     @bathrooms = Bathroom.find(:all)
   end
