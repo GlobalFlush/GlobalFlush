@@ -113,10 +113,11 @@
 </div>
 
 <h2>Write a Review</h2>
-<form action="whatever_rails_wants" method="whatever_rails_needs">
-  <textarea></textarea>
-  <input type="submit">
-</form>
+<%= form_for :comment, :url => comments_path do |f| %>
+    <%= f.text_field :body %>
+    <%= f.hidden_field :bathroom_id, :value => @bathroom.id %>
+    <%= f.submit "Post Comment" %>
+<% end %>
 <div style="clear:both;"></div>
 <h2 class="full">Reviews</h2>
 
