@@ -102,12 +102,17 @@ body
   float:left;
   margin-right:20px;
 }
-#map
+#mapbox
 {
   height:308px;
   width:308px;
   background-image:url(/images/map_shadow.png);
   margin-bottom:12px;
+}
+#map
+{
+  height:300px;
+  width:300px;
 }
 #tools
 {
