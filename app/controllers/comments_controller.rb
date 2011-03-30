@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     before_filter :require_user
     
     def new
-    
+        @comment = Comment.new
     end
     
     def create
