@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110327184911) do
+ActiveRecord::Schema.define(:version => 20110328225730) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street_address"
@@ -51,8 +51,6 @@ ActiveRecord::Schema.define(:version => 20110327184911) do
     t.string   "title"
     t.string   "gender"
     t.integer  "user_id"
-    t.decimal  "longitude"
-    t.decimal  "latitude"
     t.text     "description"
     t.boolean  "hidden",      :default => true
     t.integer  "moderated",   :default => 0
