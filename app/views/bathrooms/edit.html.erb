@@ -1,11 +1,11 @@
-<h1>Add New Bathroom</h1>
+<h1>Editing Bathroom</h1>
 
-<%= form_for :bathroom, :url => bathrooms_url,:html => {:multipart => true} do |f| %>
+<%= form_for @bathroom, :url => bathroom_url(@bathroom.id),:html => {:multipart => true} do |f| %>
     <%= f.error_messages %>
 
     <h3>Basic Information</h3>
     <%= f.label :title %><br />
-    <%= f.text_field :title %><br />
+    <%= f.label @bathroom.title %><br />
     <br/>
 
     <%= f.label :gender %><br />
@@ -34,20 +34,25 @@
     <h3>Details</h3>
     <%= f.fields_for :bathroom_specs do |spec| %>
         <%= spec.text_field :key %>
-        <%= spec.text_field :value %>
+        <%= spec.text_field :value %><br />
     <% end %>
 
 
-    <h3>Photos</h3>
-    <%= f.fields_for :bathroom_photos do |photo| %>
-        <%= photo.file_field :photo %><br />
+
+    
+    <% if @bathroom.bathroom_photos != [] %>
+        <h3>Photos</h3>
+        <%= f.fields_for :bathroom_photos do |photo| %>
+            <%= photo.file_field :photo %><br />
+        <% end %>
+        
     <% end %>
 
     <br/>
 
 
 
-    <%= f.submit "Add" %>
+    <%= f.submit "Update" %>
 <% end %>
 
 <br />
