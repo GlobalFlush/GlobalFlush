@@ -115,7 +115,7 @@ rating: <%= s.size == 0 ? 0 : s.sum.to_f / s.size.to_f %>
 
 <h2>Write a Review</h2>
 <%= form_for :comment, :url => comments_path do |f| %>
-    <%= f.text_field :body %>
+    <%= f.text_area :body %>
     <%= f.hidden_field :bathroom_id, :value => @bathroom.id %>
     <%= f.submit "Post Comment" %>
 <% end %>

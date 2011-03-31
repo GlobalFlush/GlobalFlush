@@ -1,4 +1,5 @@
-<%= form.label :title    %><br />
+<h3>Basic Informations</h3>
+<%= form.label :title %><br />
 <% if form.object.title.nil? %>
     <%= form.text_field :title %><br />
 <% else %>
@@ -7,5 +8,36 @@
 <br />
 
 <%= form.label :gender %><br />
-<%= form.text_field :gender %><br />
+<%=  select("bathroom", "gender", %w[Male Female], {}, { :include_blank => true }) %><br />
 <br />
+
+<%= form.label :description %><br />
+<%= form.text_area :description %><br />
+
+<h3>Address</h3>
+<%= fields_for :address do |a| %>
+    <%= a.label :street %><br />
+	<%= a.text_field :street %><br />
+	<%= a.label :city %><br />
+	<%= a.text_field :city %><br />
+	<%= a.label :state %><br />
+	<%= a.text_field :state %><br />
+	<%= a.label :zip %><br />
+	<%= a.text_field :zip %><br />
+<% end %>
+
+<h3>Details</h3>
+<%= fields_for :bathroom_specs do |spec| %>
+    <%= spec.text_field :key %>
+    <%= spec.text_field :value %>
+<% end %>
+
+
+<h3>Photos</h3>
+<%= fields_for :bathroom_photos do |photo| %>
+    <%= photo.file_field :photo %><br />
+<% end %>
+
+<br />
+
+
