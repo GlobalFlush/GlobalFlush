@@ -39,8 +39,9 @@ namespace :test do
     commentbody2 = "comment body 2"
     Comment.create(:user_id => user.id, :bathroom_id => bathroom.id, :body => commentbody2)
 
-
-
+	Rating.create(:bathroom_id => bathroom.id, :clean => 4, :smell => 4, :overall => 5)
+	Rating.create(:bathroom_id => bathroom.id, :clean => 4, :smell => 5, :overall => 4)
+	Rating.create(:bathroom_id => bathroom.id, :clean => 3, :smell => 3, :overall => 4)
 
     puts "\t- inserted sample bathroom #{bathroom.title}"
   end

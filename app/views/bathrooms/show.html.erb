@@ -43,6 +43,8 @@
 </div>
 
 <%= @bathroom.inspect %>
+<%= s = @bathroom.ratings.collect { |c| c.overall} %>
+rating: <%= s.size == 0 ? 0 : s.sum.to_f / s.size.to_f %>
 
 <div id="big_stars">
   <img src="/images/big_five_star.png" alt="4 Stars">
@@ -56,7 +58,6 @@
   &#9792;
 <% end %>
 </h1>
-
 
 <div id="left_column">
   <div id="mapbox">
