@@ -8,6 +8,7 @@ Globalflush::Application.routes.draw do
   resources :users
   resources :password_resets
   resources :bathrooms
+  resources :comments
 
   get "users/show"
   match 'users/show' => 'users#show', :as => :user_show
