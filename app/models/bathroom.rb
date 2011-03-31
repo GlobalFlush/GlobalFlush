@@ -17,7 +17,7 @@ class Bathroom < ActiveRecord::Base
   
   
 
-  attr_accessible :comments_attributes, :ratings_attributes, :graffitis_attributes, :address_attributes, :bathroom_specs_attributes
+#  attr_accessible :comments_attributes, :ratings_attributes, :graffitis_attributes, :address_attributes, :bathroom_specs_attributes
 					
 
 #                :photo_file_name, :photo_content_type, :photo_file_size, :photo

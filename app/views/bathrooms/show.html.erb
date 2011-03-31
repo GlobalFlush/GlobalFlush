@@ -88,9 +88,9 @@
   </div>
 </div>
 <div id="images">
-  <div><a href="#"><img src="/images/sample_bathroom.jpg"/></a></div>
-  <div><a href="#"><img src="/images/sample_bathroom.jpg"/></a></div>
-  <div><a href="#"><img src="/images/sample_bathroom.jpg"/></a></div>
+  <% @bathroom.bathroom_photos.each do |bp| %>
+    <div><a href="<%= bp.photo.url %>"><%= image_tag bp.photo.url(:thumb) %></a></div>
+  <% end %>
   <p><a href="#">View All</a> | <a href="#">Add More</a></p>
 </div>
 
