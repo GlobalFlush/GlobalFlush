@@ -16,14 +16,18 @@
 
 <h3>Address</h3>
 <%= fields_for :address do |a| %>
-    <%= a.label :street %><br />
-	<%= a.text_field :street %><br />
+    <%= a.label :inside_location %><br />
+	<%= a.text_field :inside_location %><br />
+    <%= a.label :street_address %><br />
+	<%= a.text_field :street_address %><br />
 	<%= a.label :city %><br />
 	<%= a.text_field :city %><br />
 	<%= a.label :state %><br />
 	<%= a.text_field :state %><br />
 	<%= a.label :zip %><br />
 	<%= a.text_field :zip %><br />
+    <%= a.label :country %><br />
+	<%= a.text_field :country %><br />
 <% end %>
 
 <h3>Details</h3>
