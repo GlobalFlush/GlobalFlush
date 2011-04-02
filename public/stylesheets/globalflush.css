@@ -167,6 +167,14 @@ body
   line-height:40px;
   background-image:url(/images/h2_tile.png);
 }
+#content h3
+{
+  background-image:url(/images/h3.gif);
+  margin-bottom:0px;
+  height:30px;
+  line-height: 30px;
+  text-align:center;
+}
 #left_column h2
 {
   min-width:260px;
@@ -284,4 +292,44 @@ img
 .full
 {
   width:880px;
+}
+#find
+{
+  width:920px;
+  background-color:#CCCCCC;
+  height:80px;
+}
+
+#find input
+{
+  font-family: Arial;
+  font-size: 20px;
+  line-height:30px;
+  margin: 20px 0px 0px 20px;
+  padding:0px;
+  float:left;
+}
+#zip
+{
+  width:376px;
+  height:36px;
+}
+#go
+{
+  width:40px;
+  height:40px;
+}
+#find div
+{
+  float:left;
+  width:200px;
+  height:40px;
+  background-color:#999999;
+  line-height: 40px;
+  text-align:center;
+  margin: 20px 0px 0px 20px;
+}
+#submit_div
+{
+  width:40px;
 }

@@ -1,0 +1,80 @@
+.top-bathroom .jcarousel-container {
+  background: #CCCCCC;
+}
+
+.top-bathroom .jcarousel-container-horizontal {
+  width: 760px;
+  padding: 20px 80px;
+}
+
+.top-bathroom .jcarousel-clip-horizontal {
+  width:  760px;
+  height: 160px;
+}
+.top-bathroom .jcarousel-item {
+  width: 240px;
+  height: 160px;
+}
+
+.top-bathroom .jcarousel-item-horizontal {
+  margin-left: 0;
+  margin-right: 20px;
+}
+.top-bathroom .jcarousel-item-placeholder {
+  background: #fff;
+  color: #000;
+}
+
+/**
+ *  Horizontal Buttons
+*/
+.top-bathroom .jcarousel-next-horizontal {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background: transparent url(/images/next.png) no-repeat 0 0;
+}
+
+.top-bathroom .jcarousel-next-horizontal:hover {
+  background-position: -40px 0;
+}
+
+.top-bathroom .jcarousel-next-horizontal:active {
+  background-position: -80px 0;
+}
+
+.top-bathroom .jcarousel-next-disabled-horizontal,
+.top-bathroom .jcarousel-next-disabled-horizontal:hover,
+.top-bathroom .jcarousel-next-disabled-horizontal:active {
+  cursor: default;
+  background-position: -120px 0;
+}
+
+.top-bathroom .jcarousel-prev-horizontal {
+  position: absolute;
+  top: 80px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background: transparent url(/images/prev.png) no-repeat 0 0;
+}
+
+.top-bathroom .jcarousel-prev-horizontal:hover {
+  background-position: -40px 0;
+}
+
+.top-bathroom .jcarousel-prev-horizontal:active {
+  background-position: -80px 0;
+}
+
+.top-bathroom .jcarousel-prev-disabled-horizontal,
+.top-bathroom .jcarousel-prev-disabled-horizontal:hover,
+.top-bathroom .jcarousel-prev-disabled-horizontal:active {
+  cursor: default;
+  background-position: -120px 0;
+}
+
