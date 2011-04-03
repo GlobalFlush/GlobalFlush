@@ -32,7 +32,7 @@ class BathroomsController < ApplicationController
   end
   
   def index
-    @bathrooms = Bathroom.find(:all)
+    @bathrooms = Bathroom.find(:all,:order => 'updated_at DESC')
   end
 
   def show
