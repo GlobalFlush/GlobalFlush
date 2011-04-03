@@ -333,3 +333,48 @@ img
 {
   width:40px;
 }
+.list_item
+{
+  margin-bottom:20px;
+  height:110px;
+}
+#bathroom_list div div
+{
+  padding:3px;
+  height:24px;
+  line-height:24px;
+  font-size:16px;
+  margin-bottom:10px;
+}
+#bathroom_list div div a
+{
+  color:black;
+  font-weight:bold;
+}
+#bathroom_list div img
+{
+  float:left;
+  margin-right:10px;
+  margin-top:-10px;
+}
+#bathroom_list div .male
+{
+  background-color:#BBBBFF;
+}
+#bathroom_list div .female
+{
+  background-color:#FFBBBB;
+}
+.right
+{
+  float:right;
+}
+.left
+{
+  float:left;
+}
+.clear
+{
+  clear:both;
+  margin-bottom:20px;
+}
