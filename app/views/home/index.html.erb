@@ -12,8 +12,12 @@
 <p>Get started by searching a geographical area or browsing the top rated facilties.</p>
 <h3>Find a Bathroom</h3>
 <div id="find">
-  <input id="zip" type="text" value="Enter a Zipcode or Address"/>
-  <input id="go" type="submit" value="Go" />
+  <% form_for :bathroom, :url => search_url(:keyword) do |f| %>
+  <%= f.text_field :keyword %>
+  <%= f.submit 'Search' %>
+  <% end %>
+  <!--<input id="zip" type="text" value="Enter a Zipcode or Address"/>-->
+  <!--<input id="go" type="submit" value="Go" />-->
   <div id="via_map">via Map</div>
   <div id="via_browse"><%= link_to 'via Browse', bathrooms_url%></div>
 </div>

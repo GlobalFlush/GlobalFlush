@@ -56,5 +56,9 @@ class BathroomsController < ApplicationController
     end
     
   end
+
+  def search
+    @bathrooms = Bathroom.search_by_address(params[:keyword])
+  end
   
 end
