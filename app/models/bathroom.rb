@@ -15,22 +15,8 @@ class Bathroom < ActiveRecord::Base
   accepts_nested_attributes_for :bathroom_specs, :allow_destroy => true
   accepts_nested_attributes_for :bathroom_photos, :allow_destroy => true
   
-  
 
-#  attr_accessible :comments_attributes, :ratings_attributes, :graffitis_attributes, :address_attributes, :bathroom_specs_attributes
-					
+  attr_accessible :comments_attributes, :ratings_attributes, :graffitis_attributes, :address_attributes, :bathroom_specs_attributes, :bathroom_photos_attributes,
+                  :title, :gender, :description, :user_id, :hidden, :moderated
 
-#                :photo_file_name, :photo_content_type, :photo_file_size, :photo
-
-  
-#  has_attached_file :photo,
-#          :styles => {:thumb => "100x100>", :small => "150x150>"},
-#          :url => "/assets/bathrooms/:id/:style/:basename.:extension",
-#          :path => ":rails_root/public/assets/bathrooms/:id/:style/:basename.:extension",
-#          :whiny_thumbnails => true
-
-#  validates_attachment_presence :photo
-#  validates_attachment_size :photo, :less_than => 5.megabytes
-#  validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/bmp']
-  
 end

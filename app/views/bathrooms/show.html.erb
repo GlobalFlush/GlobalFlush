@@ -174,7 +174,7 @@ function sendRate(sel){
   <a href="#">Check In</a> |
   <a href="#">Share</a> |
   <a href="#">Add Photo</a> |
-  <a href="#">Edit Content</a>
+  <%= link_to 'Edit Content', edit_bathroom_path(@bathroom.id) %>
 </div>
 
 <%= @bathroom.inspect %>
@@ -247,6 +247,11 @@ rating: <%= s.size == 0 ? 0 : s.sum.to_f / s.size.to_f %>
   <p><a href="#">View All</a> | <a href="#">Add More</a></p>
 </div>
 
+<h2>Address</h2>
+<div id="address_box">
+  <%= @bathroom.address.to_s %>
+</div>
+
 <h2>Attributes</h2>
 <div id="attribute_box">
   <div id="ab_left">
@@ -269,6 +274,7 @@ rating: <%= s.size == 0 ? 0 : s.sum.to_f / s.size.to_f %>
 <%= form_for :comment, :url => comments_path do |f| %>
     <%= f.text_area :body %>
     <%= f.hidden_field :bathroom_id, :value => @bathroom.id %>
+    <br />
     <%= f.submit "Post Comment" %>
 <% end %>
 <div style="clear:both;"></div>
@@ -277,7 +283,7 @@ rating: <%= s.size == 0 ? 0 : s.sum.to_f / s.size.to_f %>
 <% @bathroom.comments.each do |comment| %>
 <div class="review">
     <h3><%= comment.user.login %></h3>
+    <h4><%= comment.created_at.strftime("%I:%M%p %m/%d/%Y") %></h4>
     <p><%= comment.body %></p>
 </div>
-
 <% end %>

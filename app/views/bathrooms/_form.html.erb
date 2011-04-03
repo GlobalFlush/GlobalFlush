@@ -1,47 +1,53 @@
-<h3>Basic Informations</h3>
-<%= form.label :title %><br />
-<% if form.object.title.nil? %>
-    <%= form.text_field :title %><br />
-<% else %>
-    <%= form.label form.object.title %><br />
+<%= form_for @bathroom, :url => bathrooms_url, :html => {:multipart => true} do |f| %>
+    <%= f.error_messages %>
+
+    <h3>Basic Information</h3>
+    <%= f.label :title %><br />
+    <% if @bathroom.title.nil? %>
+        <%= f.text_field :title %><br />
+    <% else %>
+        <%= f.label @bathroom.title %><br />
+    <% end %>
+    <br/>
+
+    <%= f.label :gender %><br />
+    <%= select("bathroom", "gender", %w[Male Female], {}, {:include_blank => true}) %><br />
+    <br/>
+
+    <%= f.label :description %><br />
+    <%= f.text_area :description %><br />
+
+    <h3>Address</h3>
+    <%= f.fields_for :address do |a| %>
+        <%= a.label :inside_location %><br />
+        <%= a.text_field :inside_location %><br />
+        <%= a.label :street_address %><br />
+        <%= a.text_field :street_address %><br />
+        <%= a.label :city %><br />
+        <%= a.text_field :city %><br />
+        <%= a.label :state %><br />
+        <%= a.text_field :state %><br />
+        <%= a.label :zip %><br />
+        <%= a.text_field :zip %><br />
+        <%= a.label :country %><br />
+        <%= a.text_field :country %><br />
+    <% end %>
+
+    <h3>Details</h3>
+    <%= f.fields_for :bathroom_specs do |spec| %>
+        <%= spec.text_field :key %>
+        <%= spec.text_field :value %>
+    <% end %>
+
+
+    <h3>Photos</h3>
+    <%= f.fields_for :bathroom_photos do |photo| %>
+        <%= photo.file_field :photo %><br />
+    <% end %>
+
+    <br/>
+
+
+
+    <%= f.submit "Add" %>
 <% end %>
-<br />
-
-<%= form.label :gender %><br />
-<%=  select("bathroom", "gender", %w[Male Female], {}, { :include_blank => true }) %><br />
-<br />
-
-<%= form.label :description %><br />
-<%= form.text_area :description %><br />
-
-<h3>Address</h3>
-<%= fields_for :address do |a| %>
-    <%= a.label :inside_location %><br />
-	<%= a.text_field :inside_location %><br />
-    <%= a.label :street_address %><br />
-	<%= a.text_field :street_address %><br />
-	<%= a.label :city %><br />
-	<%= a.text_field :city %><br />
-	<%= a.label :state %><br />
-	<%= a.text_field :state %><br />
-	<%= a.label :zip %><br />
-	<%= a.text_field :zip %><br />
-    <%= a.label :country %><br />
-	<%= a.text_field :country %><br />
-<% end %>
-
-<h3>Details</h3>
-<%= fields_for :bathroom_specs do |spec| %>
-    <%= spec.text_field :key %>
-    <%= spec.text_field :value %>
-<% end %>
-
-
-<h3>Photos</h3>
-<%= fields_for :bathroom_photos do |photo| %>
-    <%= photo.file_field :photo %><br />
-<% end %>
-
-<br />
-
-
