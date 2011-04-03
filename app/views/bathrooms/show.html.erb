@@ -287,8 +287,8 @@ function sendRate(sel){
 
 <% @bathroom.comments.each do |comment| %>
 <div class="review">
-    <h3><%= comment.user.login %></h3>
-    <h4><%= comment.created_at.strftime("%I:%M%p %m/%d/%Y") %></h4>
+    <div class="username"><%= link_to comment.user.login, comment.user %></div>
+    <div class="date_posted"><%= comment.created_at.strftime("%I:%M%p %m/%d/%Y") %></div>
     <p><%= comment.body %></p>
 </div>
 <%= @bathroom.inspect %>

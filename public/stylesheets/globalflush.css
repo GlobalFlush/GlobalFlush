@@ -227,6 +227,10 @@ img
   height:21px;
   line-height:21px;
 }
+#rating_box div ul li a
+{
+  margin-right:-5px;
+}
 #attribute_box div
 {
   float:left;
@@ -265,7 +269,7 @@ img
   margin-bottom:20px;
   padding:5px;
 }
-.review h4
+.review .date_posted
 {
   position:absolute;
   right:5px;
@@ -273,10 +277,16 @@ img
   margin:0px;
   font-size:14px;
 }
-.review h3
+.review .username
 {
   margin:0px 0px 10px 0px;
   font-size:16px;
+  background:none;
+  font-weight:bold;
+}
+.review .username a
+{
+  color:black;
 }
 #byline
 {
