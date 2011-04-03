@@ -186,12 +186,8 @@ function sendRate(sel){
   <%= link_to "Edit Content", edit_bathroom_path(@bathroom.id) %>
 </div>
 
-<%= @bathroom.inspect %>
-<%= s = @bathroom.ratings.collect { |c| c.overall} %>
-rating: <%= s.size == 0 ? 0 : s.sum.to_f / s.size.to_f %>
-
 <div id="big_stars">
-  <img src="/images/big_five_star.png" alt="4 Stars">
+  <img src="/images/big_five_star.png" alt="4 Stars" />
 </div>
 
 
@@ -214,8 +210,6 @@ rating: <%= s.size == 0 ? 0 : s.sum.to_f / s.size.to_f %>
   <h2>Detailed Ratings</h2>
 
   <div id="rating_box">
-  <span id="rateStatus">Rate Me...</span>
-<span id="ratingSaved">Rating Saved!</span>
     <div id="rb_left">
       <ul>
         <li>Overall Rating</li>   
@@ -296,4 +290,7 @@ rating: <%= s.size == 0 ? 0 : s.sum.to_f / s.size.to_f %>
     <h4><%= comment.created_at.strftime("%I:%M%p %m/%d/%Y") %></h4>
     <p><%= comment.body %></p>
 </div>
+<%= @bathroom.inspect %>
+<%= s = @bathroom.ratings.collect { |c| c.overall} %>
+rating: <%= s.size == 0 ? 0 : s.sum.to_f / s.size.to_f %>
 <% end %>

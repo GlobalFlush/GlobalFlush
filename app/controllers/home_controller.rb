@@ -4,4 +4,8 @@ class HomeController < ApplicationController
     @bathrooms = Bathroom.find(:all)
   end
 
+  def about
+    # this is the about page
+  end
+
 end
