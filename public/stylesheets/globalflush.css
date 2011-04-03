@@ -227,9 +227,19 @@ img
   height:21px;
   line-height:21px;
 }
-#rating_box div ul li a
+#rating_box div ul li div
 {
-  margin-right:-5px;
+  width:21px;
+  height:20px;
+  margin-right:1px;
+}
+.offstar
+{
+  background-image: url(/images/stars/s0.png);
+}
+.onstar
+{
+  background-image: url(/images/stars/s10.png);
 }
 #attribute_box div
 {
