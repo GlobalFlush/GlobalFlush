@@ -42,12 +42,8 @@
   <%= link_to 'Edit Content', edit_bathroom_path(@bathroom.id) %>
 </div>
 
-<%= @bathroom.inspect %>
-<%= s = @bathroom.ratings.collect { |c| c.overall} %>
-rating: <%= s.size == 0 ? 0 : s.sum.to_f / s.size.to_f %>
-
 <div id="big_stars">
-  <img src="/images/big_five_star.png" alt="4 Stars">
+  <img src="/images/big_five_star.png" alt="4 Stars" />
 </div>
 
 
@@ -80,10 +76,10 @@ rating: <%= s.size == 0 ? 0 : s.sum.to_f / s.size.to_f %>
     </div>
     <div id="rb_right">
       <ul>
-        <li><img src="/images/five_star.png"></li>
-        <li><img src="/images/five_star.png"></li>
-        <li><img src="/images/five_star.png"></li>
-        <li><img src="/images/five_star.png"></li>
+        <li><img src="/images/five_star.png" /></li>
+        <li><img src="/images/five_star.png" /></li>
+        <li><img src="/images/five_star.png" /></li>
+        <li><img src="/images/five_star.png" /></li>
       </ul>
     </div>
   </div>
@@ -134,4 +130,7 @@ rating: <%= s.size == 0 ? 0 : s.sum.to_f / s.size.to_f %>
     <h4><%= comment.created_at.strftime("%I:%M%p %m/%d/%Y") %></h4>
     <p><%= comment.body %></p>
 </div>
+<%= @bathroom.inspect %>
+<%= s = @bathroom.ratings.collect { |c| c.overall} %>
+rating: <%= s.size == 0 ? 0 : s.sum.to_f / s.size.to_f %>
 <% end %>

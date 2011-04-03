@@ -119,7 +119,7 @@ body
   font-family:arial;
   position:absolute;
   right:40px;
-  top:33px;
+  top:3px;
   font-size:12px;
 }
 #tools a:link
@@ -139,7 +139,7 @@ body
 {
   position:absolute;
   right:40px;
-  top:50px;
+  top:20px;
 }
 #content h1
 {
