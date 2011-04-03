@@ -24,6 +24,7 @@ namespace :test do
     bathroom.address.city = "Troy"
     bathroom.address.state = "NY"
     bathroom.address.country = "United States"
+    bathroom.address.zip = "12180"
     bathroom.address.latitude = 42.72996.to_s
     bathroom.address.longitude = -73.676529.to_s
     bathroom.title = "RPI Union - \"#{bathroom.address.inside_location} - #{bathroom.gender.to_s}\""
