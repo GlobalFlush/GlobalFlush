@@ -95,6 +95,11 @@ rating: <%= s.size == 0 ? 0 : s.sum.to_f / s.size.to_f %>
   <p><a href="#">View All</a> | <a href="#">Add More</a></p>
 </div>
 
+<h2>Address</h2>
+<div id="address_box">
+  <%= @bathroom.address.to_s %>
+</div>
+
 <h2>Attributes</h2>
 <div id="attribute_box">
   <div id="ab_left">
