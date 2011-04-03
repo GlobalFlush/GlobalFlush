@@ -227,6 +227,10 @@ img
   height:21px;
   line-height:21px;
 }
+#rating_box div ul li a
+{
+  margin-right:-5px;
+}
 #attribute_box div
 {
   float:left;
