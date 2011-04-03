@@ -2,7 +2,7 @@
 <script type="text/javascript"
           src="http://maps.google.com/maps/api/js?sensor=true">
 </script>
-<script type="text/javascript">
+<script type="text/javascript" language="javascript">
   var your_city = new google.maps.LatLng(<%= @bathroom.address.latitude %>, <%= @bathroom.address.longitude %>);
   var your_place = new google.maps.LatLng(<%= @bathroom.address.latitude %>, <%= @bathroom.address.longitude %>);
   var marker;
@@ -31,6 +31,141 @@
           marker.setAnimation(google.maps.Animation.BOUNCE);
       }
   }
+  
+var sMax;	// Isthe maximum number of stars
+var holder; // Is the holding pattern for clicked state
+var preSet; // Is the PreSet value onces a selection has been made
+var overall_rated;
+var smell_rated;
+var clean_rated;
+
+// Rollover for image Stars //
+function rating(num){
+	sMax = 0;	// Isthe maximum number of stars
+	for(n=0; n<num.parentNode.childNodes.length; n++){
+		if(num.parentNode.childNodes[n].nodeName == "A"){
+			sMax++;	
+		}
+	}
+	
+	if(!overall_rated){
+		s = num.id.replace("0", ''); // Get the selected star
+		//a = 0;
+		for(i=1; i<=sMax; i++){		
+			if(i<=s){
+				document.getElementById("0"+i).innerHTML = "<img src=\"/images/stars/10.png\">"
+				document.getElementById("rateStatus").innerHTML = num.title;	
+				//holder = a+1;
+				//a++;
+			}else{
+				document.getElementById("0"+i).className = "";
+			}
+		}
+	}
+	if(!clean_rated){
+		s = num.id.replace("1", ''); // Get the selected star
+		//a = 0;
+		for(i=1; i<=sMax; i++){		
+			if(i<=s){
+				document.getElementById("0"+i).innerHTML = "<img src=\"/images/stars/10.png\">"
+				document.getElementById("rateStatus").innerHTML = num.title;	
+				//holder = a+1;
+				//a++;
+			}else{
+				document.getElementById("0"+i).className = "";
+			}
+		}
+	}
+	if(!smell_rated){
+		s = num.id.replace("2", ''); // Get the selected star
+		//a = 0;
+		for(i=1; i<=sMax; i++){		
+			if(i<=s){
+				document.getElementById("0"+i).innerHTML = "<img src=\"/images/stars/10.png\">"
+				document.getElementById("rateStatus").innerHTML = num.title;	
+				//holder = a+1;
+				//a++;
+			}else{
+				document.getElementById("0"+i).className = "";
+			}
+		}
+	}
+}
+
+// For when you roll out of the the whole thing //
+function off(me){
+	if(!overall_rated){
+		if(!preSet){	
+			for(i=1; i<=sMax; i++){		
+				document.getElementById("0"+i).innerHTML = "<img src=\"/images/stars/0.png\">";
+				document.getElementById("rateStatus").innerHTML = me.parentNode.title;
+			}
+			sMax = 0
+		}else{
+			rating(preSet);
+			document.getElementById("rateStatus").innerHTML = document.getElementById("ratingSaved").innerHTML;
+		}
+	}
+	if(!clean_rated){
+		if(!preSet){	
+			for(i=1; i<=sMax; i++){		
+				document.getElementById("1"+i).innerHTML = "<img src=\"/images/stars/0.png\">";
+				document.getElementById("rateStatus").innerHTML = me.parentNode.title;
+			}
+			sMax = 0
+		}else{
+			rating(preSet);
+			document.getElementById("rateStatus").innerHTML = document.getElementById("ratingSaved").innerHTML;
+		}
+	}
+	if(!smell_rated){
+		if(!preSet){	
+			for(i=1; i<=sMax; i++){		
+				document.getElementById("2"+i).innerHTML = "<img src=\"/images/stars/0.png\">";
+				document.getElementById("rateStatus").innerHTML = me.parentNode.title;
+			}
+			sMax = 0
+		}else{
+			rating(preSet);
+			document.getElementById("rateStatus").innerHTML = document.getElementById("ratingSaved").innerHTML;
+		}
+	}
+}
+
+// When you actually rate something //
+function rate_overall(me){
+	if(!overall_rated){
+		document.getElementById("rateStatus").innerHTML = document.getElementById("ratingSaved").innerHTML + " :: "+me.title;
+		preSet = me;
+		overall_rated=1;
+		sendRate(me);
+		rating(me);
+	}
+}
+function rate_clean(me){
+	if(!clean_rated){
+		document.getElementById("rateStatus").innerHTML = document.getElementById("ratingSaved").innerHTML + " :: "+me.title;
+		preSet = me;
+		clean_rated=1;
+		sendRate(me);
+		rating(me);
+	}
+}
+function rate_smell(me){
+	if(!smell_rated){
+		document.getElementById("rateStatus").innerHTML = document.getElementById("ratingSaved").innerHTML + " :: "+me.title;
+		preSet = me;
+		smell_rated=1;
+		sendRate(me);
+		rating(me);
+	}
+}
+
+// Send the rating information somewhere using Ajax or something like that.
+function sendRate(sel){
+	alert("Your rating was: "+sel.title);
+}
+
 </script>
 <!--  BOT -->
 
@@ -70,20 +205,37 @@ rating: <%= s.size == 0 ? 0 : s.sum.to_f / s.size.to_f %>
   <h2>Detailed Ratings</h2>
 
   <div id="rating_box">
+  <span id="rateStatus">Rate Me...</span>
+<span id="ratingSaved">Rating Saved!</span>
     <div id="rb_left">
       <ul>
-        <li>Overall Rating</li>
+        <li>Overall Rating</li>   
         <li>Cleanliness</li>
-        <li>Maintenance</li>
-        <li>Ambience</li>
+        <li>Smelliness</li>
       </ul>
     </div>
     <div id="rb_right">
       <ul>
-        <li><img src="/images/five_star.png"></li>
-        <li><img src="/images/five_star.png"></li>
-        <li><img src="/images/five_star.png"></li>
-        <li><img src="/images/five_star.png"></li>
+	    <li>
+			<a onclick="rate_overall(this)" id="01" title="Overall ehh..." onmouseover="rating(this)" onmouseout="off(this)"><img src="/images/stars/0.png"></a>
+			<a onclick="rate_overall(this)" id="02" title="Overall Not Bad" onmouseover="rating(this)" onmouseout="off(this)"><img src="/images/stars/0.png"></a>
+			<a onclick="rate_overall(this)" id="03" title="Overall Pretty Good" onmouseover="rating(this)" onmouseout="off(this)"><img src="/images/stars/0.png"></a>
+			<a onclick="rate_overall(this)" id="04" title="Overall Very Good" onmouseover="rating(this)" onmouseout="off(this)"><img src="/images/stars/0.png"></a>
+			<a onclick="rate_overall(this)" id="05" title="Overall Exceptional" onmouseover="rating(this)" onmouseout="off(this)"><img src="/images/stars/0.png"></a>
+		</li>
+	    <li>
+			<a onclick="rate_clean(this)" id="11" title="Clean ehh..." onmouseover="rating(this)" onmouseout="off(this)"><img src="/images/stars/0.png"></a>
+			<a onclick="rate_clean(this)" id="12" title="Clean Bad" onmouseover="rating(this)" onmouseout="off(this)"><img src="/images/stars/0.png"></a>
+			<a onclick="rate_clean(this)" id="13" title="Clean Pretty Good" onmouseover="rating(this)" onmouseout="off(this)"><img src="/images/stars/0.png"></a>
+			<a onclick="rate_clean(this)" id="14" title="Clean Very Good" onmouseover="rating(this)" onmouseout="off(this)"><img src="/images/stars/0.png"></a>
+			<a onclick="rate_clean(this)" id="15" title="Clean Exceptional" onmouseover="rating(this)" onmouseout="off(this)"><img src="/images/stars/0.png"></a>
+		</li>	    <li>
+			<a onclick="rate_smell(this)" id="21" title="Smells ehh..." onmouseover="rating(this)" onmouseout="off(this)"><img src="/images/stars/0.png"></a>
+			<a onclick="rate_smell(this)" id="22" title="Smells Not Bad" onmouseover="rating(this)" onmouseout="off(this)"><img src="/images/stars/0.png"></a>
+			<a onclick="rate_smell(this)" id="23" title="Smells Pretty Good" onmouseover="rating(this)" onmouseout="off(this)"><img src="/images/stars/0.png"></a>
+			<a onclick="rate_smell(this)" id="24" title="Smells Very Good" onmouseover="rating(this)" onmouseout="off(this)"><img src="/images/stars/0.png"></a>
+			<a onclick="rate_smell(this)" id="25" title="Smells Exceptional" onmouseover="rating(this)" onmouseout="off(this)"><img src="/images/stars/0.png"></a>
+		</li>
       </ul>
     </div>
   </div>
