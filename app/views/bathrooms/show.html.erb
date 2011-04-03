@@ -68,7 +68,7 @@ function rating(num){
 		for(i=1; i<=oMax; i++){		
 			if(i<=s){
 				document.getElementById("0"+i).innerHTML = "<img src=\"/images/stars/s10.png\">"
-				document.getElementById("rateStatus").innerHTML = num.title;	
+				//document.getElementById("rateStatus").innerHTML = num.title;	
 				//holder = a+1;
 				//a++;
 			}else{
@@ -83,7 +83,7 @@ function rating(num){
 		for(i=1; i<=cMax; i++){		
 			if(i<=s){
 				document.getElementById("1"+i).innerHTML = "<img src=\"/images/stars/s10.png\">"
-				document.getElementById("rateStatus").innerHTML = num.title;	
+				//document.getElementById("rateStatus").innerHTML = num.title;	
 				//holder = a+1;
 				//a++;
 			}else{
@@ -97,7 +97,7 @@ function rating(num){
 		for(i=1; i<=sMax; i++){		
 			if(i<=s){
 				document.getElementById("2"+i).innerHTML = "<img src=\"/images/stars/s10.png\">"
-				document.getElementById("rateStatus").innerHTML = num.title;	
+				//document.getElementById("rateStatus").innerHTML = num.title;	
 				//holder = a+1;
 				//a++;
 			}else{
@@ -113,33 +113,33 @@ function off(me){
 		if(!preSet_overall){	
 			for(i=1; i<=oMax; i++){		
 				document.getElementById("0"+i).innerHTML = "<img src=\"/images/stars/s0.png\">";
-				document.getElementById("rateStatus").innerHTML = me.parentNode.title;
+				//document.getElementById("rateStatus").innerHTML = me.parentNode.title;
 			}
 		}else{
 			rating(preSet_overall);
-			document.getElementById("rateStatus").innerHTML = document.getElementById("ratingSaved").innerHTML;
+			//document.getElementById("rateStatus").innerHTML = document.getElementById("ratingSaved").innerHTML;
 		}
 	}
 	if(!clean_rated){
 		if(!preSet_clean){	
 			for(i=1; i<=cMax; i++){		
 				document.getElementById("1"+i).innerHTML = "<img src=\"/images/stars/s0.png\">";
-				document.getElementById("rateStatus").innerHTML = me.parentNode.title;
+				//document.getElementById("rateStatus").innerHTML = me.parentNode.title;
 			}
 		}else{
 			rating(preSet_clean);
-			document.getElementById("rateStatus").innerHTML = document.getElementById("ratingSaved").innerHTML;
+			//document.getElementById("rateStatus").innerHTML = document.getElementById("ratingSaved").innerHTML;
 		}
 	}
 	if(!smell_rated){
 		if(!preSet_smell){	
 			for(i=1; i<=sMax; i++){		
 				document.getElementById("2"+i).innerHTML = "<img src=\"/images/stars/s0.png\">";
-				document.getElementById("rateStatus").innerHTML = me.parentNode.title;
+				//document.getElementById("rateStatus").innerHTML = me.parentNode.title;
 			}
 		}else{
 			rating(preSet_smell);
-			document.getElementById("rateStatus").innerHTML = document.getElementById("ratingSaved").innerHTML;
+			//document.getElementById("rateStatus").innerHTML = document.getElementById("ratingSaved").innerHTML;
 		}
 	}
 }
@@ -147,7 +147,7 @@ function off(me){
 // When you actually rate something //
 function rate(me){
 	if(!overall_rated && me.id[0] == 0){
-		document.getElementById("rateStatus").innerHTML = document.getElementById("ratingSaved").innerHTML + " :: "+me.title;
+		//document.getElementById("rateStatus").innerHTML = document.getElementById("ratingSaved").innerHTML + " :: "+me.title;
 		preSet_overall = me;
 		overall_rated=1;
 		sendRate(me);
@@ -155,14 +155,14 @@ function rate(me){
 	}
 
 	else if(!clean_rated && me.id[0] == 1){
-		document.getElementById("rateStatus").innerHTML = document.getElementById("ratingSaved").innerHTML + " :: "+me.title;
+		//document.getElementById("rateStatus").innerHTML = document.getElementById("ratingSaved").innerHTML + " :: "+me.title;
 		preSet_clean = me;
 		clean_rated=1;
 		sendRate(me);
 		rating(me);
 	}
 	else if(!smell_rated && me.id[0] == 2){
-		document.getElementById("rateStatus").innerHTML = document.getElementById("ratingSaved").innerHTML + " :: "+me.title;
+		//document.getElementById("rateStatus").innerHTML = document.getElementById("ratingSaved").innerHTML + " :: "+me.title;
 		preSet_smell = me;
 		smell_rated=1;
 		sendRate(me);
@@ -210,6 +210,7 @@ function sendRate(sel){
   <h2>Detailed Ratings</h2>
 
   <div id="rating_box">
+
     <div id="rb_left">
       <ul>
         <li>Overall Rating</li>   
