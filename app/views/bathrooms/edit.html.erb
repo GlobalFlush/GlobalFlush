@@ -32,11 +32,18 @@
     <% end %>
 
     <h3>Details</h3>
+    <table>
+    <tr>
+        <th>Attribute</th>
+        <th>Value</th>
+    </tr>
     <%= f.fields_for :bathroom_specs do |spec| %>
-        <%= spec.text_field :key %>
-        <%= spec.text_field :value %><br />
+      <tr>
+        <td><%= spec.text_field :key %></td>
+        <td><%= spec.text_field :value %></td>
+      </tr>
     <% end %>
-
+    </table>
 
 
     

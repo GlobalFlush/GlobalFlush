@@ -1,6 +1,6 @@
 <h1>Add New Bathroom</h1>
 
-<%= form_for :bathroom, :url => bathrooms_url,:html => {:multipart => true} do |f| %>
+<%= form_for @bathroom, :url => bathrooms_url,:html => {:multipart => true} do |f| %>
     <%= f.error_messages %>
 
     <h3>Basic Information</h3>
@@ -32,11 +32,18 @@
     <% end %>
 
     <h3>Details</h3>
+    <table>
+    <tr>
+        <th>Attribute</th>
+        <th>Value</th>
+    </tr>
     <%= f.fields_for :bathroom_specs do |spec| %>
-        <%= spec.text_field :key %>
-        <%= spec.text_field :value %>
+      <tr>
+        <td><%= spec.text_field :key %></td>
+        <td><%= spec.text_field :value %></td>
+      </tr>
     <% end %>
-
+    </table>
 
     <h3>Photos</h3>
     <%= f.fields_for :bathroom_photos do |photo| %>

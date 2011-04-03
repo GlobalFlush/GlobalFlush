@@ -15,10 +15,8 @@ class Bathroom < ActiveRecord::Base
   accepts_nested_attributes_for :bathroom_specs, :allow_destroy => true
   accepts_nested_attributes_for :bathroom_photos, :allow_destroy => true
   
-  
 
-  attr_accessible :comments_attributes, :ratings_attributes, :graffitis_attributes, :address_attributes, :bathroom_specs_attributes,
+  attr_accessible :comments_attributes, :ratings_attributes, :graffitis_attributes, :address_attributes, :bathroom_specs_attributes, :bathroom_photos_attributes,
                   :title, :gender, :description, :user_id, :hidden, :moderated
-				
-  
+
 end

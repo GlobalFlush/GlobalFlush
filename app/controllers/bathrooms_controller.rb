@@ -2,11 +2,19 @@ class BathroomsController < ApplicationController
   before_filter :require_user, :only => [:new, :create, :update, :edit, :destroy]
 
   def new
+    @bathroom = Bathroom.new
+    @bathroom.build_address
+    5.times do
+      @bathroom.bathroom_specs.build
+    end
+    3.times do
+      @bathroom.bathroom_photos.build
+    end
   end
 
   def create
     @bathroom = Bathroom.new(params[:bathroom])
-    @bathroom.build_address(params[:bathroom][:address])
+    @bathroom.build_address(params[:bathroom][:address_attributes])
     if params[:bathroom][:bathroom_specs]
       @bathroom.bathroom_specs.build(params[:bathroom][:bathroom_specs])
     end
