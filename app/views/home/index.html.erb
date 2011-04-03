@@ -7,30 +7,6 @@
   });
 
 </script>
-<style type="text/css">
-  #carousel li
-  {
-    height:160px;
-    width:240px;
-    background-color:#999999;
-  }
-  #carousel li div
-  {
-    position:absolute;
-    height:20px;
-    bottom:0px;
-    width:230px;
-    background-color:rgba(0,0,0,0.3);
-    color:white;
-    font-family:Arial;
-    font-weight:bold;
-    font-size:12px;
-    padding:5px;
-  }
-</style>
-
-
-
 <h1>Welcome to Global Flush</h1>
 <p>Global Flush is a fun and exciting way to find the best (and worst) bathrooms.</p>
 <p>Get started by searching a geographical area or browsing the top rated facilties.</p>
@@ -47,9 +23,9 @@
     <% @bathrooms.each do |bathroom| %>
         <li>
           <% if bathroom.bathroom_photos.empty? == false %>
-            <%= image_tag bathroom.bathroom_photos.first.photo.url(:small) %>
+            <%= link_to image_tag(bathroom.bathroom_photos.first.photo.url(:small)), bathroom %>
           <% end %>
-          <div><%= bathroom.title %></div>
+          <div><%= link_to bathroom.title,bathroom %></div>
         </li>
     <% end %>
   </ul>
