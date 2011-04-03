@@ -1,5 +1,6 @@
 Globalflush::Application.routes.draw do
   get "home/index"
+  get "home/about"
   get "user_sessions/new"
 
 #  root :to => "welcome#index"

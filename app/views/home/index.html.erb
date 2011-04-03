@@ -44,14 +44,13 @@
 <h3>Top Bathrooms</h3>
 <div class="top-bathroom">
   <ul id="carousel" class="top-bathroom">
-    <li><div>Bathroom 1</div></li>
-    <li><div>Bathroom 2</div></li>
-    <li><div>Bathroom 3</div></li>
-    <li><div>Bathroom 4</div></li>
-    <li><div>Bathroom 5</div></li>
-    <li><div>Bathroom 6</div></li>
-    <li><div>Bathroom 7</div></li>
-    <li><div>Bathroom 8</div></li>
-    <li><div>Bathroom 9</div></li>
+    <% @bathrooms.each do |bathroom| %>
+        <li>
+          <% if bathroom.bathroom_photos.empty? == false %>
+            <%= image_tag bathroom.bathroom_photos.first.photo.url(:small) %>
+          <% end %>
+          <div><%= bathroom.title %></div>
+        </li>
+    <% end %>
   </ul>
 </div>
