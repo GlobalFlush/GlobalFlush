@@ -628,6 +628,40 @@ namespace :test do
     Rating.create(:bathroom_id => bathroom.id, :clean => 3, :smell => 3, :overall => 3)
 
     puts "\t- inserted sample bathroom #{bathroom.title}"
+	
+	bathroom = Bathroom.new
+	bathroom.gender = "Male"
+	bathroom.hidden = false
+	bathroom.user_id = user.id
+	
+	bathroom.build_address
+	bathroom.address.inside_location = "2nd Floor"
+	bathroom.address.street_address = "1718 15th Street"
+	bathroom.address.city = "Troy"
+	bathroom.address.state = "NY"
+	bathroom.address.country = "USA"
+	bathroom.address.zip = "12180"
+	bathroom.address.latitude = 42.72996.to_s
+	bathroom.address.longitude = -73.676529.to_s
+	bathroom.title = "RPI Union - \"#{bathroom.address.inside_location} - #{bathroom.gender.to_s}\""
+	
+	bathroom.save!
+
+    #BathroomSpec.create(:key => "spec 1", :value => "value 1", :bathroom_id => bathroom.id)
+    #BathroomSpec.create(:key => "spec 2", :value => "value 2", :bathroom_id => bathroom.id)
+
+    specs_params = [{:key => "spec 1", :value => "value 1", :bathroom_id => bathroom.id},
+                    {:key => "spec 2", :value => "value 2", :bathroom_id => bathroom.id}
+                    ]
+
+    bathroom.bathroom_specs.build(specs_params)
+    bathroom.save!
+
+    r = Rating.create(:bathroom_id => bathroom.id, :clean => 3, :smell => 3, :overall => 3)	
+
+    commentbody1 = "It seems to have functional female product distributors."
+    Comment.create(:user_id => user.id, :bathroom_id => bathroom.id, :rating_id => r.id, :body => commentbody1)
+
   end
 
 end
