@@ -405,7 +405,7 @@ namespace :test do
     bathroom.save!
 
 
-    commentbody1 = "This is the "green" room type bathroom. It has only dryer and absolutely good smell thanks to the coffee aroma wafted from kitchen. I thought I could stay for an hour if I have some book. The basin was really convenient to use because the water and soap faucets sit side by side."
+    commentbody1 = "This is the \"green\" room type bathroom. It has only dryer and absolutely good smell thanks to the coffee aroma wafted from kitchen. I thought I could stay for an hour if I have some book. The basin was really convenient to use because the water and soap faucets sit side by side."
     Comment.create(:user_id => user.id, :bathroom_id => bathroom.id, :body => commentbody1)
     commentbody2 = "comment body 2"
     Comment.create(:user_id => user.id, :bathroom_id => bathroom.id, :body => commentbody2)
