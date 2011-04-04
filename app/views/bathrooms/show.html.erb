@@ -137,7 +137,6 @@
   // Send the rating information somewhere using Ajax or something like that.
   function sendRate(sel){
     alert("Your rating was: "+sel.id[1]);
-	
   }
   
   function show_rating(score){
@@ -146,7 +145,6 @@
 		for (i=1; i<score; i++){
 			document.getElementById("_"+i).className = "onstar";
 			r = i;
-			alert(i);
 		}
 		
 		document.getElementById("_"+r).className = "s"+Math.round((score - r) * 10);
@@ -154,7 +152,17 @@
 	alert(r);
   }
 	
-
+  function get_overall(){
+	return preSet_overall;
+  }
+  
+  function get_clean(){
+    return preSet_clean;
+  }
+  
+  function get_smell(){
+    return preSet_clean;
+  }
 </script>
 <!--  BOT -->
 
