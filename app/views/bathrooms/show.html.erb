@@ -34,6 +34,7 @@
 </script>
 
 <script type="text/javascript" language="javascript">
+
   var oMax;	// Isthe maximum number of stars
   var cMax;
   var sMax;
@@ -136,7 +137,23 @@
   // Send the rating information somewhere using Ajax or something like that.
   function sendRate(sel){
     alert("Your rating was: "+sel.id[1]);
+	
   }
+  
+  function show_rating(score){
+    if (score > 0){
+		r = 0;
+		for (i=1; i<score; i++){
+			document.getElementById("_"+i).className = "onstar";
+			r = i;
+			alert(i);
+		}
+		
+		document.getElementById("_"+r).className = "s"+Math.round((score - r) * 10);
+	}
+	alert(r);
+  }
+	
 
 </script>
 <!--  BOT -->
@@ -150,9 +167,16 @@
 </div>
 
 <div id="big_stars">
-  <img src="/images/big_five_star.png" alt="4 Stars" />
+      <div class = "offstar" id="_1"></div>
+	  <div class = "offstar" id="_2"></div>
+	  <div class = "offstar" id="_3"></div>
+	  <div class = "offstar" id="_4"></div>
+	  <div class = "offstar" id="_5"></div>
 </div>
-
+<script type="text/javascript" language="javascript">
+<%= s = @bathroom.ratings.collect { |c| c.overall} %>
+document.body.onload = show_rating(<%= s.size == 0 ? 0 : s.sum.to_f / s.size.to_f %>);
+</script>
 
 <h1><%= @bathroom.title %> -
   <% if @bathroom.gender == "Male" %>

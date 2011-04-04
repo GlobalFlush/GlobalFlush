@@ -140,6 +140,13 @@ body
   position:absolute;
   right:40px;
   top:20px;
+  height:21px;
+  width:100px;
+}
+#big_stars div
+{
+  height: 20px;
+  width: 21px;
 }
 #content h1
 {
@@ -240,6 +247,42 @@ img
 .onstar
 {
   background-image: url(/images/stars/s10.png);
+}
+.s1
+{
+  background-image: url(/images/stars/s1.png);
+}
+.s2
+{
+  background-image: url(/images/stars/s2.png);
+}
+.s3
+{
+  background-image: url(/images/stars/s3.png);
+}
+.s4
+{
+  background-image: url(/images/stars/s4.png);
+}
+.s5
+{
+  background-image: url(/images/stars/s5.png);
+}
+.s6
+{
+  background-image: url(/images/stars/s6.png);
+}
+.s7
+{
+  background-image: url(/images/stars/s7.png);
+}
+.s8
+{
+  background-image: url(/images/stars/s8.png);
+}
+.s9
+{
+  background-image: url(/images/stars/s9.png);
 }
 #attribute_box div
 {
