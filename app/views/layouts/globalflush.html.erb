@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+<html>
+
+<!-- <link rel="stylesheet" type="text/css" href="stylesheets/globalflush.css"> -->
+
+<%= stylesheet_link_tag :all %>
+
+<title>Global Flush</title>
+<head>
+
+</head>
+<body>
+  <%= render :partial => "layouts/header" %>
+  <%= render :partial => "layouts/navigation" %>
+  <div id="content">
+
+    <%= yield %>
+
+  </div>
+</body>
+<%= render :partial => "layouts/footer" %>
+
+</html>
+

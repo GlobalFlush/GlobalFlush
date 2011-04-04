@@ -1,0 +1,42 @@
+<script type="text/javascript" src="/javascripts/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/javascripts/jquery.jcarousel.min.js"></script>
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+    jQuery('#carousel').jcarousel();
+  });
+  function clickclear(thisfield, defaulttext) {
+    if (thisfield.value == defaulttext) {
+      thisfield.value = "";
+    }
+  }
+  function clickrecall(thisfield, defaulttext) {
+    if (thisfield.value == "") {
+      thisfield.value = defaulttext;
+    }
+  }
+</script>
+<h1>Welcome to Global Flush</h1>
+<p>Global Flush is a fun and exciting way to find the best (and worst) bathrooms.</p>
+<p>Get started by searching a geographical area or browsing the top rated facilties.</p>
+<h3>Find a Bathroom</h3>
+<div id="find">
+  <% form_for :bathroom, :url => search_url(:keyword) do |f| %>
+    <%= f.text_field :keyword,:id=>'zip',:value=>"Enter a location or zipcode",:onclick=>"clickclear(this, 'Enter a location or zipcode')",:onblur=>"clickrecall(this,'Enter a location or zipcode')" %>
+    <%= f.submit 'Go',:id=>'go' %>
+  <% end %>
+  <div class="home_button" id="via_map">via Map</div>
+  <div class="home_button" id="via_browse"><%= link_to 'via Browse', bathrooms_url%></div>
+</div>
+<h3>Top Bathrooms</h3>
+<div class="top-bathroom">
+  <ul id="carousel" class="top-bathroom">
+    <% @bathrooms.each do |bathroom| %>
+      <li>
+        <% if bathroom.bathroom_photos.empty? == false %>
+          <%= link_to image_tag(bathroom.bathroom_photos.first.photo.url(:small)), bathroom %>
+        <% end %>
+        <div><%= link_to bathroom.title,bathroom %></div>
+      </li>
+    <% end %>
+  </ul>
+</div>

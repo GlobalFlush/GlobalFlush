@@ -1,0 +1,448 @@
+
+/* MAIN LAYOUT STYLES */
+
+body
+{
+  background-image: url(/images/bg_tile.gif);
+  margin:0px;
+}
+#header
+{
+  margin-left:auto;
+  margin-right:auto;
+  width:1000px;
+  height:120px;
+  background-image: url(/images/header.png);
+  position:relative;
+}
+#header img{
+  padding-left:20px;
+  padding-top:20px;
+}
+#nav
+{
+  margin-left:auto;
+  margin-right:auto;
+  background-image: url(/images/body_tile.png);
+  height:30px;
+  padding-left:20px;
+  padding-right:20px;
+  width:960px;
+}
+#bar
+{
+  width:960px;
+  background-image: url(/images/nav_tile.gif);
+}
+#nav a:link
+{
+  height:30px;
+  float:left;
+  padding: 0px 15px 0px 15px;
+  margin: 0px 5px 0px 5px;
+  font-family: Arial;
+  font-weight: bold;
+  color:white;
+  text-decoration:none;
+  line-height:30px;
+}
+#nav a:hover
+{
+  background-image: url(/images/nav_tile_over.gif);
+}
+#nav div
+{
+  float:right;
+}
+#nav a:visited
+{
+  color:white;
+}
+#header div
+{
+  position:absolute;
+  color:white;
+  font-family: Arial;
+  font-size: 12px;
+  font-weight: bold;
+}
+#login
+{
+  right:40px;
+  top:30px;
+}
+#switcher
+{
+  right:40px;
+  bottom:10px;
+}
+#header div a:link
+{
+  color:white;
+  text-decoration:none;
+}
+#header div a:visited
+{
+  color:white;
+}
+#header div a:hover
+{
+  color:#DDDDDD;
+}
+#content
+{
+  margin-left:auto;
+  margin-right:auto;
+  width:920px;
+  background-image: url(/images/body_tile.png);
+  padding:0px 40px 1px 40px; /* 1px bottom fixes a CSS rendering bug */
+  position:relative;
+  font-family:Arial;
+}
+#footer_shadow
+{
+  height:20px;
+  width:1000px;
+  background-image: url(/images/footer.png);
+  margin-left:auto;
+  margin-right:auto;
+}
+#byline
+{
+  margin-left:auto;
+  margin-right:auto;
+  width:1000px;
+  font-family:Arial;
+  background-image: url(/images/body_tile.png);
+  margin-bottom: 0px;
+  font-size:9px;
+  text-align: center;
+}
+.right
+{
+  float:right;
+}
+.left
+{
+  float:left;
+}
+.clear
+{
+  clear:both;
+  margin-bottom:20px;
+}
+
+/* Bathroom Show Page */
+
+#left_column
+{
+  width:300px;
+  float:left;
+  margin-right:20px;
+}
+#mapbox
+{
+  height:308px;
+  width:308px;
+  background-image:url(/images/map_shadow.png);
+  margin-bottom:12px;
+}
+#map
+{
+  height:300px;
+  width:300px;
+}
+#tools
+{
+  font-family:arial;
+  position:absolute;
+  right:40px;
+  top:3px;
+  font-size:12px;
+}
+#tools a:link
+{
+  text-decoration:none;
+  color:black;
+}
+#tools a:visited
+{
+  color:black;
+}
+#tools a:hover
+{
+  color:blue;
+}
+#big_stars
+{
+  position:absolute;
+  right:40px;
+  top:20px;
+}
+#big_stars img
+{
+  margin-right:-7px;
+}
+#content h1
+{
+  margin:0px -20px 20px -20px;
+  height:60px;
+  padding-left:20px;
+  line-height:60px;
+  background-image:url(/images/h1_tile.png);
+}
+#images div
+{
+  width:208px;
+  height:141px;
+  background-image: url(/images/image_shadow.png);
+  margin-bottom:12px;
+}
+#content h2
+{
+  display:inline-block;
+  margin:0px 00px 20px 0px;
+  height:40px;
+  padding:0px 20px 0px 20px;
+  max-width:920px;
+  min-width:340px;
+  line-height:40px;
+  background-image:url(/images/h2_tile.png);
+}
+#content h3
+{
+  background-image:url(/images/h3.gif);
+  margin-bottom:0px;
+  height:30px;
+  line-height: 30px;
+  text-align:center;
+}
+#left_column h2
+{
+  min-width:260px;
+}
+#content p
+{
+  margin:0px 0px 20px 0px;
+}
+#content textarea
+{
+  width:370px;
+  height:100px;
+  font-family:Arial;
+  background-color: white;
+  border: 2px solid #000000;
+
+}
+#images
+{
+  float:right;
+  width:208px;
+  margin-right: -8px;
+  height:100%;
+}
+img
+{
+  border:none;
+  padding:0px;
+  margin: 0px;
+}
+#rating_box
+{
+  overflow:hidden;
+  padding:0px;
+  padding-left:20px;
+}
+#rating_box div
+{
+  float:left;
+}
+#rating_box div ul
+{
+  list-style-type:none;
+  margin:0px 10px 0px 10px;
+  padding-left:0px;
+}
+#rating_box div ul li
+{
+  font-weight: bold;
+  height:21px;
+  line-height:21px;
+}
+#rating_box div ul li div
+{
+  width:21px;
+  height:20px;
+  margin-right:1px;
+}
+.offstar
+{
+  background-image: url(/images/stars/s0.png);
+}
+.onstar
+{
+  background-image: url(/images/stars/s10.png);
+}
+#attribute_box div
+{
+  float:left;
+  width:180px;
+  margin:0px 5px 20px 5px;
+}
+#attribute_box div ul
+{
+  list-style-type:none;
+  padding:0px;
+  margin:0px;
+}
+#attribute_box div ul li
+{
+  height:21px;
+  line-height:21px;
+}
+
+#ab_left ul li
+{
+  text-align:right;
+  font-weight:bold;
+}
+.review
+{
+  background-color:#CCCCCC;
+  position:relative;
+  margin-bottom:20px;
+  padding:5px;
+}
+.review .date_posted
+{
+  position:absolute;
+  right:5px;
+  top:5px;
+  margin:0px;
+  font-size:14px;
+}
+.review .username
+{
+  margin:0px 0px 10px 0px;
+  font-size:16px;
+  background:none;
+  font-weight:bold;
+}
+.review .username a
+{
+  color:black;
+}
+
+/* HOME PAGE STYLES */
+
+.full
+{
+  width:880px;
+}
+#find
+{
+  width:920px;
+  background-color:#CCCCCC;
+  height:80px;
+}
+#find input
+{
+  font-family: Arial;
+  font-size: 20px;
+  line-height:30px;
+  margin: 20px 0px 0px 20px;
+  padding:0px;
+  float:left;
+}
+#zip
+{
+  width:376px;
+  height:36px;
+}
+#go
+{
+  width:40px;
+  height:40px;
+}
+.home_button
+{
+  float:left;
+  width:200px;
+  height:40px;
+  background-color:#999999;
+  line-height: 40px;
+  text-align:center;
+  margin: 20px 0px 0px 20px;
+}
+#find div a
+{
+  color:black;
+}
+#submit_div
+{
+  width:40px;
+}
+.list_item
+{
+  margin-bottom:20px;
+  height:110px;
+}
+#carousel li
+{
+  height:160px;
+  width:240px;
+  background-color:#999999;
+}
+#carousel li img
+{
+  width:240px;
+  height:160px;
+}
+#carousel li div
+{
+  position:absolute;
+  bottom:0px;
+  width:230px;
+  background-color:rgba(0,0,0,0.5);
+  color:white;
+  font-family:Arial;
+  font-weight:bold;
+  font-size:12px;
+  padding:5px;
+}
+#carousel li div a
+{
+  color:white;
+  text-decoration: none;
+}
+
+/* BATHROOM INDEX / BROWSE */
+
+
+#bathroom_list div div
+{
+  padding:3px;
+  height:24px;
+  line-height:24px;
+  font-size:16px;
+  margin-bottom:10px;
+}
+#bathroom_list div div a
+{
+  color:black;
+  font-weight:bold;
+}
+#bathroom_list div img
+{
+  float:left;
+  margin-right:10px;
+  margin-top:-10px;
+}
+#bathroom_list div .male
+{
+  background-color:#cccccc
+}
+#bathroom_list div .female
+{
+  background-color:#cccccc;
+}

@@ -1,4 +1,31 @@
 Globalflush::Application.routes.draw do
+  get "home/index"
+  get "home/about"
+  get "user_sessions/new"
+
+#  root :to => "welcome#index"
+
+  resources :user_sessions
+  resources :users
+  resources :password_resets
+  resources :bathrooms
+  resources :comments
+  resources :ratings
+
+  get "users/show"
+  match 'users/show' => 'users#show', :as => :user_show
+
+  match 'login' => 'user_sessions#new', :as => :login
+  match 'logout' => 'user_sessions#destroy', :as => :logout
+  match 'register' => 'users#new', :as => :register
+
+  match 'search/:keyword' => 'bathrooms#search', :as => :search
+
+  root :to => "home#index"
+
+
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

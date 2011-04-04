@@ -1,0 +1,19 @@
+<h1>Browsing Bathrooms</h1>
+
+<p>Currently browsing all bathrooms by last added.</p>
+<div id="bathroom_list">
+<% @bathrooms.each do |bathroom| %>
+<div class="list_item">
+  <div class="male"><span class="right">Last updated at <%= bathroom.updated_at %></span><%= link_to bathroom.title, bathroom %></div>
+  <% if bathroom.bathroom_photos.empty? %>
+    <%= link_to image_tag("/images/no_image.png",:height=>80,:width=>100),bathroom %>
+  <% else %>
+    <%= link_to image_tag(bathroom.bathroom_photos.first.photo.url(:thumb),:height=>80,:width=>100),bathroom %>
+  <% end %>
+    <% bathroom.bathroom_specs.each do |spec| %>
+    <b><%= spec.key %>:</b> <%=spec.value%>.
+    <% end %>
+</div>
+<div class="clear"></div>
+<% end %>
+</div>
