@@ -51,14 +51,6 @@ namespace :test do
     Rating.create(:bathroom_id => bathroom.id, :clean => 4, :smell => 5, :overall => 4)
     Rating.create(:bathroom_id => bathroom.id, :clean => 3, :smell => 3, :overall => 4)
 
-    puts "\t- inserted sample bathroom #{bathroom.title}"
-  end
-
-  task :insert_data => :environment do
-    puts "## Inserting sample data to the database"
-    
-    puts "\t- inserted user #{user.login}"
-
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
@@ -94,15 +86,6 @@ namespace :test do
     Comment.create(:user_id => user.id, :bathroom_id => bathroom.id, :body => commentbody2)
 
     Rating.create(:bathroom_id => bathroom.id, :clean => 3, :smell => 3, :overall => 3)
-
-    puts "\t- inserted sample bathroom #{bathroom.title}"
-  end
-
-
-  task :insert_data => :environment do
-    puts "## Inserting sample data to the database"
-    
-    puts "\t- inserted user #{user.login}"
 
     bathroom = Bathroom.new
     bathroom.gender = "Male"
@@ -140,15 +123,6 @@ namespace :test do
 
     Rating.create(:bathroom_id => bathroom.id, :clean => 4, :smell => 3, :overall => 4)
 
-    puts "\t- inserted sample bathroom #{bathroom.title}"
-  end
-
-
-  task :insert_data => :environment do
-    puts "## Inserting sample data to the database"
-    
-    puts "\t- inserted user #{user.login}"
-
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
@@ -184,16 +158,6 @@ namespace :test do
     Comment.create(:user_id => user.id, :bathroom_id => bathroom.id, :body => commentbody2)
 
     Rating.create(:bathroom_id => bathroom.id, :clean => 3, :smell => 4, :overall => 4)
-
-    puts "\t- inserted sample bathroom #{bathroom.title}"
-  end
-
-
-
-  task :insert_data => :environment do
-    puts "## Inserting sample data to the database"
-    
-    puts "\t- inserted user #{user.login}"
 
     bathroom = Bathroom.new
     bathroom.gender = "Male"
@@ -231,16 +195,6 @@ namespace :test do
 
     Rating.create(:bathroom_id => bathroom.id, :clean => 2, :smell => 3, :overall => 3)
 
-    puts "\t- inserted sample bathroom #{bathroom.title}"
-  end
-
-
-
-  task :insert_data => :environment do
-    puts "## Inserting sample data to the database"
-    
-    puts "\t- inserted user #{user.login}"
-
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
@@ -276,15 +230,6 @@ namespace :test do
     Comment.create(:user_id => user.id, :bathroom_id => bathroom.id, :body => commentbody2)
 
     Rating.create(:bathroom_id => bathroom.id, :clean => 2, :smell => 2, :overall => 2)
-
-    puts "\t- inserted sample bathroom #{bathroom.title}"
-  end
-
-
-  task :insert_data => :environment do
-    puts "## Inserting sample data to the database"
-    
-    puts "\t- inserted user #{user.login}"
 
     bathroom = Bathroom.new
     bathroom.gender = "Male"
@@ -322,15 +267,6 @@ namespace :test do
 
     Rating.create(:bathroom_id => bathroom.id, :clean => 3, :smell => 2, :overall => 3)
 
-    puts "\t- inserted sample bathroom #{bathroom.title}"
-  end
-
-
-  task :insert_data => :environment do
-    puts "## Inserting sample data to the database"
-    
-    puts "\t- inserted user #{user.login}"
-
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
@@ -366,15 +302,6 @@ namespace :test do
     Comment.create(:user_id => user.id, :bathroom_id => bathroom.id, :body => commentbody2)
 
     Rating.create(:bathroom_id => bathroom.id, :clean => 4, :smell => 3, :overall => 4)
-
-    puts "\t- inserted sample bathroom #{bathroom.title}"
-  end
-
-
-  task :insert_data => :environment do
-    puts "## Inserting sample data to the database"
-    
-    puts "\t- inserted user #{user.login}"
 
     bathroom = Bathroom.new
     bathroom.gender = "Male"
@@ -412,15 +339,6 @@ namespace :test do
 
     Rating.create(:bathroom_id => bathroom.id, :clean => 5, :smell => 5, :overall => 5)
 
-    puts "\t- inserted sample bathroom #{bathroom.title}"
-  end
-
-
-  task :insert_data => :environment do
-    puts "## Inserting sample data to the database"
-    
-    puts "\t- inserted user #{user.login}"
-
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
@@ -456,15 +374,6 @@ namespace :test do
     Comment.create(:user_id => user.id, :bathroom_id => bathroom.id, :body => commentbody2)
 
     Rating.create(:bathroom_id => bathroom.id, :clean => 2, :smell => 2, :overall => 2)
-
-    puts "\t- inserted sample bathroom #{bathroom.title}"
-  end
-
-
-  task :insert_data => :environment do
-    puts "## Inserting sample data to the database"
-    
-    puts "\t- inserted user #{user.login}"
 
     bathroom = Bathroom.new
     bathroom.gender = "Male"
@@ -502,15 +411,6 @@ namespace :test do
 
     Rating.create(:bathroom_id => bathroom.id, :clean => 3, :smell => 2, :overall => 2)
 
-    puts "\t- inserted sample bathroom #{bathroom.title}"
-  end
-
-
-  task :insert_data => :environment do
-    puts "## Inserting sample data to the database"
-    
-    puts "\t- inserted user #{user.login}"
-
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
@@ -546,15 +446,6 @@ namespace :test do
     Comment.create(:user_id => user.id, :bathroom_id => bathroom.id, :body => commentbody2)
 
     Rating.create(:bathroom_id => bathroom.id, :clean => 3, :smell => 3, :overall => 3)
-
-    puts "\t- inserted sample bathroom #{bathroom.title}"
-  end
-
-
-  task :insert_data => :environment do
-    puts "## Inserting sample data to the database"
-    
-    puts "\t- inserted user #{user.login}"
 
     bathroom = Bathroom.new
     bathroom.gender = "Male"
@@ -592,15 +483,6 @@ namespace :test do
 
     Rating.create(:bathroom_id => bathroom.id, :clean => 3, :smell => 3, :overall => 3)
 
-    puts "\t- inserted sample bathroom #{bathroom.title}"
-  end
-
-
-  task :insert_data => :environment do
-    puts "## Inserting sample data to the database"
-    
-    puts "\t- inserted user #{user.login}"
-
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
@@ -636,16 +518,6 @@ namespace :test do
     Comment.create(:user_id => user.id, :bathroom_id => bathroom.id, :body => commentbody2)
 
     Rating.create(:bathroom_id => bathroom.id, :clean => 2, :smell => 1, :overall => 2)
-
-    puts "\t- inserted sample bathroom #{bathroom.title}"
-  end
-
-
-
-  task :insert_data => :environment do
-    puts "## Inserting sample data to the database"
-    
-    puts "\t- inserted user #{user.login}"
 
     bathroom = Bathroom.new
     bathroom.gender = "Male"
@@ -683,15 +555,6 @@ namespace :test do
 
     Rating.create(:bathroom_id => bathroom.id, :clean => 3, :smell => 2, :overall => 3)
 
-    puts "\t- inserted sample bathroom #{bathroom.title}"
-  end
-
-
-  task :insert_data => :environment do
-    puts "## Inserting sample data to the database"
-    
-    puts "\t- inserted user #{user.login}"
-
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
@@ -727,15 +590,6 @@ namespace :test do
     Comment.create(:user_id => user.id, :bathroom_id => bathroom.id, :body => commentbody2)
 
     Rating.create(:bathroom_id => bathroom.id, :clean => 3, :smell => 3, :overall => 3)
-
-    puts "\t- inserted sample bathroom #{bathroom.title}"
-  end
-
-
-  task :insert_data => :environment do
-    puts "## Inserting sample data to the database"
-    
-    puts "\t- inserted user #{user.login}"
 
     bathroom = Bathroom.new
     bathroom.gender = "Male"

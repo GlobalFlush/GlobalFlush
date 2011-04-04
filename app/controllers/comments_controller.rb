@@ -6,6 +6,11 @@ class CommentsController < ApplicationController
 		@comment = Comment.new
 		@rating = Rating.new
     end
+	
+	def index
+		redirect_to :back
+	end
+	
     def create
         @rating = Rating.new(:bathroom_id => params[:comment][:bathroom_id], :smell => params[:comment][:smell], :clean => params[:comment][:clean], :overall => params[:comment][:overall])
 		@comment = Comment.new(:bathroom_id => params[:comment][:bathroom_id], :user_id => params[:comment][:user_id], :body => params[:comment][:body], :rating_id => @rating.id)
