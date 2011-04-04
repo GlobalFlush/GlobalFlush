@@ -143,7 +143,7 @@ body
 }
 #big_stars img
 {
-  margin-left:-4px;
+  margin-right:-7px;
 }
 #content h1
 {
@@ -343,7 +343,7 @@ img
   width:40px;
   height:40px;
 }
-#find div
+.home_button
 {
   float:left;
   width:200px;
