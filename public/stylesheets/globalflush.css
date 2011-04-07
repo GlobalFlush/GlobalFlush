@@ -1,3 +1,6 @@
+
+/* MAIN LAYOUT STYLES */
+
 body
 {
   background-image: url(/images/bg_tile.gif);
@@ -96,6 +99,41 @@ body
   position:relative;
   font-family:Arial;
 }
+#footer_shadow
+{
+  height:20px;
+  width:1000px;
+  background-image: url(/images/footer.png);
+  margin-left:auto;
+  margin-right:auto;
+}
+#byline
+{
+  margin-left:auto;
+  margin-right:auto;
+  width:1000px;
+  font-family:Arial;
+  background-image: url(/images/body_tile.png);
+  margin-bottom: 0px;
+  font-size:9px;
+  text-align: center;
+}
+.right
+{
+  float:right;
+}
+.left
+{
+  float:left;
+}
+.clear
+{
+  clear:both;
+  margin-bottom:20px;
+}
+
+/* Bathroom Show Page */
+
 #left_column
 {
   width:300px;
@@ -268,14 +306,6 @@ img
   text-align:right;
   font-weight:bold;
 }
-#footer_shadow
-{
-  height:20px;
-  width:1000px;
-  background-image: url(/images/footer.png);
-  margin-left:auto;
-  margin-right:auto;
-}
 .review
 {
   background-color:#CCCCCC;
@@ -302,17 +332,9 @@ img
 {
   color:black;
 }
-#byline
-{
-  margin-left:auto;
-  margin-right:auto;
-  width:1000px;
-  font-family:Arial;
-  background-image: url(/images/body_tile.png);
-  margin-bottom: 0px;
-  font-size:9px;
-  text-align: center;
-}
+
+/* HOME PAGE STYLES */
+
 .full
 {
   width:880px;
@@ -323,7 +345,6 @@ img
   background-color:#CCCCCC;
   height:80px;
 }
-
 #find input
 {
   font-family: Arial;
@@ -366,46 +387,6 @@ img
   margin-bottom:20px;
   height:110px;
 }
-#bathroom_list div div
-{
-  padding:3px;
-  height:24px;
-  line-height:24px;
-  font-size:16px;
-  margin-bottom:10px;
-}
-#bathroom_list div div a
-{
-  color:black;
-  font-weight:bold;
-}
-#bathroom_list div img
-{
-  float:left;
-  margin-right:10px;
-  margin-top:-10px;
-}
-#bathroom_list div .male
-{
-  background-color:#cccccc
-}
-#bathroom_list div .female
-{
-  background-color:#cccccc;
-}
-.right
-{
-  float:right;
-}
-.left
-{
-  float:left;
-}
-.clear
-{
-  clear:both;
-  margin-bottom:20px;
-}
 #carousel li
 {
   height:160px;
@@ -433,4 +414,35 @@ img
 {
   color:white;
   text-decoration: none;
+}
+
+/* BATHROOM INDEX / BROWSE */
+
+
+#bathroom_list div div
+{
+  padding:3px;
+  height:24px;
+  line-height:24px;
+  font-size:16px;
+  margin-bottom:10px;
+}
+#bathroom_list div div a
+{
+  color:black;
+  font-weight:bold;
+}
+#bathroom_list div img
+{
+  float:left;
+  margin-right:10px;
+  margin-top:-10px;
+}
+#bathroom_list div .male
+{
+  background-color:#cccccc
+}
+#bathroom_list div .female
+{
+  background-color:#cccccc;
 }

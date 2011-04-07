@@ -73,8 +73,11 @@
 					
 					<li><a href="#method-i-index">#index</a></li>
 					
+<<<<<<< HEAD
 					<li><a href="#method-i-new">#new</a></li>
 					
+=======
+>>>>>>> 08cb2479689c813a3a7ce00e41a3669e7b5b1554
 				</ul>
 			</div>
 			
@@ -147,10 +150,13 @@
 				
 					<li><a href="./Rating.html">Rating</a></li>
 				
+<<<<<<< HEAD
 					<li><a href="./RatingsController.html">RatingsController</a></li>
 				
 					<li><a href="./RatingsHelper.html">RatingsHelper</a></li>
 				
+=======
+>>>>>>> 08cb2479689c813a3a7ce00e41a3669e7b5b1554
 					<li><a href="./Tag.html">Tag</a></li>
 				
 					<li><a href="./User.html">User</a></li>
@@ -177,7 +183,14 @@
 		<h1 class="class">CommentsController</h1>
 
 		<div id="description">
+<<<<<<< HEAD
 			
+=======
+			<p>
+<a href="Comment.html">Comment</a> Controller
+</p>
+
+>>>>>>> 08cb2479689c813a3a7ce00e41a3669e7b5b1554
 		</div>
 
 		<!-- Constants -->
@@ -205,7 +218,13 @@
 
 				<div class="method-description">
 					
+<<<<<<< HEAD
 					
+=======
+					<p>
+POST /comments
+</p>
+>>>>>>> 08cb2479689c813a3a7ce00e41a3669e7b5b1554
 					
 
 					
@@ -213,6 +232,7 @@
 						id="create-source">
 <pre>
     <span class="ruby-comment cmt"># File app/controllers/comments_controller.rb, line 14</span>
+<<<<<<< HEAD
 14:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
 15:         <span class="ruby-ivar">@rating</span> = <span class="ruby-constant">Rating</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:bathroom_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:comment</span>][<span class="ruby-value">:bathroom_id</span>], <span class="ruby-value">:smell</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:comment</span>][<span class="ruby-value">:smell</span>], <span class="ruby-value">:clean</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:comment</span>][<span class="ruby-value">:clean</span>], <span class="ruby-value">:overall</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:comment</span>][<span class="ruby-value">:overall</span>])
 16:                 <span class="ruby-ivar">@comment</span> = <span class="ruby-constant">Comment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:bathroom_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:comment</span>][<span class="ruby-value">:bathroom_id</span>], <span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:comment</span>][<span class="ruby-value">:user_id</span>], <span class="ruby-value">:body</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:comment</span>][<span class="ruby-value">:body</span>], <span class="ruby-value">:rating_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@rating</span>.<span class="ruby-identifier">id</span>)
@@ -226,6 +246,21 @@
 24:                 
 25: 
 26:     <span class="ruby-keyword kw">end</span></pre>
+=======
+14:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
+15:     <span class="ruby-ivar">@rating</span>          = <span class="ruby-constant">Rating</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:bathroom_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:comment</span>][<span class="ruby-value">:bathroom_id</span>], <span class="ruby-value">:smell</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:comment</span>][<span class="ruby-value">:smell</span>], <span class="ruby-value">:clean</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:comment</span>][<span class="ruby-value">:clean</span>], <span class="ruby-value">:overall</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:comment</span>][<span class="ruby-value">:overall</span>])
+16:     <span class="ruby-ivar">@comment</span>         = <span class="ruby-constant">Comment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:bathroom_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:comment</span>][<span class="ruby-value">:bathroom_id</span>], <span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:comment</span>][<span class="ruby-value">:user_id</span>], <span class="ruby-value">:body</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:comment</span>][<span class="ruby-value">:body</span>], <span class="ruby-value">:rating_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@rating</span>.<span class="ruby-identifier">id</span>)
+17: 
+18:     <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">user_id</span> = <span class="ruby-ivar">@current_user</span>.<span class="ruby-identifier">id</span>
+19:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">save</span> <span class="ruby-keyword kw">and</span> <span class="ruby-ivar">@rating</span>.<span class="ruby-identifier">save</span>
+20:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:back</span>
+21:     <span class="ruby-keyword kw">else</span>
+22:       <span class="ruby-identifier">render</span>
+23:     <span class="ruby-keyword kw">end</span>
+24: 
+25: 
+26:   <span class="ruby-keyword kw">end</span></pre>
+>>>>>>> 08cb2479689c813a3a7ce00e41a3669e7b5b1554
 					</div>
 					
 				</div>
@@ -249,13 +284,20 @@
 
 				<div class="method-description">
 					
+<<<<<<< HEAD
 					
+=======
+					<p>
+GET /comments
+</p>
+>>>>>>> 08cb2479689c813a3a7ce00e41a3669e7b5b1554
 					
 
 					
 					<div class="method-source-code"
 						id="index-source">
 <pre>
+<<<<<<< HEAD
     <span class="ruby-comment cmt"># File app/controllers/comments_controller.rb, line 10</span>
 10:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
 11:                 <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:back</span>
@@ -295,6 +337,14 @@
 6:                 <span class="ruby-ivar">@comment</span> = <span class="ruby-constant">Comment</span>.<span class="ruby-identifier">new</span>
 7:                 <span class="ruby-ivar">@rating</span> = <span class="ruby-constant">Rating</span>.<span class="ruby-identifier">new</span>
 8:     <span class="ruby-keyword kw">end</span></pre>
+=======
+    <span class="ruby-comment cmt"># File app/controllers/comments_controller.rb, line 7</span>
+ 7:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
+ 8:     <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:back</span>
+ 9:   <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">RedirectBackError</span>
+10:     <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_path</span>
+11:   <span class="ruby-keyword kw">end</span></pre>
+>>>>>>> 08cb2479689c813a3a7ce00e41a3669e7b5b1554
 					</div>
 					
 				</div>
