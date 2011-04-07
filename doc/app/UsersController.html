@@ -205,23 +205,26 @@
 
 				<div class="method-description">
 					
-					
+					<p>
+POST /users Create a user into the database by using the params Return
+back to the previous requested url if successful Else shows the errors
+</p>
 					
 
 					
 					<div class="method-source-code"
 						id="create-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/users_controller.rb, line 9</span>
- 9:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
-10:     <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:user</span>])
-11:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">save</span>
-12:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Account registered!&quot;</span>
-13:       <span class="ruby-identifier">redirect_back_or_default</span> <span class="ruby-identifier">root_url</span>
-14:     <span class="ruby-keyword kw">else</span>
-15:       <span class="ruby-identifier">render</span> <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:new</span>
-16:     <span class="ruby-keyword kw">end</span>
-17:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/users_controller.rb, line 16</span>
+16:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
+17:     <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:user</span>])
+18:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">save</span>
+19:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Account registered!&quot;</span>
+20:       <span class="ruby-identifier">redirect_back_or_default</span> <span class="ruby-identifier">root_url</span>
+21:     <span class="ruby-keyword kw">else</span>
+22:       <span class="ruby-identifier">render</span> <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:new</span>
+23:     <span class="ruby-keyword kw">end</span>
+24:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -245,17 +248,19 @@
 
 				<div class="method-description">
 					
-					
+					<p>
+GET /user/edit Edit the user profile (password update)
+</p>
 					
 
 					
 					<div class="method-source-code"
 						id="edit-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/users_controller.rb, line 23</span>
-23:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">edit</span>
-24:     <span class="ruby-ivar">@user</span> = <span class="ruby-ivar">@current_user</span>
-25:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/users_controller.rb, line 34</span>
+34:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">edit</span>
+35:     <span class="ruby-ivar">@user</span> = <span class="ruby-ivar">@current_user</span>
+36:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -279,17 +284,19 @@
 
 				<div class="method-description">
 					
-					
+					<p>
+GET /users/new GET /register Register page for user
+</p>
 					
 
 					
 					<div class="method-source-code"
 						id="new-source">
 <pre>
-   <span class="ruby-comment cmt"># File app/controllers/users_controller.rb, line 5</span>
-5:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>
-6:     <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>
-7:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/users_controller.rb, line 8</span>
+ 8:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>
+ 9:     <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>
+10:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -313,17 +320,19 @@
 
 				<div class="method-description">
 					
-					
+					<p>
+GET /users/show Show the user homepage for the current user
+</p>
 					
 
 					
 					<div class="method-source-code"
 						id="show-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/users_controller.rb, line 19</span>
-19:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show</span>
-20:     <span class="ruby-ivar">@user</span> = <span class="ruby-ivar">@current_user</span>
-21:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/users_controller.rb, line 28</span>
+28:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show</span>
+29:     <span class="ruby-ivar">@user</span> = <span class="ruby-ivar">@current_user</span>
+30:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -347,23 +356,26 @@
 
 				<div class="method-description">
 					
-					
+					<p>
+PUT /users Update user data by using params passed from client Return
+back to user homepage if successful Else shows the errors
+</p>
 					
 
 					
 					<div class="method-source-code"
 						id="update-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/users_controller.rb, line 27</span>
-27:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update</span>
-28:     <span class="ruby-ivar">@user</span> = <span class="ruby-ivar">@current_user</span> <span class="ruby-comment cmt"># makes our views &quot;cleaner&quot; and more consistent</span>
-29:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:user</span>])
-30:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Account updated!&quot;</span>
-31:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">user_url</span>
-32:     <span class="ruby-keyword kw">else</span>
-33:       <span class="ruby-identifier">render</span> <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:edit</span>
-34:     <span class="ruby-keyword kw">end</span>
-35:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/users_controller.rb, line 42</span>
+42:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update</span>
+43:     <span class="ruby-ivar">@user</span> = <span class="ruby-ivar">@current_user</span> <span class="ruby-comment cmt"># makes our views &quot;cleaner&quot; and more consistent</span>
+44:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:user</span>])
+45:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Account updated!&quot;</span>
+46:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">user_url</span>
+47:     <span class="ruby-keyword kw">else</span>
+48:       <span class="ruby-identifier">render</span> <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:edit</span>
+49:     <span class="ruby-keyword kw">end</span>
+50:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

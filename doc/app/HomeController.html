@@ -199,17 +199,18 @@
 
 				<div class="method-description">
 					
-					
+					<p>
+GET /home/about This is the about page
+</p>
 					
 
 					
 					<div class="method-source-code"
 						id="about-source">
 <pre>
-   <span class="ruby-comment cmt"># File app/controllers/home_controller.rb, line 7</span>
-7:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">about</span>
-8:     <span class="ruby-comment cmt"># this is the about page</span>
-9:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/home_controller.rb, line 11</span>
+11:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">about</span>
+12:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -233,17 +234,19 @@
 
 				<div class="method-description">
 					
-					
+					<p>
+GET / Root of this application, the index page
+</p>
 					
 
 					
 					<div class="method-source-code"
 						id="index-source">
 <pre>
-   <span class="ruby-comment cmt"># File app/controllers/home_controller.rb, line 3</span>
-3:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
-4:     <span class="ruby-ivar">@bathrooms</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">:all</span>)
-5:   <span class="ruby-keyword kw">end</span></pre>
+   <span class="ruby-comment cmt"># File app/controllers/home_controller.rb, line 5</span>
+5:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
+6:     <span class="ruby-ivar">@bathrooms</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">:all</span>)
+7:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
