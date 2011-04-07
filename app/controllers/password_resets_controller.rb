@@ -1,3 +1,6 @@
+# Password Reset Controller
+# It contains all CRUD pages of for password resets functionality
+# Require no user log in for all actions
 class PasswordResetsController < ApplicationController
   before_filter :load_user_using_perishable_token, :only => [:edit, :update]
   before_filter :require_no_user

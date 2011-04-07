@@ -1,3 +1,7 @@
+# Users Controller
+# It contains CRUD actions for users
+# Require no user for new and create
+# Require user for show edit and update
 class UsersController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => [:show, :edit, :update]

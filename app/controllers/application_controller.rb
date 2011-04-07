@@ -1,3 +1,7 @@
+# Application Controller
+# It contains all global methods that are going to be used in everywhere of the application
+# Also contains filters to check status of the current user
+# And start up functions to the reset the default setting of the application
 class ApplicationController < ActionController::Base
   layout "globalflush"
 
