@@ -2,10 +2,16 @@ class PasswordResetsController < ApplicationController
   before_filter :load_user_using_perishable_token, :only => [:edit, :update]
   before_filter :require_no_user
 
+  # GET /password_resets/new
+  # The new password reset page
   def new
     render
   end
 
+  # POST /password_resets
+  # To find the user by email.
+  # Deliver the password reset instructions email if the user is found
+  # Else shows the error
   def create
     @user = User.find_by_email(params[:email])
     if @user
@@ -19,10 +25,15 @@ class PasswordResetsController < ApplicationController
     end
   end
 
+  # GET /password_resets/:id/edit
+  # Form for reset the password
   def edit
     render
   end
 
+  # PUT /password_resets/:id
+  # Update the user password and save it
+  # Return back to user homepage if successful
   def update
     @user.password = params[:user][:password]
     @user.password_confirmation = params[:user][:password_confirmation]
@@ -35,6 +46,8 @@ class PasswordResetsController < ApplicationController
   end
 
   private
+  # Private function
+  # Find user by perishable token which is passed from the url
     def load_user_using_perishable_token
       @user = User.find_using_perishable_token(params[:id])
       unless @user
