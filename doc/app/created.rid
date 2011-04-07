@@ -1,20 +1,20 @@
-Wed, 06 Apr 2011 20:18:43 -0400
+Wed, 06 Apr 2011 20:31:41 -0400
 doc/README_FOR_APP	Sun, 27 Feb 2011 14:46:42 -0500
-app/controllers/application_controller.rb	Wed, 06 Apr 2011 20:12:15 -0400
-app/controllers/bathrooms_controller.rb	Wed, 06 Apr 2011 20:14:27 -0400
-app/controllers/comments_controller.rb	Mon, 04 Apr 2011 19:18:40 -0400
-app/controllers/home_controller.rb	Wed, 06 Apr 2011 20:15:17 -0400
-app/controllers/password_resets_controller.rb	Wed, 06 Apr 2011 20:16:52 -0400
-app/controllers/users_controller.rb	Wed, 06 Apr 2011 20:18:11 -0400
-app/controllers/user_sessions_controller.rb	Wed, 06 Apr 2011 20:17:02 -0400
-app/helpers/application_helper.rb	Sun, 27 Feb 2011 14:46:41 -0500
-app/helpers/bathrooms_helper.rb	Mon, 04 Apr 2011 19:18:40 -0400
-app/helpers/comments_helper.rb	Mon, 04 Apr 2011 19:18:40 -0400
-app/helpers/home_helper.rb	Mon, 04 Apr 2011 19:18:40 -0400
-app/helpers/password_resets_helper.rb	Mon, 04 Apr 2011 19:18:40 -0400
-app/helpers/users_helper.rb	Mon, 04 Apr 2011 19:18:40 -0400
-app/helpers/user_sessions_helper.rb	Mon, 04 Apr 2011 19:18:40 -0400
-app/mailers/notifier.rb	Mon, 04 Apr 2011 19:18:40 -0400
+app/controllers/application_controller.rb	Wed, 06 Apr 2011 20:26:12 -0400
+app/controllers/bathrooms_controller.rb	Wed, 06 Apr 2011 20:26:12 -0400
+app/controllers/comments_controller.rb	Wed, 06 Apr 2011 20:29:12 -0400
+app/controllers/home_controller.rb	Wed, 06 Apr 2011 20:26:12 -0400
+app/controllers/password_resets_controller.rb	Wed, 06 Apr 2011 20:26:12 -0400
+app/controllers/users_controller.rb	Wed, 06 Apr 2011 20:26:12 -0400
+app/controllers/user_sessions_controller.rb	Wed, 06 Apr 2011 20:26:12 -0400
+app/helpers/application_helper.rb	Wed, 06 Apr 2011 20:30:04 -0400
+app/helpers/bathrooms_helper.rb	Wed, 06 Apr 2011 20:30:13 -0400
+app/helpers/comments_helper.rb	Wed, 06 Apr 2011 20:30:21 -0400
+app/helpers/home_helper.rb	Wed, 06 Apr 2011 20:30:30 -0400
+app/helpers/password_resets_helper.rb	Wed, 06 Apr 2011 20:30:40 -0400
+app/helpers/users_helper.rb	Wed, 06 Apr 2011 20:31:23 -0400
+app/helpers/user_sessions_helper.rb	Wed, 06 Apr 2011 20:31:15 -0400
+app/mailers/notifier.rb	Wed, 06 Apr 2011 20:26:12 -0400
 app/models/address.rb	Wed, 06 Apr 2011 20:00:53 -0400
 app/models/bathroom.rb	Mon, 04 Apr 2011 19:18:40 -0400
 app/models/bathroom_photo.rb	Mon, 04 Apr 2011 19:18:40 -0400
