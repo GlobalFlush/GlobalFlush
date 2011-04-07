@@ -1,3 +1,19 @@
+#Bathroom is the place where you go for relief, many places have these and each Bathroom describes the location as well as other information associated with a bathroom
+#Bathroom has a one to many relationship with comments, e.i. a bathroom can have many comments.
+#Bathroom has a one to many relationship with ratings, e.i. a bathroom cna have many ratings.
+#Bathroom has a one to many relationship with graffitis, e.i. a bathroom can have many graffitis.
+#Bathroom has a one to one relationship with address, e.i. a bathroom can only have one address.
+#Bathroom has a one to many relationship with bathroomSpec, e.i. a bathroom can have many specs.
+#Bathroom has a one to many relationship with bathroom_photos, e.i. a bathroom can have many photos.
+#Bathroom has a one to many relationship with user, e.i a user can create many bathrooms but a bathroom can only be created by one user.
+#Bathroom have the following attributes:
+# - title: the name of the bathroom or location name
+# - gender: the gender the bathroom is for
+# - user_id: id of the user who created the bathroom
+# - description: a short summary that described the bathroom
+# - hidden: flag for admin and mod usage that hides the bathroom from website
+# - moderated: flag for admin and mod usage
+# - timestamp: the date of creation and update
 class Bathroom < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_many :ratings, :dependent => :destroy

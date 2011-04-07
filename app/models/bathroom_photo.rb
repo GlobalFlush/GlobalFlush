@@ -1,3 +1,14 @@
+#BathroomPhoto is a photo associated with a bathroom
+#BathroomPhoto has a one to many relationship with user, e.i. a user can upload many photos but a photo can only be uploaded by one user.
+#BathroomPhoto has a one to many relationship with bathroom, e.i a bathroom can have many photos but a photos can only associated with one bathroom.
+#BathroomPhoto have the following attributes:
+# - user_id: the id of the user who uploaded the photo
+# - bathroom_id: the id of the bathroom the photo is associated with
+# - type: the type of photo this photo is, graffiti or not
+# - photo_file_name: file name of the photo uploaded
+# - photo_contend_type: the file format of the photo
+# - photo_file_size: the size of the photos
+# - timestamp: the date of creation and update
 class BathroomPhoto < ActiveRecord::Base
   belongs_to :user
   belongs_to :bathroom

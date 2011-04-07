@@ -630,7 +630,7 @@ namespace :test do
     puts "\t- inserted sample bathroom #{bathroom.title}"
 	
 	bathroom = Bathroom.new
-	bathroom.gender = "Male"
+	bathroom.gender = "Female"
 	bathroom.hidden = false
 	bathroom.user_id = user.id
 	
@@ -647,8 +647,8 @@ namespace :test do
 	
 	bathroom.save!
 
-    #BathroomSpec.create(:key => "spec 1", :value => "value 1", :bathroom_id => bathroom.id)
-    #BathroomSpec.create(:key => "spec 2", :value => "value 2", :bathroom_id => bathroom.id)
+    #BathroomSpec.create(:key => "Number of Stalls", :value => "4", :bathroom_id => bathroom.id)
+    #BathroomSpec.create(:key => "Number of Sinks", :value => "3", :bathroom_id => bathroom.id)
 
     specs_params = [{:key => "spec 1", :value => "value 1", :bathroom_id => bathroom.id},
                     {:key => "spec 2", :value => "value 2", :bathroom_id => bathroom.id}
