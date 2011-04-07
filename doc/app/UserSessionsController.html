@@ -147,13 +147,10 @@
 				
 					<li><a href="./Rating.html">Rating</a></li>
 				
-<<<<<<< HEAD
 					<li><a href="./RatingsController.html">RatingsController</a></li>
 				
 					<li><a href="./RatingsHelper.html">RatingsHelper</a></li>
 				
-=======
->>>>>>> 08cb2479689c813a3a7ce00e41a3669e7b5b1554
 					<li><a href="./Tag.html">Tag</a></li>
 				
 					<li><a href="./User.html">User</a></li>
@@ -180,15 +177,11 @@
 		<h1 class="class">UserSessionsController</h1>
 
 		<div id="description">
-<<<<<<< HEAD
-			
-=======
 			<p>
 <a href="User.html">User</a> sessions controller It handles the CRUD of
 all sessions
 </p>
 
->>>>>>> 08cb2479689c813a3a7ce00e41a3669e7b5b1554
 		</div>
 
 		<!-- Constants -->
@@ -216,32 +209,16 @@ all sessions
 
 				<div class="method-description">
 					
-<<<<<<< HEAD
-					
-=======
 					<p>
 POST /users Create a new user session for the incoming user data return
 back to the previous requested url if log in successfully
 </p>
->>>>>>> 08cb2479689c813a3a7ce00e41a3669e7b5b1554
 					
 
 					
 					<div class="method-source-code"
 						id="create-source">
 <pre>
-<<<<<<< HEAD
-    <span class="ruby-comment cmt"># File app/controllers/user_sessions_controller.rb, line 8</span>
- 8:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
- 9:     <span class="ruby-ivar">@user_session</span> = <span class="ruby-constant">UserSession</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:user_session</span>])
-10:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@user_session</span>.<span class="ruby-identifier">save</span>
-11:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Login successful!&quot;</span>
-12:       <span class="ruby-identifier">redirect_back_or_default</span> <span class="ruby-identifier">root_url</span>
-13:     <span class="ruby-keyword kw">else</span>
-14:       <span class="ruby-identifier">render</span> <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:new</span>
-15:     <span class="ruby-keyword kw">end</span>
-16:   <span class="ruby-keyword kw">end</span></pre>
-=======
     <span class="ruby-comment cmt"># File app/controllers/user_sessions_controller.rb, line 15</span>
 15:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
 16:     <span class="ruby-ivar">@user_session</span> = <span class="ruby-constant">UserSession</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:user_session</span>])
@@ -252,7 +229,6 @@ back to the previous requested url if log in successfully
 21:       <span class="ruby-identifier">render</span> <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:new</span>
 22:     <span class="ruby-keyword kw">end</span>
 23:   <span class="ruby-keyword kw">end</span></pre>
->>>>>>> 08cb2479689c813a3a7ce00e41a3669e7b5b1554
 					</div>
 					
 				</div>
@@ -276,34 +252,21 @@ back to the previous requested url if log in successfully
 
 				<div class="method-description">
 					
-<<<<<<< HEAD
-					
-=======
 					<p>
 DELETE /logout Destroy the current user session
 </p>
->>>>>>> 08cb2479689c813a3a7ce00e41a3669e7b5b1554
 					
 
 					
 					<div class="method-source-code"
 						id="destroy-source">
 <pre>
-<<<<<<< HEAD
-    <span class="ruby-comment cmt"># File app/controllers/user_sessions_controller.rb, line 18</span>
-18:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy</span>
-19:     <span class="ruby-identifier">current_user_session</span>.<span class="ruby-identifier">destroy</span>
-20:     <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Logout successful!&quot;</span>
-21:     <span class="ruby-identifier">redirect_back_or_default</span> <span class="ruby-identifier">login_url</span>
-22:   <span class="ruby-keyword kw">end</span></pre>
-=======
     <span class="ruby-comment cmt"># File app/controllers/user_sessions_controller.rb, line 27</span>
 27:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy</span>
 28:     <span class="ruby-identifier">current_user_session</span>.<span class="ruby-identifier">destroy</span>
 29:     <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Logout successful!&quot;</span>
 30:     <span class="ruby-identifier">redirect_back_or_default</span> <span class="ruby-identifier">login_url</span>
 31:   <span class="ruby-keyword kw">end</span></pre>
->>>>>>> 08cb2479689c813a3a7ce00e41a3669e7b5b1554
 					</div>
 					
 				</div>
@@ -327,28 +290,18 @@ DELETE /logout Destroy the current user session
 
 				<div class="method-description">
 					
-<<<<<<< HEAD
-					
-=======
 					<p>
 GET /login The login page
 </p>
->>>>>>> 08cb2479689c813a3a7ce00e41a3669e7b5b1554
 					
 
 					
 					<div class="method-source-code"
 						id="new-source">
 <pre>
-<<<<<<< HEAD
-   <span class="ruby-comment cmt"># File app/controllers/user_sessions_controller.rb, line 5</span>
-5:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>
-6:   <span class="ruby-keyword kw">end</span></pre>
-=======
     <span class="ruby-comment cmt"># File app/controllers/user_sessions_controller.rb, line 9</span>
  9:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>
 10:   <span class="ruby-keyword kw">end</span></pre>
->>>>>>> 08cb2479689c813a3a7ce00e41a3669e7b5b1554
 					</div>
 					
 				</div>
