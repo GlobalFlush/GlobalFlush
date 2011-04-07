@@ -2,13 +2,11 @@ class CommentsController < ApplicationController
     
     before_filter :require_user
 	
-    def new
-		@comment = Comment.new
-		@rating = Rating.new
-    end
-	
+    # GET /comments/
 	def index
 		redirect_to :back
+    rescue ActionController::RedirectBackError
+        redirect_to root_path
 	end
 	
     def create
