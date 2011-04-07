@@ -175,7 +175,10 @@
 		<h1 class="class">RatingsController</h1>
 
 		<div id="description">
-			
+			<p>
+<a href="Rating.html">Rating</a> controller
+</p>
+
 		</div>
 
 		<!-- Constants -->
@@ -203,22 +206,24 @@
 
 				<div class="method-description">
 					
-					
+					<p>
+POST /ratings
+</p>
 					
 
 					
 					<div class="method-source-code"
 						id="create-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/ratings_controller.rb, line 8</span>
- 8:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
- 9:                 <span class="ruby-ivar">@rating</span> = <span class="ruby-constant">Rating</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:rating</span>])
-10:                 <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@rating</span>.<span class="ruby-identifier">save</span>
-11:                         <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:back</span>
-12:                 <span class="ruby-keyword kw">else</span>
-13:                         <span class="ruby-identifier">render</span>
-14:                 <span class="ruby-keyword kw">end</span>
-15:         <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/ratings_controller.rb, line 11</span>
+11:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
+12:                 <span class="ruby-ivar">@rating</span> = <span class="ruby-constant">Rating</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:rating</span>])
+13:                 <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@rating</span>.<span class="ruby-identifier">save</span>
+14:                         <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:back</span>
+15:                 <span class="ruby-keyword kw">else</span>
+16:                         <span class="ruby-identifier">render</span>
+17:                 <span class="ruby-keyword kw">end</span>
+18:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -242,17 +247,19 @@
 
 				<div class="method-description">
 					
-					
+					<p>
+GET /ratings
+</p>
 					
 
 					
 					<div class="method-source-code"
 						id="new-source">
 <pre>
-   <span class="ruby-comment cmt"># File app/controllers/ratings_controller.rb, line 4</span>
-4:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>
-5:                 <span class="ruby-ivar">@rating</span> = <span class="ruby-constant">Rating</span>.<span class="ruby-identifier">new</span>
-6:         <span class="ruby-keyword kw">end</span></pre>
+   <span class="ruby-comment cmt"># File app/controllers/ratings_controller.rb, line 6</span>
+6:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>
+7:                 <span class="ruby-ivar">@rating</span> = <span class="ruby-constant">Rating</span>.<span class="ruby-identifier">new</span>
+8:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

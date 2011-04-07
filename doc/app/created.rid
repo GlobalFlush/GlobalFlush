@@ -1,11 +1,11 @@
-Wed, 06 Apr 2011 20:55:41 -0400
+Wed, 06 Apr 2011 20:58:48 -0400
 doc/README_FOR_APP	Sun, 27 Feb 2011 14:46:42 -0500
 app/controllers/application_controller.rb	Wed, 06 Apr 2011 20:26:12 -0400
 app/controllers/bathrooms_controller.rb	Wed, 06 Apr 2011 20:26:12 -0400
 app/controllers/comments_controller.rb	Wed, 06 Apr 2011 20:34:50 -0400
 app/controllers/home_controller.rb	Wed, 06 Apr 2011 20:26:12 -0400
 app/controllers/password_resets_controller.rb	Wed, 06 Apr 2011 20:26:12 -0400
-app/controllers/ratings_controller.rb	Wed, 06 Apr 2011 20:53:48 -0400
+app/controllers/ratings_controller.rb	Wed, 06 Apr 2011 20:57:47 -0400
 app/controllers/users_controller.rb	Wed, 06 Apr 2011 20:26:12 -0400
 app/controllers/user_sessions_controller.rb	Wed, 06 Apr 2011 20:26:12 -0400
 app/helpers/application_helper.rb	Wed, 06 Apr 2011 20:33:11 -0400
@@ -13,7 +13,7 @@ app/helpers/bathrooms_helper.rb	Wed, 06 Apr 2011 20:33:11 -0400
 app/helpers/comments_helper.rb	Wed, 06 Apr 2011 20:33:11 -0400
 app/helpers/home_helper.rb	Wed, 06 Apr 2011 20:33:11 -0400
 app/helpers/password_resets_helper.rb	Wed, 06 Apr 2011 20:33:11 -0400
-app/helpers/ratings_helper.rb	Wed, 06 Apr 2011 20:53:48 -0400
+app/helpers/ratings_helper.rb	Wed, 06 Apr 2011 20:58:27 -0400
 app/helpers/users_helper.rb	Wed, 06 Apr 2011 20:33:11 -0400
 app/helpers/user_sessions_helper.rb	Wed, 06 Apr 2011 20:33:11 -0400
 app/mailers/notifier.rb	Wed, 06 Apr 2011 20:26:12 -0400
