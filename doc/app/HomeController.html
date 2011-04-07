@@ -171,7 +171,11 @@
 		<h1 class="class">HomeController</h1>
 
 		<div id="description">
-			
+			<p>
+Home controller It contains the root of this application, the homepage
+And a static link &#8216;about&#8217; page of the application
+</p>
+
 		</div>
 
 		<!-- Constants -->
@@ -208,9 +212,9 @@ GET /home/about This is the about page
 					<div class="method-source-code"
 						id="about-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/home_controller.rb, line 11</span>
-11:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">about</span>
-12:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/home_controller.rb, line 14</span>
+14:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">about</span>
+15:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -243,10 +247,10 @@ GET / Root of this application, the index page
 					<div class="method-source-code"
 						id="index-source">
 <pre>
-   <span class="ruby-comment cmt"># File app/controllers/home_controller.rb, line 5</span>
-5:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
-6:     <span class="ruby-ivar">@bathrooms</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">:all</span>)
-7:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/home_controller.rb, line 8</span>
+ 8:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
+ 9:     <span class="ruby-ivar">@bathrooms</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">:all</span>)
+10:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

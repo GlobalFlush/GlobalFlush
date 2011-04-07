@@ -1,3 +1,6 @@
+# Home controller
+# It contains the root of this application, the homepage
+# And a static link 'about' page of the application
 class HomeController < ApplicationController
 
   # GET /

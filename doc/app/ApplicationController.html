@@ -181,7 +181,13 @@
 		<h1 class="class">ApplicationController</h1>
 
 		<div id="description">
-			
+			<p>
+Application Controller It contains all global methods that are going to be
+used in everywhere of the application Also contains filters to check
+status of the current user And start up functions to the reset the default
+setting of the application
+</p>
+
 		</div>
 
 		<!-- Constants -->
@@ -218,10 +224,10 @@ Reset the action mailer host url
 					<div class="method-source-code"
 						id="mailer-set-url-options-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/application_controller.rb, line 11</span>
-11:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mailer_set_url_options</span>
-12:     <span class="ruby-constant">ActionMailer</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">default_url_options</span>[<span class="ruby-value">:host</span>] = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">host_with_port</span>
-13:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/application_controller.rb, line 15</span>
+15:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mailer_set_url_options</span>
+16:     <span class="ruby-constant">ActionMailer</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">default_url_options</span>[<span class="ruby-value">:host</span>] = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">host_with_port</span>
+17:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -260,12 +266,12 @@ Return the current logged in user Return nil if there isn&#8217;t any
 					<div class="method-source-code"
 						id="current-user-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/application_controller.rb, line 25</span>
-25:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">current_user</span>
-26:     <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;ApplicationController::current_user&quot;</span>
-27:     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@current_user</span> <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">defined?</span>(<span class="ruby-ivar">@current_user</span>)
-28:     <span class="ruby-ivar">@current_user</span> = <span class="ruby-identifier">current_user_session</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">current_user_session</span>.<span class="ruby-identifier">user</span>
-29:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/application_controller.rb, line 29</span>
+29:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">current_user</span>
+30:     <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;ApplicationController::current_user&quot;</span>
+31:     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@current_user</span> <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">defined?</span>(<span class="ruby-ivar">@current_user</span>)
+32:     <span class="ruby-ivar">@current_user</span> = <span class="ruby-identifier">current_user_session</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">current_user_session</span>.<span class="ruby-identifier">user</span>
+33:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -298,12 +304,12 @@ Return the current user session
 					<div class="method-source-code"
 						id="current-user-session-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/application_controller.rb, line 17</span>
-17:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">current_user_session</span>
-18:     <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;ApplicationController::current_user_session&quot;</span>
-19:     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@current_user_session</span> <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">defined?</span>(<span class="ruby-ivar">@current_user_session</span>)
-20:     <span class="ruby-ivar">@current_user_session</span> = <span class="ruby-constant">UserSession</span>.<span class="ruby-identifier">find</span>
-21:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/application_controller.rb, line 21</span>
+21:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">current_user_session</span>
+22:     <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;ApplicationController::current_user_session&quot;</span>
+23:     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@current_user_session</span> <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">defined?</span>(<span class="ruby-ivar">@current_user_session</span>)
+24:     <span class="ruby-ivar">@current_user_session</span> = <span class="ruby-constant">UserSession</span>.<span class="ruby-identifier">find</span>
+25:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -337,11 +343,11 @@ session. Else, return back to homepage
 					<div class="method-source-code"
 						id="redirect-back-or-default-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/application_controller.rb, line 62</span>
-62:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">redirect_back_or_default</span>(<span class="ruby-identifier">default</span>)
-63:     <span class="ruby-identifier">redirect_to</span>(<span class="ruby-identifier">session</span>[<span class="ruby-value">:return_to</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">default</span>)
-64:     <span class="ruby-identifier">session</span>[<span class="ruby-value">:return_to</span>] = <span class="ruby-keyword kw">nil</span>
-65:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/application_controller.rb, line 66</span>
+66:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">redirect_back_or_default</span>(<span class="ruby-identifier">default</span>)
+67:     <span class="ruby-identifier">redirect_to</span>(<span class="ruby-identifier">session</span>[<span class="ruby-value">:return_to</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">default</span>)
+68:     <span class="ruby-identifier">session</span>[<span class="ruby-value">:return_to</span>] = <span class="ruby-keyword kw">nil</span>
+69:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -375,16 +381,16 @@ back to homepage. Otherwise return true.
 					<div class="method-source-code"
 						id="require-no-user-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/application_controller.rb, line 45</span>
-45:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">require_no_user</span>
-46:     <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;ApplicationController::require_no_user&quot;</span>
-47:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">current_user</span>
-48:       <span class="ruby-identifier">store_location</span>
-49:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;You must be logged out to access this page&quot;</span>
-50:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_url</span>
-51:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
-52:     <span class="ruby-keyword kw">end</span>
-53:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/application_controller.rb, line 49</span>
+49:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">require_no_user</span>
+50:     <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;ApplicationController::require_no_user&quot;</span>
+51:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">current_user</span>
+52:       <span class="ruby-identifier">store_location</span>
+53:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;You must be logged out to access this page&quot;</span>
+54:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_url</span>
+55:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
+56:     <span class="ruby-keyword kw">end</span>
+57:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -418,16 +424,16 @@ return false and redirect back to login page.
 					<div class="method-source-code"
 						id="require-user-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/application_controller.rb, line 33</span>
-33:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">require_user</span>
-34:     <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;ApplicationController::require_user&quot;</span>
-35:     <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">current_user</span>
-36:       <span class="ruby-identifier">store_location</span>
-37:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;You must be logged in to access this page&quot;</span>
-38:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">login_url</span>
-39:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
-40:     <span class="ruby-keyword kw">end</span>
-41:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/application_controller.rb, line 37</span>
+37:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">require_user</span>
+38:     <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;ApplicationController::require_user&quot;</span>
+39:     <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">current_user</span>
+40:       <span class="ruby-identifier">store_location</span>
+41:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;You must be logged in to access this page&quot;</span>
+42:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">login_url</span>
+43:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
+44:     <span class="ruby-keyword kw">end</span>
+45:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -460,10 +466,10 @@ Save the request from client into session
 					<div class="method-source-code"
 						id="store-location-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/application_controller.rb, line 56</span>
-56:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">store_location</span>
-57:     <span class="ruby-identifier">session</span>[<span class="ruby-value">:return_to</span>] = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">request_uri</span>
-58:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/application_controller.rb, line 60</span>
+60:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">store_location</span>
+61:     <span class="ruby-identifier">session</span>[<span class="ruby-value">:return_to</span>] = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">request_uri</span>
+62:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

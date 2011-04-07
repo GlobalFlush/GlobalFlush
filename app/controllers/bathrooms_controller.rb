@@ -1,3 +1,6 @@
+# Bathrooms Controller
+# It controls all the pages are related to all the CRUD page for bathrooms
+# log in is required for CUD, displaying is not required log in
 class BathroomsController < ApplicationController
   before_filter :require_user, :only => [:new, :create, :update, :edit, :destroy]
 
