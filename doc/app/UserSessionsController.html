@@ -208,16 +208,16 @@
 					<div class="method-source-code"
 						id="create-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/user_sessions_controller.rb, line 8</span>
- 8:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
- 9:     <span class="ruby-ivar">@user_session</span> = <span class="ruby-constant">UserSession</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:user_session</span>])
-10:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@user_session</span>.<span class="ruby-identifier">save</span>
-11:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Login successful!&quot;</span>
-12:       <span class="ruby-identifier">redirect_back_or_default</span> <span class="ruby-identifier">root_url</span>
-13:     <span class="ruby-keyword kw">else</span>
-14:       <span class="ruby-identifier">render</span> <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:new</span>
-15:     <span class="ruby-keyword kw">end</span>
-16:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/user_sessions_controller.rb, line 10</span>
+10:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
+11:     <span class="ruby-ivar">@user_session</span> = <span class="ruby-constant">UserSession</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:user_session</span>])
+12:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@user_session</span>.<span class="ruby-identifier">save</span>
+13:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Login successful!&quot;</span>
+14:       <span class="ruby-identifier">redirect_back_or_default</span> <span class="ruby-identifier">root_url</span>
+15:     <span class="ruby-keyword kw">else</span>
+16:       <span class="ruby-identifier">render</span> <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:new</span>
+17:     <span class="ruby-keyword kw">end</span>
+18:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -248,12 +248,12 @@
 					<div class="method-source-code"
 						id="destroy-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/user_sessions_controller.rb, line 18</span>
-18:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy</span>
-19:     <span class="ruby-identifier">current_user_session</span>.<span class="ruby-identifier">destroy</span>
-20:     <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Logout successful!&quot;</span>
-21:     <span class="ruby-identifier">redirect_back_or_default</span> <span class="ruby-identifier">login_url</span>
-22:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/user_sessions_controller.rb, line 20</span>
+20:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy</span>
+21:     <span class="ruby-identifier">current_user_session</span>.<span class="ruby-identifier">destroy</span>
+22:     <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Logout successful!&quot;</span>
+23:     <span class="ruby-identifier">redirect_back_or_default</span> <span class="ruby-identifier">login_url</span>
+24:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -277,16 +277,18 @@
 
 				<div class="method-description">
 					
-					
+					<p>
+GET /login
+</p>
 					
 
 					
 					<div class="method-source-code"
 						id="new-source">
 <pre>
-   <span class="ruby-comment cmt"># File app/controllers/user_sessions_controller.rb, line 5</span>
-5:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>
-6:   <span class="ruby-keyword kw">end</span></pre>
+   <span class="ruby-comment cmt"># File app/controllers/user_sessions_controller.rb, line 7</span>
+7:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>
+8:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
