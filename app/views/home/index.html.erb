@@ -20,10 +20,12 @@
 <p>Get started by searching a geographical area or browsing the top rated facilties.</p>
 <h3>Find a Bathroom</h3>
 <div id="find">
-  <% form_for :bathroom, :url => search_url(:keyword) do |f| %>
-    <%= f.text_field :keyword,:id=>'zip',:value=>"Enter a location or zipcode",:onclick=>"clickclear(this, 'Enter a location or zipcode')",:onblur=>"clickrecall(this,'Enter a location or zipcode')" %>
-    <%= f.submit 'Go',:id=>'go' %>
+
+  <% form_tag search_url, :method => 'get' do %>
+      <%= text_field_tag :keyword, params[:keyword] %>
+      <%= submit_tag "Search", :name => nil %>
   <% end %>
+  
   <div class="home_button" id="via_map">via Map</div>
   <div class="home_button" id="via_browse"><%= link_to 'via Browse', bathrooms_url%></div>
 </div>

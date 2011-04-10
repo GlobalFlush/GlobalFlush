@@ -76,11 +76,5 @@ class BathroomsController < ApplicationController
     
   end
 
-  # GET /search
-  # Search for bathroom by keywords
-  # Calling named_scope in Bathroom model
-  def search
-    @bathrooms = Bathroom.search_by_address(params[:keyword])
-  end
   
 end

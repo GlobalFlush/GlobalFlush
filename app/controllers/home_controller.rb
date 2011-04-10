@@ -14,4 +14,12 @@ class HomeController < ApplicationController
   def about
   end
 
+  # GET /search
+  # Search for bathroom by keywords
+  # Calling named_scope in Bathroom model
+  def search
+    puts params[:keyword]
+    @bathrooms = Bathroom.search_by_address(params[:keyword])
+  end
+  
 end
