@@ -132,7 +132,7 @@ body
   margin-bottom:20px;
 }
 
-/* Bathroom Show Page */
+/* Bathroom Show Page/Add Page */
 
 #left_column
 {
@@ -148,6 +148,18 @@ body
   margin-bottom:12px;
 }
 #map
+{
+  height:300px;
+  width:300px;
+}
+#mapbox_add
+{
+  height:308px;
+  width:308px;
+  background-image:url(/images/map_shadow.png);
+  margin-bottom:12px;
+}
+#map_add
 {
   height:300px;
   width:300px;
