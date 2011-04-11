@@ -3,6 +3,17 @@ Globalflush::Application.routes.draw do
   get "home/about"
   get "user_sessions/new"
 
+#  get 'bathroom_photos/:bathroom_id'
+#  get 'bathroom_photos/new/:bathroom_id'
+#  post 'bathroom_photos/:bathroom_id'
+#  destroy 'bathroom_photos/:id'
+  
+
+  match 'bathroom_photos/:bathroom_id' => 'bathroom_photos#show', :via => :get, :as => :bathroom_photo
+  match 'bathroom_photos/new/:bathroom_id' => 'bathroom_photos#new', :via => :get, :as => :new_bathroom_photo
+  match 'bathroom_photos/:bathroom_id' => 'bathroom_photos#create', :via => :post, :as => :bathroom_photos
+  match 'bathroom_photos/:id' => 'bathroom_photos#destroy', :via => :delete, :as => :bathroom_photo
+
 #  root :to => "welcome#index"
 
   resources :user_sessions
@@ -11,6 +22,7 @@ Globalflush::Application.routes.draw do
   resources :bathrooms
   resources :comments
   resources :ratings
+ # resources :bathroom_photos
 
   get "users/show"
   match 'users/show' => 'users#show', :as => :user_show

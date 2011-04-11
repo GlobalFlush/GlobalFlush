@@ -77,8 +77,6 @@
 					
 					<li><a href="#method-i-new">#new</a></li>
 					
-					<li><a href="#method-i-search">#search</a></li>
-					
 					<li><a href="#method-i-show">#show</a></li>
 					
 					<li><a href="#method-i-update">#update</a></li>
@@ -128,6 +126,10 @@
 					<li><a href="./Bathroom.html">Bathroom</a></li>
 				
 					<li><a href="./BathroomPhoto.html">BathroomPhoto</a></li>
+				
+					<li><a href="./BathroomPhotosController.html">BathroomPhotosController</a></li>
+				
+					<li><a href="./BathroomPhotosHelper.html">BathroomPhotosHelper</a></li>
 				
 					<li><a href="./BathroomSpec.html">BathroomSpec</a></li>
 				
@@ -368,43 +370,6 @@ bathroom_photos
 16:       <span class="ruby-ivar">@bathroom</span>.<span class="ruby-identifier">bathroom_photos</span>.<span class="ruby-identifier">build</span>
 17:     <span class="ruby-keyword kw">end</span>
 18:   <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
-
-				
-
-				
-			</div>
-
-		
-			<div id="search-method" class="method-detail ">
-				<a name="method-i-search"></a>
-
-				<div class="method-heading">
-				
-					<span class="method-name">search</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
-
-				<div class="method-description">
-					
-					<p>
-GET /search Search for bathroom by keywords Calling named_scope in <a
-href="Bathroom.html">Bathroom</a> model
-</p>
-					
-
-					
-					<div class="method-source-code"
-						id="search-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/controllers/bathrooms_controller.rb, line 82</span>
-82:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">search</span>
-83:     <span class="ruby-ivar">@bathrooms</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">search_by_address</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:keyword</span>])
-84:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

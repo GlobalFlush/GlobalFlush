@@ -1,0 +1,11 @@
+<h1>New Bathroom Photo</h1>
+
+<% form_for @bathroom_photo, :url => bathroom_photos_url(@bathroom.id), :html => { :multipart => true } do |f|%>
+    <%= f.error_messages %>
+
+    <%= f.hidden_field :bathroom_id, :value => @bathroom.id %>
+    
+    <%= f.file_field :photo %><br />
+    <%= f.submit %>
+<% end %>
+

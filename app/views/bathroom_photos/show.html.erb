@@ -54,7 +54,7 @@
     oMax = 5;
 
     if(!overall_rated && num.id[0]=='0'){
-      
+
       s = num.id[1]; // Get the selected star
       for(i=1; i<=oMax; i++){
         if(i<=s){
@@ -138,7 +138,7 @@ function rate(me){
 function sendRate(sel){
   //alert("Your rating was: "+sel.id[1]);
 }
-  
+
 function show_rating(score){
   if (score > 0){
     r = 0;
@@ -149,7 +149,7 @@ function show_rating(score){
     document.getElementById("_"+r).className = "s"+Math.round((score - r) * 10);
   }
 }
-	
+
 function update_hidden(){
   document.comment_rating.overall.value = preSet_overall.id[1];
   document.comment_rating.clean.value = preSet_clean.id[1];
@@ -181,6 +181,7 @@ function update_hidden(){
     <% tstars += 1 %>
   <% end %>
 </div>
+
 <h1><%= @bathroom.title %> -
   <% if @bathroom.gender == "Male" %>
     &#9794;
@@ -189,99 +190,14 @@ function update_hidden(){
   <% end %>
 </h1>
 
-<div id="left_column">
-  <div id="mapbox">
-    <div id="map">
+<div>
+  <% @bathroom_photos.each do |bp| %>
+    <div>
+      <a href="<%= bp.photo.url %>"><%= image_tag bp.photo.url(:small) %></a>
+      <%= link_to 'Remove', bp, :method => :delete, :confirm => 'Are you sure?' %>
     </div>
-  </div>
-
-<%#= render :partial => "bathrooms/map" %>
-
-  <h2>Detailed Ratings</h2>
-
-  <div id="rating_box">
-
-    <div id="rb_left">
-      <ul>
-        <li>Overall Rating</li>   
-        <li>Cleanliness</li>
-        <li>Smelliness</li>
-      </ul>
-    </div>
-    <div id="rb_right">
-      <ul>
-        <li>
-          <div class="offstar" onclick="rate(this)" id="01" onmouseover="rating(this)" onmouseout="off(this)"></div>
-          <div class="offstar" onclick="rate(this)" id="02" onmouseover="rating(this)" onmouseout="off(this)"></div>
-          <div class="offstar" onclick="rate(this)" id="03" onmouseover="rating(this)" onmouseout="off(this)"></div>
-          <div class="offstar" onclick="rate(this)" id="04" onmouseover="rating(this)" onmouseout="off(this)"></div>
-          <div class="offstar" onclick="rate(this)" id="05" onmouseover="rating(this)" onmouseout="off(this)"></div>
-        </li>
-        <li>
-          <div class="offstar" onclick="rate(this)" id="11" onmouseover="rating(this)" onmouseout="off(this)"></div>
-          <div class="offstar" onclick="rate(this)" id="12" onmouseover="rating(this)" onmouseout="off(this)"></div>
-          <div class="offstar" onclick="rate(this)" id="13" onmouseover="rating(this)" onmouseout="off(this)"></div>
-          <div class="offstar" onclick="rate(this)" id="14" onmouseover="rating(this)" onmouseout="off(this)"></div>
-          <div class="offstar" onclick="rate(this)" id="15" onmouseover="rating(this)" onmouseout="off(this)"></div>
-        </li>
-        <li>
-          <div class="offstar" onclick="rate(this)" id="21" onmouseover="rating(this)" onmouseout="off(this)"></div>
-          <div class="offstar" onclick="rate(this)" id="22" onmouseover="rating(this)" onmouseout="off(this)"></div>
-          <div class="offstar" onclick="rate(this)" id="23" onmouseover="rating(this)" onmouseout="off(this)"></div>
-          <div class="offstar" onclick="rate(this)" id="24" onmouseover="rating(this)" onmouseout="off(this)"></div>
-          <div class="offstar" onclick="rate(this)" id="25" onmouseover="rating(this)" onmouseout="off(this)"></div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-<div id="images">
-  <% @bathroom.bathroom_photos.each do |bp| %>
-    <div><a href="<%= bp.photo.url %>"><%= image_tag bp.photo.url(:thumb) %></a></div>
   <% end %>
-  <p><%= link_to 'View All', bathroom_photo_path(@bathroom.id) %> | <%= link_to 'Add More', new_bathroom_photo_path(@bathroom.id) %>
 </div>
 
-<h2>Address</h2>
-<div id="address_box">
-  <%= @bathroom.address.to_s %>
-</div>
 
-<h2>Attributes</h2>
-<div id="attribute_box">
-  <div id="ab_left">
-    <ul>
-      <% @bathroom.bathroom_specs.each do |spec| %>
-        <li><%= spec.key %></li>
-      <% end %>
-    </ul>
-  </div>
-  <div id="ab_right">
-    <ul>
-      <% @bathroom.bathroom_specs.each do |spec| %>
-        <li><%= spec.value %></li>
-      <% end %>
-    </ul>
-  </div>
-</div>
-
-<h2>Write a Review</h2>
-<%= form_for :comment, :url => comments_path , :html => {:name => "comment_rating"} do |f| %>
-  <%= f.text_area :body %>
-  <%= f.hidden_field :bathroom_id, :value => @bathroom.id %>
-  <br />
-  <%= f.hidden_field :overall, :id => "overall" %>
-  <%= f.hidden_field :clean, :id => "clean" %>
-  <%= f.hidden_field :smell, :id => "smell"%>
-  <%= f.submit "Post Comment" , :onclick => "update_hidden()"%>
-<% end %>
-<div style="clear:both;"></div>
-<h2 class="full">Reviews</h2>
-
-<% @bathroom.comments.each do |comment| %>
-  <div class="review">
-    <div class="username"><%= link_to comment.user.login, comment.user %></div>
-    <div class="date_posted"><%= comment.created_at.strftime("%I:%M%p %m/%d/%Y") %></div>
-    <p><%= comment.body %></p>
-  </div>
-<% end %>
+<%= link_to 'Add More', new_bathroom_photo_url(@bathroom.id) %>
