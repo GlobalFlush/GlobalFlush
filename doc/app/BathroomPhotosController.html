@@ -5,7 +5,7 @@
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-	<title>Class: UserSessionsController</title>
+	<title>Class: BathroomPhotosController</title>
 
 	<link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
 
@@ -38,8 +38,8 @@
 				<div class="section-body">
 					<ul>
 					
-						<li><a href="./app/controllers/user_sessions_controller_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="app/controllers/user_sessions_controller.rb">app/controllers/user_sessions_controller.rb</a></li>
+						<li><a href="./app/controllers/bathroom_photos_controller_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="app/controllers/bathroom_photos_controller.rb">app/controllers/bathroom_photos_controller.rb</a></li>
 					
 					</ul>
 				</div>
@@ -74,6 +74,8 @@
 					<li><a href="#method-i-destroy">#destroy</a></li>
 					
 					<li><a href="#method-i-new">#new</a></li>
+					
+					<li><a href="#method-i-show">#show</a></li>
 					
 				</ul>
 			</div>
@@ -178,12 +180,12 @@
 	</div>
 
 	<div id="documentation">
-		<h1 class="class">UserSessionsController</h1>
+		<h1 class="class">BathroomPhotosController</h1>
 
 		<div id="description">
 			<p>
-<a href="User.html">User</a> sessions controller It handles the CRUD of
-all sessions
+<a href="Bathroom.html">Bathroom</a> Photo Controller Manage the CRD of
+bathroom photos log in is only required for new create and destroy action
 </p>
 
 		</div>
@@ -214,8 +216,8 @@ all sessions
 				<div class="method-description">
 					
 					<p>
-POST /users Create a new user session for the incoming user data return
-back to the previous requested url if log in successfully
+POST /bathroom_photos/:bathroom_id create the new bathroom photo and pass
+the bathroom_id as well
 </p>
 					
 
@@ -223,16 +225,16 @@ back to the previous requested url if log in successfully
 					<div class="method-source-code"
 						id="create-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/user_sessions_controller.rb, line 15</span>
-15:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
-16:     <span class="ruby-ivar">@user_session</span> = <span class="ruby-constant">UserSession</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:user_session</span>])
-17:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@user_session</span>.<span class="ruby-identifier">save</span>
-18:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Login successful!&quot;</span>
-19:       <span class="ruby-identifier">redirect_back_or_default</span> <span class="ruby-identifier">root_url</span>
-20:     <span class="ruby-keyword kw">else</span>
-21:       <span class="ruby-identifier">render</span> <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:new</span>
-22:     <span class="ruby-keyword kw">end</span>
-23:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/bathroom_photos_controller.rb, line 24</span>
+24:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
+25:     <span class="ruby-ivar">@bathroom_photo</span> = <span class="ruby-constant">BathroomPhoto</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:bathroom_photo</span>])
+26:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@bathroom_photo</span>.<span class="ruby-identifier">save</span>
+27:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Bathroom photo is added!&quot;</span>
+28:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">bathroom_url</span>(<span class="ruby-ivar">@bathroom_photo</span>.<span class="ruby-identifier">bathroom_id</span>)
+29:     <span class="ruby-keyword kw">else</span>
+30:       <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>
+31:     <span class="ruby-keyword kw">end</span>
+32:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -257,7 +259,8 @@ back to the previous requested url if log in successfully
 				<div class="method-description">
 					
 					<p>
-DELETE /logout Destroy the current user session
+DELETE /bathroom_photos/:id this is passing the bathroom_photo.id (be
+careful) it destroy that photo and redirect back to the photo show page
 </p>
 					
 
@@ -265,12 +268,18 @@ DELETE /logout Destroy the current user session
 					<div class="method-source-code"
 						id="destroy-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/user_sessions_controller.rb, line 27</span>
-27:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy</span>
-28:     <span class="ruby-identifier">current_user_session</span>.<span class="ruby-identifier">destroy</span>
-29:     <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Logout successful!&quot;</span>
-30:     <span class="ruby-identifier">redirect_back_or_default</span> <span class="ruby-identifier">login_url</span>
-31:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/bathroom_photos_controller.rb, line 37</span>
+37:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy</span>
+38:     <span class="ruby-ivar">@bathroom_photo</span> = <span class="ruby-constant">BathroomPhoto</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+39:     <span class="ruby-identifier">bathroom_id</span> = <span class="ruby-ivar">@bathroom_photo</span>.<span class="ruby-identifier">bathroom_id</span>
+40:     <span class="ruby-ivar">@bathroom_photo</span>.<span class="ruby-identifier">destroy</span>
+41: 
+42:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+43:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span>(<span class="ruby-identifier">bathroom_photo_url</span>(<span class="ruby-identifier">bathroom_id</span>)) }
+44:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">head</span> <span class="ruby-value">:ok</span> }
+45:     <span class="ruby-keyword kw">end</span>
+46:     
+47:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -295,7 +304,8 @@ DELETE /logout Destroy the current user session
 				<div class="method-description">
 					
 					<p>
-GET /login The login page
+GET /bathroom_photos/new/:bathroom_id new page for adding new photos for
+the bathroom with the passing bathroom_id
 </p>
 					
 
@@ -303,9 +313,49 @@ GET /login The login page
 					<div class="method-source-code"
 						id="new-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/user_sessions_controller.rb, line 9</span>
- 9:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>
-10:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/bathroom_photos_controller.rb, line 17</span>
+17:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>
+18:     <span class="ruby-ivar">@bathroom</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:bathroom_id</span>])
+19:     <span class="ruby-ivar">@bathroom_photo</span> = <span class="ruby-constant">BathroomPhoto</span>.<span class="ruby-identifier">new</span>
+20:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="show-method" class="method-detail ">
+				<a name="method-i-show"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">show</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+GET /bathroom_photos/:bathroom_id shows all photos of the bathroom with
+the passing bathroom_id
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="show-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/bathroom_photos_controller.rb, line 10</span>
+10:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show</span>
+11:     <span class="ruby-ivar">@bathroom</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:bathroom_id</span>])
+12:     <span class="ruby-ivar">@bathroom_photos</span> = <span class="ruby-constant">BathroomPhoto</span>.<span class="ruby-identifier">find_all_by_bathroom_id</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:bathroom_id</span>])
+13:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
