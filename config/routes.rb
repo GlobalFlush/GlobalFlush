@@ -31,7 +31,7 @@ Globalflush::Application.routes.draw do
   match 'logout' => 'user_sessions#destroy', :as => :logout
   match 'register' => 'users#new', :as => :register
 
-  match 'search' => 'home#search', :as => :search
+  match 'search' => 'home#search', :as => :search, :via => :get
 
   root :to => "home#index"
 

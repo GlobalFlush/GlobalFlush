@@ -18,8 +18,20 @@ class HomeController < ApplicationController
   # Search for bathroom by keywords
   # Calling named_scope in Bathroom model
   def search
-    puts params[:keyword]
+    
     @bathrooms = Bathroom.search_by_address(params[:keyword])
+    @addresses = @bathrooms.map { |b| b.address }
+    @ratings = @bathrooms.map { |b| b.ratings }
+
+    @bathrooms_with_address_ratings = @bathrooms.map { |b| [b, b.address, b.ratings] }
+
+    
+    respond_to do |format|
+      format.html { render }
+      format.xml  { render :xml => @bathrooms_with_address_ratings }
+      format.json { render :json => @bathrooms_with_address_ratings }
+    end
+    
   end
   
 end
