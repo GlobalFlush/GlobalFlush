@@ -464,7 +464,7 @@ img
 #image_box
 {
   width:880px;
-  height:480px;
+  height:426px;
   padding:20px;
   background-color:#cccccc;
   margin-bottom:20px;
@@ -473,7 +473,7 @@ img
 #main_image
 {
   width:640px;
-  height:480px;
+  height:426px;
   background-color:#999999;
 }
 #add_more
@@ -491,5 +491,5 @@ img
 .v-car img
 {
   width:220px;
-  height:165px;
+  height:147px;
 }
