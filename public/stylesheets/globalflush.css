@@ -458,3 +458,38 @@ img
 {
   background-color:#cccccc;
 }
+
+/* GRAFFITI PAGE */
+
+#image_box
+{
+  width:880px;
+  height:480px;
+  padding:20px;
+  background-color:#cccccc;
+  margin-bottom:20px;
+  position:relative;
+}
+#main_image
+{
+  width:640px;
+  height:480px;
+  background-color:#999999;
+}
+#add_more
+{
+  width:220px;
+  height:30px;
+  line-height:30px;
+  font-size:20px;
+  text-align: center;
+  background-color:#999999;
+  position:absolute;
+  bottom:20px;
+  right:20px;
+}
+.v-car img
+{
+  width:220px;
+  height:165px;
+}

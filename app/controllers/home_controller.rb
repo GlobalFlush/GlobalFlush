@@ -14,6 +14,9 @@ class HomeController < ApplicationController
   def about
   end
 
+  def graffiti_test
+  end
+
   # GET /search
   # Search for bathroom by keywords
   # Calling named_scope in Bathroom model
