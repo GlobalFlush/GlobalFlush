@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110331002149) do
+ActiveRecord::Schema.define(:version => 20110417195203) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street_address"
@@ -64,6 +64,19 @@ ActiveRecord::Schema.define(:version => 20110331002149) do
     t.integer  "user_id"
     t.string   "body"
     t.integer  "moderated",   :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "graffiti_photos", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "graffiti_id"
+    t.string   "type"
+    t.boolean  "moderated",          :default => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

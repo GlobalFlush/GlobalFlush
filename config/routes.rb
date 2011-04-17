@@ -1,6 +1,7 @@
 Globalflush::Application.routes.draw do
   get "home/index"
   get "home/about"
+  get "home/graffiti_test"
   get "user_sessions/new"
 
   match 'map' => 'map#index', :as => :map, :via => :get
