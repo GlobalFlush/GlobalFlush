@@ -7,7 +7,7 @@ class CreateBathrooms < ActiveRecord::Migration
       t.decimal :longitude
       t.decimal :latitude
       t.text :description
-      t.boolean :hidden, :default => 1
+      t.boolean :hidden, :default => true
       t.integer :moderated, :default => 0
       
       t.timestamps

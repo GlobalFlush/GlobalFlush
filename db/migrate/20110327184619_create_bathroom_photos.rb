@@ -5,7 +5,7 @@ class CreateBathroomPhotos < ActiveRecord::Migration
       t.integer :user_id
       t.integer :bathroom_id
       t.string :type
-      t.boolean :moderated, :default => 0
+      t.boolean :moderated, :default => false
       
       t.timestamps
     end
