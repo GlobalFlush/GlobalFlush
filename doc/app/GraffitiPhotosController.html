@@ -5,7 +5,7 @@
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-	<title>Class: HomeController</title>
+	<title>Class: GraffitiPhotosController</title>
 
 	<link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
 
@@ -38,8 +38,8 @@
 				<div class="section-body">
 					<ul>
 					
-						<li><a href="./app/controllers/home_controller_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="app/controllers/home_controller.rb">app/controllers/home_controller.rb</a></li>
+						<li><a href="./app/controllers/graffiti_photos_controller_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="app/controllers/graffiti_photos_controller.rb">app/controllers/graffiti_photos_controller.rb</a></li>
 					
 					</ul>
 				</div>
@@ -69,13 +69,13 @@
 				<h3 class="section-header">Methods</h3>
 				<ul class="link-list">
 					
-					<li><a href="#method-i-about">#about</a></li>
+					<li><a href="#method-i-create">#create</a></li>
 					
-					<li><a href="#method-i-graffiti_test">#graffiti_test</a></li>
+					<li><a href="#method-i-destroy">#destroy</a></li>
 					
-					<li><a href="#method-i-index">#index</a></li>
+					<li><a href="#method-i-new">#new</a></li>
 					
-					<li><a href="#method-i-search">#search</a></li>
+					<li><a href="#method-i-show">#show</a></li>
 					
 				</ul>
 			</div>
@@ -188,12 +188,12 @@
 	</div>
 
 	<div id="documentation">
-		<h1 class="class">HomeController</h1>
+		<h1 class="class">GraffitiPhotosController</h1>
 
 		<div id="description">
 			<p>
-Home controller It contains the root of this application, the homepage
-And a static link &#8216;about&#8217; page of the application
+<a href="Graffiti.html">Graffiti</a> Photo Controller Manage the CRD of
+graffiti photos log in is only required for new create and destroy action
 </p>
 
 		</div>
@@ -210,12 +210,12 @@ And a static link &#8216;about&#8217; page of the application
 			<h3 class="section-header">Public Instance Methods</h3>
 
 		
-			<div id="about-method" class="method-detail ">
-				<a name="method-i-about"></a>
+			<div id="create-method" class="method-detail ">
+				<a name="method-i-create"></a>
 
 				<div class="method-heading">
 				
-					<span class="method-name">about</span><span
+					<span class="method-name">create</span><span
 						class="method-args">()</span>
 					<span class="method-click-advice">click to toggle source</span>
 				
@@ -224,17 +224,25 @@ And a static link &#8216;about&#8217; page of the application
 				<div class="method-description">
 					
 					<p>
-GET /home/about This is the about page
+POST /graffiti_photos/:graffiti_id create the new graffiti photo and pass
+the graffiti_id as well
 </p>
 					
 
 					
 					<div class="method-source-code"
-						id="about-source">
+						id="create-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/home_controller.rb, line 14</span>
-14:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">about</span>
-15:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/graffiti_photos_controller.rb, line 24</span>
+24:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
+25:     <span class="ruby-ivar">@graffiti_photo</span> = <span class="ruby-constant">GraffitiPhoto</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:graffiti_photo</span>])
+26:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@graffiti_photo</span>.<span class="ruby-identifier">save</span>
+27:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Graffiti photo is added!&quot;</span>
+28:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">graffiti_url</span>(<span class="ruby-ivar">@graffiti_photo</span>.<span class="ruby-identifier">graffiti_id</span>)
+29:     <span class="ruby-keyword kw">else</span>
+30:       <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>
+31:     <span class="ruby-keyword kw">end</span>
+32:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -245,12 +253,12 @@ GET /home/about This is the about page
 			</div>
 
 		
-			<div id="graffiti-test-method" class="method-detail ">
-				<a name="method-i-graffiti_test"></a>
+			<div id="destroy-method" class="method-detail ">
+				<a name="method-i-destroy"></a>
 
 				<div class="method-heading">
 				
-					<span class="method-name">graffiti_test</span><span
+					<span class="method-name">destroy</span><span
 						class="method-args">()</span>
 					<span class="method-click-advice">click to toggle source</span>
 				
@@ -258,16 +266,28 @@ GET /home/about This is the about page
 
 				<div class="method-description">
 					
-					
+					<p>
+DELETE /graffiti_photos/:id this is passing the graffiti_photo.id (be
+careful) it destroy that photo and redirect back to the photo show page
+</p>
 					
 
 					
 					<div class="method-source-code"
-						id="graffiti-test-source">
+						id="destroy-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/home_controller.rb, line 17</span>
-17:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">graffiti_test</span>
-18:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/graffiti_photos_controller.rb, line 37</span>
+37:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy</span>
+38:     <span class="ruby-ivar">@graffiti_photo</span> = <span class="ruby-constant">GraffitiPhoto</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+39:     <span class="ruby-identifier">graffiti_id</span> = <span class="ruby-ivar">@graffiti_photo</span>.<span class="ruby-identifier">graffiti_id</span>
+40:     <span class="ruby-ivar">@graffiti_photo</span>.<span class="ruby-identifier">destroy</span>
+41: 
+42:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+43:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span>(<span class="ruby-identifier">graffiti_photo_url</span>(<span class="ruby-identifier">graffiti_id</span>)) }
+44:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">head</span> <span class="ruby-value">:ok</span> }
+45:     <span class="ruby-keyword kw">end</span>
+46:     
+47:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -278,12 +298,12 @@ GET /home/about This is the about page
 			</div>
 
 		
-			<div id="index-method" class="method-detail ">
-				<a name="method-i-index"></a>
+			<div id="new-method" class="method-detail ">
+				<a name="method-i-new"></a>
 
 				<div class="method-heading">
 				
-					<span class="method-name">index</span><span
+					<span class="method-name">new</span><span
 						class="method-args">()</span>
 					<span class="method-click-advice">click to toggle source</span>
 				
@@ -292,18 +312,20 @@ GET /home/about This is the about page
 				<div class="method-description">
 					
 					<p>
-GET / Root of this application, the index page
+GET /graffiti_photos/new/:graffiti_id new page for adding new photos for
+the graffiti with the passing graffiti_id
 </p>
 					
 
 					
 					<div class="method-source-code"
-						id="index-source">
+						id="new-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/home_controller.rb, line 8</span>
- 8:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
- 9:     <span class="ruby-ivar">@bathrooms</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">:all</span>)
-10:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/graffiti_photos_controller.rb, line 17</span>
+17:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>
+18:     <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:graffiti_id</span>])
+19:     <span class="ruby-ivar">@graffiti_photo</span> = <span class="ruby-constant">GraffitiPhoto</span>.<span class="ruby-identifier">new</span>
+20:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -314,12 +336,12 @@ GET / Root of this application, the index page
 			</div>
 
 		
-			<div id="search-method" class="method-detail ">
-				<a name="method-i-search"></a>
+			<div id="show-method" class="method-detail ">
+				<a name="method-i-show"></a>
 
 				<div class="method-heading">
 				
-					<span class="method-name">search</span><span
+					<span class="method-name">show</span><span
 						class="method-args">()</span>
 					<span class="method-click-advice">click to toggle source</span>
 				
@@ -328,32 +350,20 @@ GET / Root of this application, the index page
 				<div class="method-description">
 					
 					<p>
-GET /search Search for bathroom by keywords Calling named_scope in <a
-href="Bathroom.html">Bathroom</a> model
+GET /graffiti_photos/:graffiti_id shows all photos of the graffiti with
+the passing graffiti_id
 </p>
 					
 
 					
 					<div class="method-source-code"
-						id="search-source">
+						id="show-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/home_controller.rb, line 23</span>
-23:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">search</span>
-24:     
-25:     <span class="ruby-ivar">@bathrooms</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">search_by_address</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:keyword</span>])
-26:     <span class="ruby-ivar">@addresses</span> = <span class="ruby-ivar">@bathrooms</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">address</span> }
-27:     <span class="ruby-ivar">@ratings</span> = <span class="ruby-ivar">@bathrooms</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">ratings</span> }
-28: 
-29:     <span class="ruby-ivar">@bathrooms_with_address_ratings</span> = <span class="ruby-ivar">@bathrooms</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">b</span>, <span class="ruby-identifier">b</span>.<span class="ruby-identifier">address</span>, <span class="ruby-identifier">b</span>.<span class="ruby-identifier">ratings</span>] }
-30: 
-31:     
-32:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-33:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> }
-34:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">render</span> <span class="ruby-value">:xml</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@bathrooms_with_address_ratings</span> }
-35:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@bathrooms_with_address_ratings</span> }
-36:     <span class="ruby-keyword kw">end</span>
-37:     
-38:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/graffiti_photos_controller.rb, line 10</span>
+10:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show</span>
+11:     <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:graffiti_id</span>])
+12:     <span class="ruby-ivar">@graffiti_photos</span> = <span class="ruby-constant">GraffitiPhoto</span>.<span class="ruby-identifier">find_all_by_graffiti_id</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:graffiti_id</span>])
+13:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

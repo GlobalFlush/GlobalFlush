@@ -5,7 +5,7 @@
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-	<title>Module: CommentsHelper</title>
+	<title>Class: MapController</title>
 
 	<link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
 
@@ -19,7 +19,7 @@
 		charset="utf-8"></script>
 
 </head>
-<body class="module">
+<body class="class">
 
 	<div id="metadata">
 		<div id="home-metadata">
@@ -38,8 +38,8 @@
 				<div class="section-body">
 					<ul>
 					
-						<li><a href="./app/helpers/comments_helper_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="app/helpers/comments_helper.rb">app/helpers/comments_helper.rb</a></li>
+						<li><a href="./app/controllers/map_controller_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="app/controllers/map_controller.rb">app/controllers/map_controller.rb</a></li>
 					
 					</ul>
 				</div>
@@ -52,11 +52,27 @@
 
 			<!-- Parent Class -->
 			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link"><a href="ApplicationController.html">ApplicationController</a></p>
+				
+			</div>
+			
 
 			<!-- Namespace Contents -->
 			
 
 			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-i-index">#index</a></li>
+					
+				</ul>
+			</div>
 			
 
 			<!-- Included Modules -->
@@ -166,11 +182,11 @@
 	</div>
 
 	<div id="documentation">
-		<h1 class="module">CommentsHelper</h1>
+		<h1 class="class">MapController</h1>
 
 		<div id="description">
 			<p>
-Comments helper module
+Map controller
 </p>
 
 		</div>
@@ -183,6 +199,50 @@ Comments helper module
 
 		<!-- Methods -->
 		
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="index-method" class="method-detail ">
+				<a name="method-i-index"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">index</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+index action
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="index-source">
+<pre>
+   <span class="ruby-comment cmt"># File app/controllers/map_controller.rb, line 5</span>
+5:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
+6:                 <span class="ruby-ivar">@bathrooms</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">search_by_address</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:keyword</span>])
+7:                 
+8:                 <span class="ruby-ivar">@bathrooms_with_address_ratings</span> = <span class="ruby-ivar">@bathrooms</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">b</span>, <span class="ruby-identifier">b</span>.<span class="ruby-identifier">address</span>, <span class="ruby-identifier">b</span>.<span class="ruby-identifier">ratings</span>] }
+9:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
 
 	</div>
 

@@ -1,5 +1,7 @@
+# Map controller
 class MapController < ApplicationController
 
+  # index action
 	def index
 		@bathrooms = Bathroom.search_by_address(params[:keyword])
 		

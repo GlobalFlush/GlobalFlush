@@ -5,7 +5,7 @@
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-	<title>Module: CommentsHelper</title>
+	<title>Class: GraffitiPhoto</title>
 
 	<link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
 
@@ -19,7 +19,7 @@
 		charset="utf-8"></script>
 
 </head>
-<body class="module">
+<body class="class">
 
 	<div id="metadata">
 		<div id="home-metadata">
@@ -38,8 +38,8 @@
 				<div class="section-body">
 					<ul>
 					
-						<li><a href="./app/helpers/comments_helper_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="app/helpers/comments_helper.rb">app/helpers/comments_helper.rb</a></li>
+						<li><a href="./app/models/graffiti_photo_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="app/models/graffiti_photo.rb">app/models/graffiti_photo.rb</a></li>
 					
 					</ul>
 				</div>
@@ -51,6 +51,13 @@
 		<div id="class-metadata">
 
 			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">ActiveRecord::Base</p>
+				
+			</div>
 			
 
 			<!-- Namespace Contents -->
@@ -166,12 +173,27 @@
 	</div>
 
 	<div id="documentation">
-		<h1 class="module">CommentsHelper</h1>
+		<h1 class="class">GraffitiPhoto</h1>
 
 		<div id="description">
 			<p>
-Comments helper module
+<a href="GraffitiPhoto.html">GraffitiPhoto</a> is a photo associated with a
+graffiti <a href="GraffitiPhoto.html">GraffitiPhoto</a> has a one to many
+relationship with user, e.i. a user can upload many photos but a photo can
+only be uploaded by one user. <a
+href="GraffitiPhoto.html">GraffitiPhoto</a> has a one to many relationship
+with graffiti, e.i a graffiti can have many photos but a photos can only
+associated with one graffiti. <a
+href="GraffitiPhoto.html">GraffitiPhoto</a> have the following attributes:
 </p>
+<pre>
+ * user_id: the id of the user who uploaded the photo
+ * graffiti_id: the id of the bathroom the photo is associated with
+ * type: the type of photo this photo is, graffiti or not
+ * photo_file_name: file name of the photo uploaded
+ * photo_contend_type: the file format of the photo
+ * photo_file_size: the size of the photos
+ * timestamp: the date of creation and update</pre>
 
 		</div>
 

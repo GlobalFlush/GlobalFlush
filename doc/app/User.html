@@ -135,9 +135,17 @@
 				
 					<li><a href="./Graffiti.html">Graffiti</a></li>
 				
+					<li><a href="./GraffitiPhoto.html">GraffitiPhoto</a></li>
+				
+					<li><a href="./GraffitiPhotosController.html">GraffitiPhotosController</a></li>
+				
 					<li><a href="./HomeController.html">HomeController</a></li>
 				
 					<li><a href="./HomeHelper.html">HomeHelper</a></li>
+				
+					<li><a href="./MapController.html">MapController</a></li>
+				
+					<li><a href="./MapHelper.html">MapHelper</a></li>
 				
 					<li><a href="./Notifier.html">Notifier</a></li>
 				
@@ -234,11 +242,11 @@ attr_accessible :comments_attributes, :bathrooms_attributes,
 					<div class="method-source-code"
 						id="deliver-password-reset-instructions--source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/user.rb, line 25</span>
-25:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">deliver_password_reset_instructions!</span>
-26:     <span class="ruby-identifier">reset_perishable_token!</span>
-27:     <span class="ruby-constant">Notifier</span>.<span class="ruby-identifier">deliver_password_reset_instructions</span>(<span class="ruby-keyword kw">self</span>)
-28:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/models/user.rb, line 24</span>
+24:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">deliver_password_reset_instructions!</span>
+25:     <span class="ruby-identifier">reset_perishable_token!</span>
+26:     <span class="ruby-constant">Notifier</span>.<span class="ruby-identifier">deliver_password_reset_instructions</span>(<span class="ruby-keyword kw">self</span>)
+27:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
