@@ -1,0 +1,11 @@
+<h1>New Graffiti Photo</h1>
+
+<% form_for @graffiti_photo, :url => graffiti_photos_url(@graffiti.id), :html => { :multipart => true } do |f|%>
+    <%= f.error_messages %>
+
+    <%= f.hidden_field :graffiti_id, :value => @graffiti.id %>
+    
+    <%= f.file_field :photo %><br />
+    <%= f.submit %>
+<% end %>
+

@@ -1,0 +1,12 @@
+<!--  BOT -->
+<div>
+  <% @graffiti_photos.each do |gp| %>
+    <div>
+      <a href="<%= gp.photo.url %>"><%= image_tag gp.photo.url(:small) %></a>
+      <%= link_to 'Remove', gp, :method => :delete, :confirm => 'Are you sure?' %>
+    </div>
+  <% end %>
+</div>
+
+
+<%= link_to 'Add More', new_graffiti_photo_url(@graffiti.id) %>

@@ -1,8 +1,10 @@
 Globalflush::Application.routes.draw do
   get "home/index"
   get "home/about"
+  get "home/graffiti_test"
   get "user_sessions/new"
 
+  match 'map' => 'map#index', :as => :map, :via => :get
 #  get 'bathroom_photos/:bathroom_id'
 #  get 'bathroom_photos/new/:bathroom_id'
 #  post 'bathroom_photos/:bathroom_id'
@@ -22,6 +24,7 @@ Globalflush::Application.routes.draw do
   resources :bathrooms
   resources :comments
   resources :ratings
+ # resources :map
  # resources :bathroom_photos
 
   get "users/show"

@@ -78,3 +78,93 @@
   background-position: -120px 0;
 }
 
+
+
+
+/* Vertical Section*/
+
+
+
+
+
+.v-car .jcarousel-container {
+  background: #CCCCCC;
+}
+
+.v-car .jcarousel-container-vertical {
+  width: 220px;
+  height: 304px;
+
+  padding: 40px 0px;
+}
+
+.v-car .jcarousel-clip-vertical {
+  width:  220px;
+  height: 304px;
+}
+.v-car .jcarousel-item {
+  width: 220px;
+  height: 147px;
+}
+
+.v-car .jcarousel-item-vertical {
+  margin-bottom:10px;
+}
+.v-car .jcarousel-item-placeholder {
+  background: #fff;
+  color: #000;
+}
+
+/**
+ *  vertical Buttons
+*/
+.v-car .jcarousel-next-vertical {
+  position: absolute;
+  bottom: 0px;
+  right: 90px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background: transparent url(/images/vnext.png) no-repeat 0 0;
+}
+
+.v-car .jcarousel-next-vertical:hover {
+  background-position: -30px 0;
+}
+
+.v-car .jcarousel-next-vertical:active {
+  background-position: -60px 0;
+}
+
+.v-car .jcarousel-next-disabled-vertical,
+.v-car .jcarousel-next-disabled-vertical:hover,
+.v-car .jcarousel-next-disabled-vertical:active {
+  cursor: default;
+  background-position: -90px 0;
+}
+
+.v-car .jcarousel-prev-vertical {
+  position: absolute;
+  top: 0px;
+  left: 90px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background: transparent url(/images/vprev.png) no-repeat 0 0;
+}
+
+.v-car .jcarousel-prev-vertical:hover {
+  background-position: -30px 0;
+}
+
+.v-car .jcarousel-prev-vertical:active {
+  background-position: -60px 0;
+}
+
+.v-car .jcarousel-prev-disabled-vertical,
+.v-car .jcarousel-prev-disabled-vertical:hover,
+.v-car .jcarousel-prev-disabled-vertical:active {
+  cursor: default;
+  background-position: -90px 0;
+}
+

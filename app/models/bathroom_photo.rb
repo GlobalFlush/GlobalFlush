@@ -14,7 +14,7 @@ class BathroomPhoto < ActiveRecord::Base
   belongs_to :bathroom
 
   has_attached_file :photo,
-                    :styles           => {:thumb => "100x100>", :small => "150x150>"},
+                    :styles           => {:thumb => "120x80>", :small=>"240x160", :medium=>"640x426"},
                     :url              => "/assets/bathrooms/photos/:id/:style/:basename.:extension",
                     :path             => ":rails_root/public/assets/bathrooms/photos/:id/:style/:basename.:extension",
                     :whiny_thumbnails => true
