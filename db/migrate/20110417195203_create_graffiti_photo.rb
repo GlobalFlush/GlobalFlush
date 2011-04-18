@@ -5,7 +5,7 @@ class CreateGraffitiPhoto < ActiveRecord::Migration
       t.integer :user_id
       t.integer :graffiti_id
       t.string :type
-      t.boolean :moderated, :default => :false
+      t.boolean :moderated, :default => false
       t.string :photo_file_name
       t.string :photo_content_type
       t.integer :photo_file_size
