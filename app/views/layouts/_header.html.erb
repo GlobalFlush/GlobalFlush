@@ -10,5 +10,12 @@
     <% end %>
   </div>
 
-  <div id="switcher"><strong>Male</strong> | <a href="#">Female</a> | <a href="#">Graffiti</a></div>
+  <div id="switcher">
+    <strong>
+      <%= link_to 'Male', :controller => 'home', :action => 'search', :male => 1 %>
+    </strong>
+    | 
+    <%= link_to 'Female', :controller => 'home', :action => 'search', :female => 1 %>
+    |
+    <a href="#">Graffiti</a></div>
 </div>

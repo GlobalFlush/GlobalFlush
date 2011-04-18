@@ -4,10 +4,10 @@
 <%= current_keyword = params[:keyword] %>
 
 <div id="search_form">
-  <% form_tag search_url, :method => 'get' do %>
-      <%= text_field_tag :keyword, params[:keyword], :value => current_keyword %>
-      <%= submit_tag "Search", :name => nil %>
-  <% end %>
+  <%# form_tag search_url, :method => 'get' do %>
+      <%#= text_field_tag :keyword, params[:keyword], :value => current_keyword %>
+      <%#= submit_tag "Search", :name => nil %>
+  <%# end %>
 </div>
 
 <% if @bathrooms.empty? %>
@@ -15,22 +15,25 @@
 <% else %>
 
     <div id="filter">
-      Show: 
-      <%= link_to 'Male', :action => 'search', :controller => 'home', :keyword => current_keyword, :gender => 'Male', :method => :get %>
-      <%= link_to 'Female', :action => 'search', :controller => 'home', :keyword => current_keyword, :gender => 'Female', :method => :get %>
-      <%= link_to 'All', :action => 'search', :controller => 'home', :keyword => current_keyword, :method => 'get' %>
-      <br />
-
 
       <% form_tag search_url, :method => :get do %>
 
-          <%= hidden_field_tag :keyword, params[:keyword], :value => current_keyword %>
-          <%= radio_button_tag 'gender', '' %>All          
-          <%= radio_button_tag 'gender', 'Male' %>Male
-          <%= radio_button_tag 'gender', 'Female' %>Female
-          <br />
+          <%= text_field_tag :keyword, params[:keyword], :value => current_keyword %><br/>
 
-          <%=  %>
+          Show:
+          <%= check_box_tag :male, 1, params[:male] == '1' %>Male
+          <%= check_box_tag :female, 1, params[:female] == '1' %>Female<br />
+
+          Sort by: <br />
+          Ratings: 
+          <%= radio_button_tag :sort_rating, 'ratings.overall desc', params[:sort_rating] == 'ratings.overall desc' %>High to low
+          <%= radio_button_tag :sort_rating, 'ratings.overall asc', params[:sort_rating] == 'ratings.overall asc' %>Low to high
+          <br/>
+
+          Distance:
+          <%= radio_button_tag :sort_distance,  'distance desc', params[:sort_distance] == 'distance desc' %>Furthest to closest
+          <%= radio_button_tag :sort_distance,  'distance asc', params[:sort_distance] == 'distance asc' %>Closest to furthest
+          <br/>
           
           <%= submit_tag "Search", :name => nil %>
       <% end %>
