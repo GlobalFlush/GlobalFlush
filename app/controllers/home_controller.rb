@@ -14,6 +14,7 @@ class HomeController < ApplicationController
   def about
   end
 
+  # for testing purpose: the graffiti page
   def graffiti_test
   end
 
