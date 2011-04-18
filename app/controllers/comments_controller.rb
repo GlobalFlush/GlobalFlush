@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
 		
         @comment.user_id = @current_user.id
         if @comment.save and @rating.save
-            redirect_to :back
+            redirect_to "bathroom" << @comment.bathroom_id
         else
             render
         end
