@@ -15,11 +15,26 @@
 <% else %>
 
     <div id="filter">
-      Sort by:
-      <%= link_to 'Male', :action => 'search', :controller => 'home', :keyword => current_keyword, :gender => 'Male', :method => 'get' %>
-      <%= link_to 'Female', :action => 'search', :controller => 'home', :keyword => current_keyword, :gender => 'Female', :method => 'get' %>
-      
-      
+      Show: 
+      <%= link_to 'Male', :action => 'search', :controller => 'home', :keyword => current_keyword, :gender => 'Male', :method => :get %>
+      <%= link_to 'Female', :action => 'search', :controller => 'home', :keyword => current_keyword, :gender => 'Female', :method => :get %>
+      <%= link_to 'All', :action => 'search', :controller => 'home', :keyword => current_keyword, :method => 'get' %>
+      <br />
+
+
+      <% form_tag search_url, :method => :get do %>
+
+          <%= hidden_field_tag :keyword, params[:keyword], :value => current_keyword %>
+          <%= radio_button_tag 'gender', '' %>All          
+          <%= radio_button_tag 'gender', 'Male' %>Male
+          <%= radio_button_tag 'gender', 'Female' %>Female
+          <br />
+
+          <%=  %>
+          
+          <%= submit_tag "Search", :name => nil %>
+      <% end %>
+
     </div>
 
     <div id="bathroom_list">
