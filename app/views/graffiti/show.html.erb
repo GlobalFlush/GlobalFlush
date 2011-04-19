@@ -13,7 +13,7 @@
   <a href="#">Add to Favorites</a> |
   <a href="#">Share</a> |
   <a href="#">Edit Photos</a> |
-  <%= link_to "Edit Content", edit_bathroom_graffiti_path(@graffiti.id) %>
+  <%= link_to "Edit Content", edit_bathroom_graffiti_path(@graffiti) %>
 </div>
 
 <h1><%= @graffiti.name %> </h1>
@@ -27,10 +27,10 @@
       <% end %>
     </ul>
   </div>
-  <div id="add_more"><%= link_to "Add More", new_graffiti_photo_path(@graffiti.id) %></div>
+  <div id="add_more"><%= link_to "Add More", new_graffiti_photo_path(@graffiti) %></div>
 </div>
 <% else %>
-<p>No photos exist for this graffiti. <%= link_to "Add some?", new_graffiti_photo_path(@graffiti.id) %></p>
+<p>No photos exist for this graffiti. <%= link_to "Add some?", new_graffiti_photo_path(@graffiti) %></p>
 <% end %>
 <h2 class="full">Description</h2>
 <p><%= @graffiti.description %></p>

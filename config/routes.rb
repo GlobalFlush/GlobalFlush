@@ -27,8 +27,9 @@ Globalflush::Application.routes.draw do
   resources :users
   resources :password_resets
   resources :bathrooms do
-    resources :graffitis
+    resources :graffiti
   end
+  resources :graffiti
   resources :comments
   resources :ratings
  # resources :map

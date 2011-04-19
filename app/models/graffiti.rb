@@ -1,5 +1,5 @@
 #Graffiti is a graffiti that a user might find on the stalls of a bathroom
-#Graffit has a one to many relationship with bathroom, e.i. a graffiti can only belong to one bathroom but a bathroom can have many graffitis
+#Graffit has a one to many relationship with bathroom, e.i. a graffiti can only belong to one bathroom but a bathroom can have many graffiti
 #Graffiti have the following attributes:
 # - bathroom_id: the id fo the bathroom the graffiti is associated with
 # - name: the name of the graffiti

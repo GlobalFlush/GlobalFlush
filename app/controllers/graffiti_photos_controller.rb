@@ -25,7 +25,7 @@ class GraffitiPhotosController < ApplicationController
     @graffiti_photo = GraffitiPhoto.new(params[:graffiti_photo])
     if @graffiti_photo.save
       flash[:notice] = "Graffiti photo is added!"
-      redirect_to bathroom_graffiti_url(@graffiti_photo.graffiti_id)
+      redirect_to [@graffiti.bathroom,@graffiti]
     else
       render :new
     end
@@ -40,7 +40,7 @@ class GraffitiPhotosController < ApplicationController
     @graffiti_photo.destroy
 
     respond_to do |format|
-      format.html { redirect_to(graffiti_photo_url(graffiti_id)) }
+      format.html { redirect_to [@graffiti.bathroom,@graffiti] }
       format.xml  { head :ok }
     end
     

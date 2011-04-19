@@ -1,4 +1,4 @@
-class GraffitisController < ApplicationController
+class GraffitiController < ApplicationController
   before_filter :require_user, :only => [:new, :create, :update, :edit, :destroy]
 
   def new
@@ -17,7 +17,7 @@ class GraffitisController < ApplicationController
   end
 
   def index
-      @graffitis = Graffiti.find(:all,:order => 'updated_at DESC')
+      @graffiti = Graffiti.find(:all,:order => 'updated_at DESC')
   end
   
   def show

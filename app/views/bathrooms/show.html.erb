@@ -237,17 +237,17 @@ function update_hidden(){
   <% @bathroom.bathroom_photos.each do |bp| %>
     <div><a href="<%= bp.photo.url %>"><%= image_tag bp.photo.url(:small),:height=>133,:width=>200 %></a></div>
   <% end %>
-  <p><%= link_to 'View All', bathroom_photo_path(@bathroom.id) %> | <%= link_to 'Add More', new_bathroom_photo_path(@bathroom.id) %></p>
-  <% if !@bathroom.graffitis.empty? then %>
+  <p><%= link_to 'View All', bathroom_photo_path(@bathroom) %> | <%= link_to 'Add More', new_bathroom_photo_path(@bathroom) %></p>
+  <% if !@bathroom.graffiti.empty? then %>
     <h3>Graffiti</h3>
-      <% @bathroom.graffitis.each do |graffiti| %>
+      <% @bathroom.graffiti.each do |graffiti| %>
         <% if graffiti.graffiti_photos.empty? then %>
           <div><%= link_to image_tag("/images/no_image.png",:width=>200,:height=>133),[@bathroom,graffiti] %></div>
         <% else %>
           <div><%= link_to image_tag(graffiti.graffiti_photos.first.photo.url(:small),:width=>200,:height=>133),[@bathroom,graffiti] %></div>
         <% end %>
       <% end %>
-    <%=  link_to 'Add new graffiti',new_bathroom_graffiti_path(@bathroom.id) %>
+    <%=  link_to 'Add new graffiti',new_bathroom_graffiti_path(@bathroom) %>
   <% end %>
 </div>
 
