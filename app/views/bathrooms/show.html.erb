@@ -159,10 +159,8 @@ function update_hidden(){
 <!--  BOT -->
 
 <div id="tools">
-  <a href="#">Add to Favorites</a> |
-  <a href="#">Check In</a> |
-  <a href="#">Share</a> |
-  <a href="#">Edit Photo</a> |
+  Add to Favorites | Check In | Share |
+  <%= link_to "Edit Photos", bathroom_photo_path(@bathroom.id) %>|
   <%= link_to "Edit Content", edit_bathroom_path(@bathroom.id) %>
 </div>
 
@@ -237,9 +235,20 @@ function update_hidden(){
 </div>
 <div id="images">
   <% @bathroom.bathroom_photos.each do |bp| %>
-    <div><a href="<%= bp.photo.url %>"><%= image_tag bp.photo.url(:thumb) %></a></div>
+    <div><a href="<%= bp.photo.url %>"><%= image_tag bp.photo.url(:small),:height=>133,:width=>200 %></a></div>
   <% end %>
-  <p><%= link_to 'View All', bathroom_photo_path(@bathroom.id) %> | <%= link_to 'Add More', new_bathroom_photo_path(@bathroom.id) %>
+  <p><%= link_to 'View All', bathroom_photo_path(@bathroom.id) %> | <%= link_to 'Add More', new_bathroom_photo_path(@bathroom.id) %></p>
+  <% if !@bathroom.graffitis.empty? then %>
+    <h3>Graffiti</h3>
+      <% @bathroom.graffitis.each do |graffiti| %>
+        <% if graffiti.graffiti_photos.empty? then %>
+          <div><%= link_to image_tag("/images/no_image.png",:width=>200,:height=>133),[@bathroom,graffiti] %></div>
+        <% else %>
+          <div><%= link_to image_tag(graffiti.graffiti_photos.first.photo.url(:small),:width=>200,:height=>133),[@bathroom,graffiti] %></div>
+        <% end %>
+      <% end %>
+    <%=  link_to 'Add new graffiti',new_bathroom_graffiti_path(@bathroom.id) %>
+  <% end %>
 </div>
 
 <h2>Address</h2>

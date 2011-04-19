@@ -1,0 +1,39 @@
+<script type="text/javascript" src="/javascripts/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/javascripts/jquery.jcarousel.min.js"></script>
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+    jQuery('#vcarousel').jcarousel({
+      vertical:true,
+      scroll:2
+    });
+  });
+</script>
+
+<div id="tools">
+  <a href="#">Add to Favorites</a> |
+  <a href="#">Share</a> |
+  <a href="#">Edit Photos</a> |
+  <%= link_to "Edit Content", edit_bathroom_graffiti_path(@graffiti.id) %>
+</div>
+
+<h1><%= @graffiti.name %> </h1>
+<% if !@graffiti.graffiti_photos.empty? then %>
+<div id="image_box">
+  <%= image_tag @graffiti.graffiti_photos.first.photo.url(:medium),:id=>"main_image" %>
+  <div class="v-car" style="float:right">
+    <ul id="vcarousel" class="v-car">
+      <% @graffiti.graffiti_photos.each do |photo| %>
+      <li><%= image_tag photo.photo.url(:small)%></li>
+      <% end %>
+    </ul>
+  </div>
+  <div id="add_more"><%= link_to "Add More", new_graffiti_photo_path(@graffiti.id) %></div>
+</div>
+<% else %>
+<p>No photos exist for this graffiti. <%= link_to "Add some?", new_graffiti_photo_path(@graffiti.id) %></p>
+<% end %>
+<h2 class="full">Description</h2>
+<p><%= @graffiti.description %></p>
+<h2 class="full">Location</h2>
+<p>Bathroom: <%= link_to @graffiti.bathroom.title, @graffiti.bathroom %></p>
+<p>Address: <%= @graffiti.bathroom.address.to_s %></p>

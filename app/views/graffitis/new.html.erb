@@ -1,0 +1,14 @@
+<h1>Adding new Graffiti</h1>
+
+<% form_for [@bathroom,@graffiti] do |f|%>
+    <%= f.error_messages %>
+
+    <%= f.hidden_field :bathroom_id, :value => @bathroom.id %>
+
+    <%= f.label "Graffiti Name" %><br />
+    <%= f.text_field :name %><br />
+
+    <%= f.label "Description" %><br />
+    <%= f.text_field :description %><br />
+    <%= f.submit %>
+<% end %>

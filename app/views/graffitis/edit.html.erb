@@ -1,0 +1,22 @@
+<h1>Editing Graffiti</h1>
+<p>This graffiti is in <%= link_to @graffiti.bathroom.title, @graffiti.bathroom %></p>
+<%= form_for @graffiti, :url => bathroom_graffiti_url(@graffiti.id),:html => {:multipart => true} do |f| %>
+<%= f.error_messages %>
+<h3>Basic Information</h3>
+<%= f.label :name %><br />
+<%= f.text_field :name %><br />
+<br/>
+
+<%= f.label :description %><br />
+<%= f.text_area :description %><br />
+
+<h3>Photos</h3>
+<p>Todo</p>
+
+<%= f.submit "Update" %>
+
+<% end %>
+
+<br />
+
+<%= link_to 'Back to All Graffiti', bathroom_graffitis_path %>

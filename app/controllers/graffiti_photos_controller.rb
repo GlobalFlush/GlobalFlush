@@ -25,7 +25,7 @@ class GraffitiPhotosController < ApplicationController
     @graffiti_photo = GraffitiPhoto.new(params[:graffiti_photo])
     if @graffiti_photo.save
       flash[:notice] = "Graffiti photo is added!"
-      redirect_to graffiti_url(@graffiti_photo.graffiti_id)
+      redirect_to bathroom_graffiti_url(@graffiti_photo.graffiti_id)
     else
       render :new
     end

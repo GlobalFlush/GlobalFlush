@@ -16,12 +16,19 @@ Globalflush::Application.routes.draw do
   match 'bathroom_photos/:bathroom_id' => 'bathroom_photos#create', :via => :post, :as => :bathroom_photos
   match 'bathroom_photos/:id' => 'bathroom_photos#destroy', :via => :delete, :as => :bathroom_photo
 
+  match 'graffiti_photos/:graffiti_id' => 'graffiti_photos#show', :via => :get, :as => :graffiti_photo
+  match 'graffiti_photos/new/:graffiti_id' => 'graffiti_photos#new', :via => :get, :as => :new_graffiti_photo
+  match 'graffiti_photos/:graffiti_id' => 'graffiti_photos#create', :via => :post, :as => :graffiti_photos
+  match 'graffiti_photos/:id' => 'graffiti_photos#destroy', :via => :delete, :as => :graffiti_photo
+
 #  root :to => "welcome#index"
 
   resources :user_sessions
   resources :users
   resources :password_resets
-  resources :bathrooms
+  resources :bathrooms do
+    resources :graffitis
+  end
   resources :comments
   resources :ratings
  # resources :map
