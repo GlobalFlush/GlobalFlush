@@ -17,7 +17,11 @@ class GraffitiController < ApplicationController
   end
 
   def index
+    if !params[:bathroom_id].nil? then
+      @graffiti = Graffiti.where("bathroom_id = ?",params[:bathroom_id])
+    else
       @graffiti = Graffiti.find(:all,:order => 'updated_at DESC')
+    end
   end
   
   def show

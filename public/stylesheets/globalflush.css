@@ -368,12 +368,12 @@ img
 }
 #zip
 {
-  width:376px;
+  width:316px;
   height:36px;
 }
-#go
+#search
 {
-  width:40px;
+  width:100px;
   height:40px;
 }
 .home_button
@@ -399,18 +399,18 @@ img
   margin-bottom:20px;
   height:110px;
 }
-#carousel li
+.h-car li
 {
   height:160px;
   width:240px;
   background-color:#999999;
 }
-#carousel li img
+.h-car li img
 {
   width:240px;
   height:160px;
 }
-#carousel li div
+.h-car li div
 {
   position:absolute;
   bottom:0px;
@@ -422,7 +422,7 @@ img
   font-size:12px;
   padding:5px;
 }
-#carousel li div a
+.h-car li div a
 {
   color:white;
   text-decoration: none;

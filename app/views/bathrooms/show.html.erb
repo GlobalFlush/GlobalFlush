@@ -234,21 +234,29 @@ function update_hidden(){
   </div>
 </div>
 <div id="images">
-  <% @bathroom.bathroom_photos.each do |bp| %>
+  <h3>Photos</h3>
+  <% @bathroom.bathroom_photos.limit(2).each do |bp,i| %>
     <div><a href="<%= bp.photo.url %>"><%= image_tag bp.photo.url(:small),:height=>133,:width=>200 %></a></div>
   <% end %>
-  <p><%= link_to 'View All', bathroom_photo_path(@bathroom) %> | <%= link_to 'Add More', new_bathroom_photo_path(@bathroom) %></p>
+  <%  if !@bathroom.bathroom_photos.empty? then %>
+    <%= link_to 'View All', bathroom_photo_path(@bathroom) %> | <%= link_to 'Add More', new_bathroom_photo_path(@bathroom) %>
+  <% else %>
+    <%= link_to 'Add Photo', new_bathroom_photo_path(@bathroom) %>
+  <% end %>
   <% if !@bathroom.graffiti.empty? then %>
     <h3>Graffiti</h3>
-      <% @bathroom.graffiti.each do |graffiti| %>
+      <% @bathroom.graffiti.limit(2).each do |graffiti| %>
         <% if graffiti.graffiti_photos.empty? then %>
           <div><%= link_to image_tag("/images/no_image.png",:width=>200,:height=>133),[@bathroom,graffiti] %></div>
         <% else %>
           <div><%= link_to image_tag(graffiti.graffiti_photos.first.photo.url(:small),:width=>200,:height=>133),[@bathroom,graffiti] %></div>
         <% end %>
       <% end %>
-    <%=  link_to 'Add new graffiti',new_bathroom_graffiti_path(@bathroom) %>
+    <%  if @bathroom.graffiti.size > 2 then %>
+      <%= link_to 'View All ' + @bathroom.graffiti.size.to_s,bathroom_graffiti_index_path(@bathroom) %> |
+    <% end %>
   <% end %>
+  <%=  link_to 'Add New',new_bathroom_graffiti_path(@bathroom) %>
 </div>
 
 <h2>Address</h2>

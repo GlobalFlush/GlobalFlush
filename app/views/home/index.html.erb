@@ -3,6 +3,7 @@
 <script type="text/javascript">
   jQuery(document).ready(function() {
     jQuery('#carousel').jcarousel();
+    jQuery('#g_car').jcarousel();
   });
   function clickclear(thisfield, defaulttext) {
     if (thisfield.value == defaulttext) {
@@ -22,22 +23,39 @@
 <div id="find">
 
   <% form_tag search_url, :method => 'get' do %>
-      <%= text_field_tag :keyword, params[:keyword] %>
-      <%= submit_tag "Search", :name => nil %>
+      <%= text_field_tag :keyword, params[:keyword], :id=> "zip" %>
+      <%= submit_tag "Search", :name => nil, :id=>"search" %>
   <% end %>
   
   <div class="home_button" id="via_map">via Map</div>
   <div class="home_button" id="via_browse"><%= link_to 'via Browse', bathrooms_url%></div>
 </div>
 <h3>Top Bathrooms</h3>
-<div class="top-bathroom">
-  <ul id="carousel" class="top-bathroom">
+<div class="h-car">
+  <ul id="carousel" class="h-car">
     <% @bathrooms.each do |bathroom| %>
       <li>
         <% if bathroom.bathroom_photos.empty? == false %>
           <%= link_to image_tag(bathroom.bathroom_photos.first.photo.url(:small)), bathroom %>
+        <% else %>
+          <%= link_to image_tag("/images/no_image.png",:width=>240,:height=>160), bathroom %>
         <% end %>
         <div><%= link_to bathroom.title,bathroom %></div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<h3>Top Graffiti</h3>
+<div class="h-car">
+  <ul id="g_car" class="h-car">
+    <% @graffiti.each do |graffiti| %>
+      <li>
+        <% if graffiti.graffiti_photos.empty? == false %>
+          <%= link_to image_tag(graffiti.graffiti_photos.first.photo.url(:small)), graffiti %>
+        <% else %>
+          <%= link_to image_tag("/images/no_image.png",:width=>240,:height=>160), graffiti %>
+        <% end %>
+        <div><%= link_to graffiti.name,graffiti %></div>
       </li>
     <% end %>
   </ul>

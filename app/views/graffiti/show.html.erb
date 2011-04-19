@@ -6,7 +6,12 @@
       vertical:true,
       scroll:2
     });
+    $("#vcarousel li img").click(function(){
+      $("#main_image").attr("src",this.src.replace("small","medium"));
+      $("#main_link").attr("href",this.src.replace("small","original"));
+    });
   });
+  
 </script>
 
 <div id="tools">
@@ -19,11 +24,11 @@
 <h1><%= @graffiti.name %> </h1>
 <% if !@graffiti.graffiti_photos.empty? then %>
 <div id="image_box">
-  <%= image_tag @graffiti.graffiti_photos.first.photo.url(:medium),:id=>"main_image" %>
+  <%= link_to (image_tag @graffiti.graffiti_photos.first.photo.url(:medium),:id=>"main_image"),@graffiti.graffiti_photos.first.photo.url(:original),:id=>"main_link" %>
   <div class="v-car" style="float:right">
     <ul id="vcarousel" class="v-car">
       <% @graffiti.graffiti_photos.each do |photo| %>
-      <li><%= image_tag photo.photo.url(:small)%></li>
+      <li><%= image_tag(photo.photo.url(:small)) %></li>
       <% end %>
     </ul>
   </div>

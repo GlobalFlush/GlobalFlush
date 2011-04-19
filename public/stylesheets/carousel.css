@@ -1,26 +1,26 @@
-.top-bathroom .jcarousel-container {
+.h-car .jcarousel-container {
   background: #CCCCCC;
 }
 
-.top-bathroom .jcarousel-container-horizontal {
+.h-car .jcarousel-container-horizontal {
   width: 760px;
   padding: 20px 80px;
 }
 
-.top-bathroom .jcarousel-clip-horizontal {
+.h-car .jcarousel-clip-horizontal {
   width:  760px;
   height: 160px;
 }
-.top-bathroom .jcarousel-item {
+.h-car .jcarousel-item {
   width: 240px;
   height: 160px;
 }
 
-.top-bathroom .jcarousel-item-horizontal {
+.h-car .jcarousel-item-horizontal {
   margin-left: 0;
   margin-right: 20px;
 }
-.top-bathroom .jcarousel-item-placeholder {
+.h-car .jcarousel-item-placeholder {
   background: #fff;
   color: #000;
 }
@@ -28,7 +28,7 @@
 /**
  *  Horizontal Buttons
 */
-.top-bathroom .jcarousel-next-horizontal {
+.h-car .jcarousel-next-horizontal {
   position: absolute;
   top: 80px;
   right: 20px;
@@ -38,22 +38,22 @@
   background: transparent url(/images/next.png) no-repeat 0 0;
 }
 
-.top-bathroom .jcarousel-next-horizontal:hover {
+.h-car .jcarousel-next-horizontal:hover {
   background-position: -40px 0;
 }
 
-.top-bathroom .jcarousel-next-horizontal:active {
+.h-car .jcarousel-next-horizontal:active {
   background-position: -80px 0;
 }
 
-.top-bathroom .jcarousel-next-disabled-horizontal,
-.top-bathroom .jcarousel-next-disabled-horizontal:hover,
-.top-bathroom .jcarousel-next-disabled-horizontal:active {
+.h-car .jcarousel-next-disabled-horizontal,
+.h-car .jcarousel-next-disabled-horizontal:hover,
+.h-car .jcarousel-next-disabled-horizontal:active {
   cursor: default;
   background-position: -120px 0;
 }
 
-.top-bathroom .jcarousel-prev-horizontal {
+.h-car .jcarousel-prev-horizontal {
   position: absolute;
   top: 80px;
   left: 20px;
@@ -63,17 +63,17 @@
   background: transparent url(/images/prev.png) no-repeat 0 0;
 }
 
-.top-bathroom .jcarousel-prev-horizontal:hover {
+.h-car .jcarousel-prev-horizontal:hover {
   background-position: -40px 0;
 }
 
-.top-bathroom .jcarousel-prev-horizontal:active {
+.h-car .jcarousel-prev-horizontal:active {
   background-position: -80px 0;
 }
 
-.top-bathroom .jcarousel-prev-disabled-horizontal,
-.top-bathroom .jcarousel-prev-disabled-horizontal:hover,
-.top-bathroom .jcarousel-prev-disabled-horizontal:active {
+.h-car .jcarousel-prev-disabled-horizontal,
+.h-car .jcarousel-prev-disabled-horizontal:hover,
+.h-car .jcarousel-prev-disabled-horizontal:active {
   cursor: default;
   background-position: -120px 0;
 }
@@ -105,6 +105,7 @@
 .v-car .jcarousel-item {
   width: 220px;
   height: 147px;
+  cursor: pointer;
 }
 
 .v-car .jcarousel-item-vertical {

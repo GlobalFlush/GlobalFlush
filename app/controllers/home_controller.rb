@@ -6,7 +6,8 @@ class HomeController < ApplicationController
   # GET /
   # Root of this application, the index page
   def index
-    @bathrooms = Bathroom.find(:all)
+    @bathrooms = Bathroom.all(:limit=>9)
+    @graffiti = Graffiti.all(:limit=>9)
   end
 
   # GET /home/about
