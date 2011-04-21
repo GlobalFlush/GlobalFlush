@@ -13,7 +13,7 @@ class BathroomsController < ApplicationController
       @bathroom.bathroom_specs.build
     end
     3.times do
-      @bathroom.bathroom_photos.build
+      @bathroom.photos.build
     end
   end
 
@@ -27,8 +27,8 @@ class BathroomsController < ApplicationController
     if params[:bathroom][:bathroom_specs]
       @bathroom.bathroom_specs.build(params[:bathroom][:bathroom_specs])
     end
-    if params[:bathroom][:bathroom_photos]
-      @bathroom.bathroom_photos.build(params[:bathroom][:bathroom_photos])
+    if params[:bathroom][:photos]
+      @bathroom.photos.build(params[:bathroom][:photos])
     end
 
     # Temporary method to construct the title

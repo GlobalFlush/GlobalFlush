@@ -1,0 +1,22 @@
+<% if !@graffiti.nil? then %>
+  <h1>New Photo for Graffiti</h1>
+  <% obj = @graffiti %>
+  <% type = "graffiti" %>
+<% elsif !@bathroom.nil? then %>
+  <h1>New Photo for Bathroom</h1>
+  <% obj = @bathroom %>
+  <% type = "bathroom" %>
+<% else %>
+  <h1>New Unattached Photo</h1>
+<% end %>
+
+
+<% form_for @photo,:html => { :multipart => true } do |f|%>
+    <%= f.error_messages %>
+
+    <%= f.hidden_field :imageable_id, :value => obj.id %>
+    <%= f.hidden_field :imageable_type, :value => type %>
+
+    <%= f.file_field :image %><br />
+    <%= f.submit %>
+<% end %>

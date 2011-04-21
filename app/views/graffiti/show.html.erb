@@ -22,20 +22,20 @@
 </div>
 
 <h1><%= @graffiti.name %> </h1>
-<% if !@graffiti.graffiti_photos.empty? then %>
+<% if !@graffiti.photos.empty? then %>
 <div id="image_box">
-  <%= link_to (image_tag @graffiti.graffiti_photos.first.photo.url(:medium),:id=>"main_image"),@graffiti.graffiti_photos.first.photo.url(:original),:id=>"main_link" %>
+  <%= link_to (image_tag @graffiti.photos.first.image.url(:medium),:id=>"main_image"),@graffiti.photos.first.image.url(:original),:id=>"main_link" %>
   <div class="v-car" style="float:right">
     <ul id="vcarousel" class="v-car">
-      <% @graffiti.graffiti_photos.each do |photo| %>
-      <li><%= image_tag(photo.photo.url(:small)) %></li>
+      <% @graffiti.photos.each do |photo| %>
+      <li><%= image_tag(photo.image.url(:small)) %></li>
       <% end %>
     </ul>
   </div>
-  <div id="add_more"><%= link_to "Add More", new_graffiti_photo_path(@graffiti) %></div>
+  <div id="add_more"><%= link_to "Add More", new_bathroom_graffiti_photo_path(@graffiti.bathroom,@graffiti) %></div>
 </div>
 <% else %>
-<p>No photos exist for this graffiti. <%= link_to "Add some?", new_graffiti_photo_path(@graffiti) %></p>
+<p>No photos exist for this graffiti. <%= link_to "Add some?", new_bathroom_graffiti_photo_path(@graffiti.bathroom,@graffiti) %></p>
 <% end %>
 <h2 class="full">Description</h2>
 <p><%= @graffiti.description %></p>

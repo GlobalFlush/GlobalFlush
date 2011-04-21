@@ -5,35 +5,20 @@ Globalflush::Application.routes.draw do
   get "user_sessions/new"
 
   match 'map' => 'map#index', :as => :map, :via => :get
-#  get 'bathroom_photos/:bathroom_id'
-#  get 'bathroom_photos/new/:bathroom_id'
-#  post 'bathroom_photos/:bathroom_id'
-#  destroy 'bathroom_photos/:id'
-  
-
-  match 'bathroom_photos/:bathroom_id' => 'bathroom_photos#show', :via => :get, :as => :bathroom_photo
-  match 'bathroom_photos/new/:bathroom_id' => 'bathroom_photos#new', :via => :get, :as => :new_bathroom_photo
-  match 'bathroom_photos/:bathroom_id' => 'bathroom_photos#create', :via => :post, :as => :bathroom_photos
-  match 'bathroom_photos/:id' => 'bathroom_photos#destroy', :via => :delete, :as => :bathroom_photo
-
-  match 'graffiti_photos/:graffiti_id' => 'graffiti_photos#show', :via => :get, :as => :graffiti_photo
-  match 'graffiti_photos/new/:graffiti_id' => 'graffiti_photos#new', :via => :get, :as => :new_graffiti_photo
-  match 'graffiti_photos/:graffiti_id' => 'graffiti_photos#create', :via => :post, :as => :graffiti_photos
-  match 'graffiti_photos/:id' => 'graffiti_photos#destroy', :via => :delete, :as => :graffiti_photo
-
-#  root :to => "welcome#index"
 
   resources :user_sessions
   resources :users
   resources :password_resets
   resources :bathrooms do
-    resources :graffiti
+    resources :photos
+    resources :graffiti do
+      resources :photos
+    end
   end
+  resources :photos
   resources :graffiti
   resources :comments
   resources :ratings
- # resources :map
- # resources :bathroom_photos
 
   get "users/show"
   match 'users/show' => 'users#show', :as => :user_show

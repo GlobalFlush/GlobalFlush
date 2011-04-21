@@ -469,12 +469,12 @@ img
   background-color:#cccccc;
   margin-bottom:20px;
   position:relative;
+  text-align:center;
 }
 #main_image
 {
-  width:640px;
-  height:426px;
-  background-color:#999999;
+  text-align:center;
+  background-color:#FFFFFF;
 }
 #add_more
 {

@@ -13,14 +13,13 @@ class User < ActiveRecord::Base
 
   has_many :comments, :dependent => :destroy
   has_many :bathrooms, :dependent => :destroy
-  has_many :bathroom_photos, :dependent => :destroy
+  has_many :photos, :dependent => :destroy
   
 
   accepts_nested_attributes_for :bathrooms, :allow_destroy => true
   accepts_nested_attributes_for :comments, :allow_destroy => true
-  accepts_nested_attributes_for :bathroom_photos, :allow_destroy => true
+  accepts_nested_attributes_for :photos, :allow_destroy => true
 
-#  attr_accessible :comments_attributes, :bathrooms_attributes, :bathroom_photos_attributes
   def deliver_password_reset_instructions!
     reset_perishable_token!
     Notifier.deliver_password_reset_instructions(self)

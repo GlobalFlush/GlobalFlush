@@ -41,8 +41,8 @@
 
 
     <h3>Photos</h3>
-    <%= f.fields_for :bathroom_photos do |photo| %>
-        <%= photo.file_field :photo %><br />
+    <%= f.fields_for :photos do |photo| %>
+        <%= photo.file_field :image %><br />
     <% end %>
 
     <br/>

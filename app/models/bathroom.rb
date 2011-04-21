@@ -20,7 +20,7 @@ class Bathroom < ActiveRecord::Base
   has_many :graffiti, :dependent => :destroy
   has_one :address, :dependent => :destroy
   has_many :bathroom_specs, :dependent => :destroy
-  has_many :bathroom_photos, :dependent => :destroy
+  has_many :photos, :as => :imageable, :dependent => :destroy
 
   belongs_to :user
 
@@ -29,10 +29,10 @@ class Bathroom < ActiveRecord::Base
   accepts_nested_attributes_for :graffiti, :allow_destroy => true
   accepts_nested_attributes_for :address, :allow_destroy => true
   accepts_nested_attributes_for :bathroom_specs, :allow_destroy => true
-  accepts_nested_attributes_for :bathroom_photos, :allow_destroy => true
+  accepts_nested_attributes_for :photos, :allow_destroy => true
   
 
-  attr_accessible :comments_attributes, :ratings_attributes, :graffiti_attributes, :address_attributes, :bathroom_specs_attributes, :bathroom_photos_attributes,
+  attr_accessible :comments_attributes, :ratings_attributes, :graffiti_attributes, :address_attributes, :bathroom_specs_attributes, :photos_attributes,
                   :title, :gender, :description, :user_id, :hidden, :moderated
 
 

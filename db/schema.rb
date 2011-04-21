@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110419034339) do
+ActiveRecord::Schema.define(:version => 20110421011355) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street_address"
@@ -24,19 +24,6 @@ ActiveRecord::Schema.define(:version => 20110419034339) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "zip"
-  end
-
-  create_table "bathroom_photos", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "bathroom_id"
-    t.string   "type"
-    t.boolean  "moderated",          :default => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
   end
 
   create_table "bathroom_specs", :force => true do |t|
@@ -77,15 +64,15 @@ ActiveRecord::Schema.define(:version => 20110419034339) do
     t.datetime "updated_at"
   end
 
-  create_table "graffiti_photos", :force => true do |t|
+  create_table "photos", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "graffiti_id"
-    t.string   "type"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
     t.boolean  "moderated",          :default => false
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

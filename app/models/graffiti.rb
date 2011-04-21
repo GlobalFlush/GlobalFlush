@@ -8,5 +8,5 @@
 # - timestamp: the date of creation and update
 class Graffiti < ActiveRecord::Base
   belongs_to :bathroom
-  has_many :graffiti_photos
+  has_many :photos, :as => :imageable, :dependent => :destroy
 end

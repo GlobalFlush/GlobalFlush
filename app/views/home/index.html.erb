@@ -35,8 +35,8 @@
   <ul id="carousel" class="h-car">
     <% @bathrooms.each do |bathroom| %>
       <li>
-        <% if bathroom.bathroom_photos.empty? == false %>
-          <%= link_to image_tag(bathroom.bathroom_photos.first.photo.url(:small)), bathroom %>
+        <% if bathroom.photos.empty? == false %>
+          <%= link_to image_tag(bathroom.photos.first.image.url(:small)), bathroom %>
         <% else %>
           <%= link_to image_tag("/images/no_image.png",:width=>240,:height=>160), bathroom %>
         <% end %>
@@ -50,8 +50,8 @@
   <ul id="g_car" class="h-car">
     <% @graffiti.each do |graffiti| %>
       <li>
-        <% if graffiti.graffiti_photos.empty? == false %>
-          <%= link_to image_tag(graffiti.graffiti_photos.first.photo.url(:small)), graffiti %>
+        <% if graffiti.photos.empty? == false %>
+          <%= link_to image_tag(graffiti.photos.first.image.url(:small)), graffiti %>
         <% else %>
           <%= link_to image_tag("/images/no_image.png",:width=>240,:height=>160), graffiti %>
         <% end %>
