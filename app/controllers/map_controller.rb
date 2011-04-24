@@ -7,5 +7,5 @@ class MapController < ApplicationController
 		
 		@bathrooms_with_address_ratings = @bathrooms.map { |b| [b, b.address, b.ratings] }
 	end
-	
+
 end

@@ -13,6 +13,11 @@
     <% bathroom.bathroom_specs.each do |spec| %>
     <b><%= spec.key %>:</b> <%=spec.value%>.
     <% end %>
+
+  <% if @is_admin %>
+    <%= button_to 'Remove', bathroom_url(bathroom.id), :confirm => 'Are you sure?', :method => :delete  %>
+  <% end %>
+  
 </div>
 <div class="clear"></div>
 <% end %>

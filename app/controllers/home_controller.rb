@@ -23,6 +23,7 @@ class HomeController < ApplicationController
   # Search for bathroom by keywords
   # Calling named_scope in Bathroom model
   def search
+    @is_admin = is_admin
 
     gender = '%'
     if params[:male] == '1' && params[:female] != '1'

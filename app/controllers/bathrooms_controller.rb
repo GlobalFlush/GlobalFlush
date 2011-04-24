@@ -3,6 +3,7 @@
 # log in is required for CUD, displaying is not required log in
 class BathroomsController < ApplicationController
   before_filter :require_user, :only => [:new, :create, :update, :edit, :destroy]
+  before_filter :is_admin, :only => :destroy
 
   # GET /bathrooms/new
   # Bathroom creation page, creates a temporary bathroom object with 1 address, 5 bathroom_specs, and 3 bathroom_photos
@@ -45,6 +46,7 @@ class BathroomsController < ApplicationController
   # Index page for bathrooms. Query all bathroom and ordered by descending updated_at time
   def index
     @bathrooms = Bathroom.find(:all,:order => 'updated_at DESC')
+    @is_admin = is_admin
   end
 
   # GET /bathrooms/:id
@@ -74,6 +76,17 @@ class BathroomsController < ApplicationController
       end
     end
     
+  end
+
+  # DELETE /bathrooms/:id
+  # Delete the bathrooms only if the current user is an admin
+  # Redirect back to the bathrooms page afterwards
+  def destroy
+    @bathroom = Bathroom.find(params[:id])
+    @bathroom.destroy
+    respond_to do |format|
+      format.html { redirect_to bathrooms_url }
+    end
   end
 
   
