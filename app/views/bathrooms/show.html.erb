@@ -239,7 +239,7 @@ function update_hidden(){
     <div><a href="<%= photo.image.url %>"><%= image_tag photo.image.url(:small),:height=>133,:width=>200 %></a></div>
   <% end %>
   <%  if !@bathroom.photos.empty? then %>
-    <%= link_to 'View All', bathroom_photos_path(@bathroom) %> | <%= link_to 'Add More', new_photo_path(@bathroom) %>
+    <%= link_to 'View All', bathroom_photos_path(@bathroom) %> | <%= link_to 'Add More', new_bathroom_photo_path(@bathroom) %>
   <% else %>
     <%= link_to 'Add Photo', new_bathroom_photo_path(@bathroom) %>
   <% end %>

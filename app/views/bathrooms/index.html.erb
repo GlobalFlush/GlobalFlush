@@ -6,9 +6,9 @@
 <div class="list_item">
   <div class="male"><span class="right">Last updated at <%= bathroom.updated_at %></span><%= link_to bathroom.title, bathroom %></div>
   <% if bathroom.photos.empty? %>
-    <%= link_to image_tag("/images/no_image.png",:height=>80,:width=>100),bathroom %>
+    <%= link_to image_tag("/images/no_image.png",:height=>80,:width=>120),bathroom %>
   <% else %>
-    <%= link_to image_tag(bathroom.photos.first.image.url(:thumb),:height=>80,:width=>100),bathroom %>
+    <%= link_to image_tag(bathroom.photos.first.image.url(:thumb),:height=>80,:width=>120),bathroom %>
   <% end %>
     <% bathroom.bathroom_specs.each do |spec| %>
     <b><%= spec.key %>:</b> <%=spec.value%>.
