@@ -35,7 +35,9 @@ class Bathroom < ActiveRecord::Base
   attr_accessible :comments_attributes, :ratings_attributes, :graffiti_attributes, :address_attributes, :bathroom_specs_attributes, :photos_attributes,
                   :title, :gender, :description, :user_id, :hidden, :moderated
 
-
+  def name
+    self[:title]
+  end
   named_scope :search_by_address, lambda { |keyword|
     {
         :joins => :address,

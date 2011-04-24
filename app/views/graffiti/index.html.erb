@@ -1,3 +1,18 @@
+<h1>Browsing Graffiti</h1>
+
+<p>Currently browsing all graffiti by last added.</p>
+<div id="bathroom_list">
+
 <% @graffiti.each do |graffiti| %>
-<%= link_to graffiti.name, graffiti %><br />
+  <div class="list_item">
+    <div class="male"><span class="right">Last updated at <%= graffiti.updated_at %></span><%= link_to graffiti.name, bathroom_graffiti_path(graffiti.bathroom,graffiti) %></div>
+    <% if graffiti.photos.empty? %>
+      <%= link_to image_tag("/images/no_image.png",:height=>80,:width=>120),bathroom_graffiti_path(graffiti.bathroom,graffiti) %>
+  <% else %>
+    <%= link_to image_tag(graffiti.photos.first.image.url(:thumb),:height=>80,:width=>120),bathroom_graffiti_path(graffiti.bathroom,graffiti) %>
+  <% end %>
+    <%= graffiti.description %>
+  </div>
+  <div class="clear"></div>
 <% end %>
+</div>
