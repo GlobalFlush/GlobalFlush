@@ -6,8 +6,8 @@ class HomeController < ApplicationController
   # GET /
   # Root of this application, the index page
   def index
-    @bathrooms = Bathroom.all(:limit=>9)
-    @graffiti = Graffiti.all(:limit=>9)
+    @bathrooms = Bathroom.all(:limit=>9,:order => 'updated_at DESC')
+    @graffiti = Graffiti.all(:limit=>9,:order => 'updated_at DESC')
   end
 
   # GET /home/about
