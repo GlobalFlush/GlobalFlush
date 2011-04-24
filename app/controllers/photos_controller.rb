@@ -22,7 +22,11 @@ class PhotosController < ApplicationController
     @photo = Photo.new(params[:photo])
     if @photo.save
       flash[:notice] = "Photo has been added"
-      redirect_to @photo
+      if(@photo.imageable_type == 'bathroom') then
+        redirect_to bathroom_path(@photo.imageable_id)
+      else
+        redirect_to graffiti_path(@photo.imageable_id)
+      end
     else
       render :new
     end
