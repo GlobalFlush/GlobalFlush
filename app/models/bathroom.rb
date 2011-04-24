@@ -36,11 +36,11 @@ class Bathroom < ActiveRecord::Base
                   :title, :gender, :description, :user_id, :hidden, :moderated
 
 
-  named_scope :search_by_address, lambda { |keyword|
+  named_scope :search_by_address, lambda { |keyword, gender, order|
     {
-        :joins => :address,
-        :conditions => ['inside_location LIKE ? OR street_address LIKE ? OR city LIKE ? OR state LIKE ? OR zip LIKE ? OR country LIKE ? OR title LIKE ?', "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"],
-        :order => 'bathrooms.updated_at DESC'
+        :joins => [:address, :ratings],
+        :conditions => ['gender LIKE ? AND (inside_location LIKE ? OR street_address LIKE ? OR city LIKE ? OR state LIKE ? OR zip LIKE ? OR country LIKE ? OR title LIKE ?)', "#{gender}", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"],
+        :order => order
     }
   }
   

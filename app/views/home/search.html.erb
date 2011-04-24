@@ -10,10 +10,6 @@
   <%# end %>
 </div>
 
-<% if @bathrooms.empty? %>
-    <p>There are no such matching bathrooms. Please try again.</p>
-<% else %>
-
     <div id="filter">
 
       <% form_tag search_url, :method => :get do %>
@@ -25,20 +21,31 @@
           <%= check_box_tag :female, 1, params[:female] == '1' %>Female<br />
 
           Sort by: <br />
-          Ratings: 
-          <%= radio_button_tag :sort_rating, 'ratings.overall desc', params[:sort_rating] == 'ratings.overall desc' %>High to low
-          <%= radio_button_tag :sort_rating, 'ratings.overall asc', params[:sort_rating] == 'ratings.overall asc' %>Low to high
+          Updated at:
+          <%= radio_button_tag :sort, 'bathrooms.updated_at DESC', params[:sort] == 'bathrooms.updated_at DESC' %>Most recent
+          <%= radio_button_tag :sort, 'bathrooms.updated_at ASC', params[:sort] == 'bathrooms.updated_at ASC' %>Oldest
+          <br/>
+          
+          Ratings:
+          <%= radio_button_tag :sort, 'ratings.overall DESC', params[:sort] == 'ratings.overall DESC' %>High to low
+          <%= radio_button_tag :sort, 'ratings.overall ASC', params[:sort] == 'ratings.overall ACS' %>Low to high
           <br/>
 
           Distance:
-          <%= radio_button_tag :sort_distance,  'distance desc', params[:sort_distance] == 'distance desc' %>Furthest to closest
-          <%= radio_button_tag :sort_distance,  'distance asc', params[:sort_distance] == 'distance asc' %>Closest to furthest
+          <%= radio_button_tag :sort,  'distance DESC', params[:sort] == 'distance DESC'%>Furthest to closest
+          <%= radio_button_tag :sort,  'distance ASC', params[:sort] == 'distance ACS' %>Closest to furthest
           <br/>
-          
+
           <%= submit_tag "Search", :name => nil %>
       <% end %>
 
     </div>
+
+<% if @bathrooms.empty? %>
+    <p>There are no such matching bathrooms. Please try again.</p>
+<% else %>
+
+
 
     <div id="bathroom_list">
 
