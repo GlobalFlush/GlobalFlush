@@ -2,8 +2,9 @@
 <script type="text/javascript"
         src="http://maps.google.com/maps/api/js?sensor=true">
 </script>
+<script language="JavaScript" src="http://j.maxmind.com/app/geoip.js"></script>
 <script type="text/javascript" language="javascript">
-  var your_city = new google.maps.LatLng();
+  var your_city = new google.maps.LatLng(geoip_latitude(), geoip_longitude());
   var your_place = new google.maps.LatLng();
   var marker;
   var map;
@@ -23,6 +24,7 @@
 	  animation: google.maps.Animation.DROP,
 	  position: your_city
 	});
+	google.maps.event.addListener(marker, 'dragend', updateAddress);
   }
   function getGPS()
   {
@@ -42,7 +44,7 @@
 		map.setCenter(your_city);
 		map.setZoom(15);
 		marker.setPosition(your_city);
-		google.maps.event.addListener(marker, 'click', toggleBounce);
+		google.maps.event.addListener(marker, 'dragend', updateAddress);
 		//document.getELementById("add").disabled = false;
 	}
 	else
@@ -63,6 +65,31 @@
     } else {
       marker.setAnimation(google.maps.Animation.BOUNCE);
     }
+  }
+  
+  function updateAddress() {
+	geocoder.geocode({'latLng':marker.getPosition()}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+			document.getElementById("street").value = getAddressComponent(results[0], "street_number")+" "+getAddressComponent(results[0], "route");
+			document.getElementById("city").value = getAddressComponent(results[0], "locality");
+			document.getElementById("state").value = getAddressComponent(results[0], "administrative_area_level_1");
+			document.getElementById("zip").value = getAddressComponent(results[0], "postal_code")
+			document.getElementById("country").value = getAddressComponent(results[0], "country")
+		}
+		else {
+			alert("Geocoder failed because:" + status);
+		}
+	});
+  }
+  
+  function getAddressComponent(address, type) {
+	for (var i=0; i<address.address_components.length; i++) {
+		for (var j=0; j<address.address_components[i].types.length; j++) {
+			if (address.address_components[i].types[j] == type) {
+				return address.address_components[i].long_name;
+			}
+		}
+	}
   }
 </script>
 
