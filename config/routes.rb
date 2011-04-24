@@ -16,7 +16,9 @@ Globalflush::Application.routes.draw do
     end
   end
   resources :photos
-  resources :graffiti
+  resources :graffiti do
+    resources :photos
+  end
   resources :comments
   resources :ratings
 

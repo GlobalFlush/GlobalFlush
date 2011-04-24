@@ -67,4 +67,14 @@ class ApplicationController < ActionController::Base
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
   end
+
+  # Return the admin status of the current user
+  # if the user is not log in, return false
+  def is_admin
+    if current_user
+      return current_user.admin
+    end
+    return false
+  end
+  
 end

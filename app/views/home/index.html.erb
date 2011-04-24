@@ -23,7 +23,7 @@
 <div id="find">
 
   <% form_tag search_url, :method => 'get' do %>
-      <%= text_field_tag :keyword, params[:keyword], :id=> "zip" %>
+      <%= text_field_tag :keyword, params[:keyword], :id=> "zip_home" %>
       <%= submit_tag "Search", :name => nil, :id=>"search" %>
   <% end %>
   
@@ -51,11 +51,11 @@
     <% @graffiti.each do |graffiti| %>
       <li>
         <% if graffiti.photos.empty? == false %>
-          <%= link_to image_tag(graffiti.photos.first.image.url(:small)), graffiti %>
+          <%= link_to image_tag(graffiti.photos.first.image.url(:small)), bathroom_graffiti_path(graffiti.bathroom,graffiti) %>
         <% else %>
-          <%= link_to image_tag("/images/no_image.png",:width=>240,:height=>160), graffiti %>
+          <%= link_to image_tag("/images/no_image.png",:width=>240,:height=>160), bathroom_graffiti_path(graffiti.bathroom,graffiti) %>
         <% end %>
-        <div><%= link_to graffiti.name,graffiti %></div>
+        <div><%= link_to graffiti.name,bathroom_graffiti_path(graffiti.bathroom,graffiti) %></div>
       </li>
     <% end %>
   </ul>

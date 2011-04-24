@@ -22,7 +22,11 @@ class PhotosController < ApplicationController
     @photo = Photo.new(params[:photo])
     if @photo.save
       flash[:notice] = "Photo has been added"
-      redirect_to @photo
+      if(@photo.imageable_type == 'Bathroom') then
+        redirect_to bathroom_path(@photo.imageable_id)
+      else
+        redirect_to graffiti_path(@photo.imageable_id)
+      end
     else
       render :new
     end
@@ -30,9 +34,11 @@ class PhotosController < ApplicationController
 
   def index
     if !params[:graffiti_id].nil? then
-      @photos = Photo.where("imageable_id = ? AND imageable_type = 'graffiti'",params[:graffiti_id])
+      @obj = Graffiti.find(params[:graffiti_id])
+      @photos = Photo.where("imageable_id = ? AND imageable_type = 'Graffiti'",params[:graffiti_id])
     elsif !params[:bathroom_id].nil? then
-      @photos = Photo.where("imageable_id = ? AND imageable_type = 'bathroom'",params[:bathroom_id])
+      @photos = Photo.where("imageable_id = ? AND imageable_type = 'Bathroom'",params[:bathroom_id])
+      @obj = Bathroom.find(params[:bathroom_id])
     else
       @photos = Photo.find(:all)
     end

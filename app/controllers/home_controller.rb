@@ -23,8 +23,19 @@ class HomeController < ApplicationController
   # Search for bathroom by keywords
   # Calling named_scope in Bathroom model
   def search
+    @is_admin = is_admin
+
+    gender = '%'
+    if params[:male] == '1' && params[:female] != '1'
+        gender = 'Male'
+    end
+    if params[:male] != '1' && params[:female] == '1'
+      gender = 'Female'
+    end
+    sort_order = params[:sort] || "bathrooms.updated_at DESC"
+
+    @bathrooms = Bathroom.search_by_address(params[:keyword], gender, sort_order)
     
-    @bathrooms = Bathroom.search_by_address(params[:keyword])
     @addresses = @bathrooms.map { |b| b.address }
     @ratings = @bathrooms.map { |b| b.ratings }
 
