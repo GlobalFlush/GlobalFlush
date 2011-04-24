@@ -1,3 +1,12 @@
+<% if @photos.empty? then%>
+<h1>No photos</h1>
+<% else %>
+
+<h1>Photos for <%=  @photos.first.imageable.name %></h1>
+
+
 <% @photos.each do |photo| %>
-  <%= link_to image_tag(photo.image.url(:small)), photo %><br />
-<% end %>
+  <%= link_to image_tag(photo.image.url(:small)), photo %>
+  <%= link_to %>
+<br />
+<% end end%>
