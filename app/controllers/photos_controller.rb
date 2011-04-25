@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
   before_filter :require_user, :only => [:new, :create, :destroy]
+  before_filter :is_admin, :only => :destroy
   protect_from_forgery :except => [:destroy]
 
   # GET /graffiti_photos/:graffiti_id
@@ -11,9 +12,11 @@ class PhotosController < ApplicationController
   def new
     @photo = Photo.new
     if !params[:graffiti_id].nil? then
-      @graffiti = Graffiti.find(params[:graffiti_id])
+      @obj = Graffiti.find(params[:graffiti_id])
     elsif !params[:bathroom_id].nil? then
-      @bathroom = Bathroom.find(params[:bathroom_id])
+      @obj = Bathroom.find(params[:bathroom_id])
+    else
+      @obj.name = 'Unattached'
     end
 
   end
@@ -25,7 +28,7 @@ class PhotosController < ApplicationController
       if(@photo.imageable_type == 'Bathroom') then
         redirect_to bathroom_path(@photo.imageable_id)
       else
-        redirect_to graffiti_path(@photo.imageable_id)
+        redirect_to polymorphic_path([@photo.imageable.bathroom,@photo.imageable])
       end
     else
       render :new
@@ -49,7 +52,7 @@ class PhotosController < ApplicationController
     @photo.destroy
 
     respond_to do |format|
-      format.html { redirect_to photos_index_path }
+      format.html { redirect_to polymorphic_path([@photo.imageable,:photos]) }
       format.xml  { head :ok }
     end
   end
