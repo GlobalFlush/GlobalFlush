@@ -30,7 +30,7 @@
   <div class="home_button" id="via_map">via Map</div>
   <div class="home_button" id="via_browse"><%= link_to 'via Browse', bathrooms_url%></div>
 </div>
-<h3>Top Bathrooms</h3>
+<h3>Newest Bathrooms</h3>
 <div class="h-car">
   <ul id="carousel" class="h-car">
     <% @bathrooms.each do |bathroom| %>
@@ -45,7 +45,7 @@
     <% end %>
   </ul>
 </div>
-<h3>Top Graffiti</h3>
+<h3>Newest Graffiti</h3>
 <div class="h-car">
   <ul id="g_car" class="h-car">
     <% @graffiti.each do |graffiti| %>

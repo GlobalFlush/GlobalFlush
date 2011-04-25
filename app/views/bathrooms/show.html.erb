@@ -192,16 +192,76 @@ function update_hidden(){
     <div id="map">
     </div>
   </div>
+</div>
 
-<%#= render :partial => "bathrooms/map" %>
+<div id="images">
+  <h3>Photos</h3>
+  <% @bathroom.photos.limit(2).each do |photo| %>
+    <div><a href="<%= photo.image.url %>"><%= image_tag photo.image.url(:small),:height=>133,:width=>200 %></a></div>
+  <% end %>
+  <%  if @bathroom.photos.size > 2 then %>
+    <%= link_to 'View All (' + @bathroom.photos.size.to_s + ')', bathroom_photos_path(@bathroom) %> |
+  <% end %>
+  <%= link_to 'Add Photo', new_bathroom_photo_path(@bathroom) %>
+    <h3>Graffiti</h3>
+  <% if !@bathroom.graffiti.empty? then %>
+    
+      <% @bathroom.graffiti.limit(2).each do |graffiti| %>
+        <% if graffiti.photos.empty? then %>
+          <div><%= link_to image_tag("/images/no_image.png",:width=>200,:height=>133),[@bathroom,graffiti] %></div>
+        <% else %>
+          <div><%= link_to image_tag(graffiti.photos.first.image.url(:small),:width=>200,:height=>133),[@bathroom,graffiti] %></div>
+        <% end %>
+      <% end %>
+    <%  if @bathroom.graffiti.size > 2 then %>
+      <%= link_to 'View All (' + @bathroom.graffiti.size.to_s + ')',bathroom_graffiti_index_path(@bathroom) %> |
+    <% end %>
+  <% end %>
+  <%=  link_to 'Add Graffiti',new_bathroom_graffiti_path(@bathroom) %>
+</div>
 
-  <h2>Detailed Ratings</h2>
+<h2>Location</h2>
+<p><%= @bathroom.address.to_s %></p>
 
-  <div id="rating_box">
+<h2>Description</h2>
+<p><%= @bathroom.description %></p>
 
+<h2>Attributes</h2>
+<div id="attribute_box">
+  <div id="ab_left">
+    <ul>
+      <% @bathroom.bathroom_specs.each do |spec| %>
+        <li><%= spec.key %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div id="ab_right">
+    <ul>
+      <% @bathroom.bathroom_specs.each do |spec| %>
+        <li><%= spec.value %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+
+<div style="clear:both;"></div>
+
+<h2 class="full">Write a Review</h2>
+<div style="clear:both;"></div>
+<div id="add_comment" >
+<%= form_for :comment, :url => comments_path , :html => {:name => "comment_rating"} do |f| %>
+  <%= f.text_area :body,:style => "float:left" %>
+  <%= f.hidden_field :bathroom_id, :value => @bathroom.id %>
+  <br />
+  <%= f.hidden_field :overall, :id => "overall" %>
+  <%= f.hidden_field :clean, :id => "clean" %>
+  <%= f.hidden_field :smell, :id => "smell"%>
+
+<div id="rating_box" style="float:left">
     <div id="rb_left">
       <ul>
-        <li>Overall Rating</li>   
+        <li>Overall Rating</li>
         <li>Cleanliness</li>
         <li>Smelliness</li>
       </ul>
@@ -232,69 +292,13 @@ function update_hidden(){
       </ul>
     </div>
   </div>
-</div>
-<div id="images">
-  <h3>Photos</h3>
-  <% @bathroom.photos.limit(2).each do |photo| %>
-    <div><a href="<%= photo.image.url %>"><%= image_tag photo.image.url(:small),:height=>133,:width=>200 %></a></div>
-  <% end %>
-  <%  if @bathroom.photos.size > 2 then %>
-    <%= link_to 'View All (' + @bathroom.photos.size.to_s + ')', bathroom_photos_path(@bathroom) %> |
-  <% end %>
-  <%= link_to 'Add Photo', new_bathroom_photo_path(@bathroom) %>
-    <h3>Graffiti</h3>
-  <% if !@bathroom.graffiti.empty? then %>
-    
-      <% @bathroom.graffiti.limit(2).each do |graffiti| %>
-        <% if graffiti.photos.empty? then %>
-          <div><%= link_to image_tag("/images/no_image.png",:width=>200,:height=>133),[@bathroom,graffiti] %></div>
-        <% else %>
-          <div><%= link_to image_tag(graffiti.photos.first.image.url(:small),:width=>200,:height=>133),[@bathroom,graffiti] %></div>
-        <% end %>
-      <% end %>
-    <%  if @bathroom.graffiti.size > 2 then %>
-      <%= link_to 'View All (' + @bathroom.graffiti.size.to_s + ')',bathroom_graffiti_index_path(@bathroom) %> |
-    <% end %>
-  <% end %>
-  <%=  link_to 'Add Graffiti',new_bathroom_graffiti_path(@bathroom) %>
-</div>
-
-<h2>Address</h2>
-<div id="address_box">
-  <%= @bathroom.address.to_s %>
-</div>
-
-<h2>Attributes</h2>
-<div id="attribute_box">
-  <div id="ab_left">
-    <ul>
-      <% @bathroom.bathroom_specs.each do |spec| %>
-        <li><%= spec.key %></li>
-      <% end %>
-    </ul>
+  <div style="clear:both"></div>
+  <div id="submit_container" style="text-align:center">
+    <%= f.submit "Post Comment" , :onclick => "update_hidden()", :style => "clear:both" %>
   </div>
-  <div id="ab_right">
-    <ul>
-      <% @bathroom.bathroom_specs.each do |spec| %>
-        <li><%= spec.value %></li>
-      <% end %>
-    </ul>
-  </div>
-</div>
-
-<h2>Write a Review</h2>
-<%= form_for :comment, :url => comments_path , :html => {:name => "comment_rating"} do |f| %>
-  <%= f.text_area :body %>
-  <%= f.hidden_field :bathroom_id, :value => @bathroom.id %>
-  <br />
-  <%= f.hidden_field :overall, :id => "overall" %>
-  <%= f.hidden_field :clean, :id => "clean" %>
-  <%= f.hidden_field :smell, :id => "smell"%>
-  <%= f.submit "Post Comment" , :onclick => "update_hidden()"%>
 <% end %>
-<div style="clear:both;"></div>
+</div>
 <h2 class="full">Reviews</h2>
-
 <% @bathroom.comments.each do |comment| %>
   <div class="review">
     <div class="username"><%= link_to comment.user.login, comment.user %></div>
