@@ -17,7 +17,7 @@
 <div id="tools">
   <a href="#">Add to Favorites</a> |
   <a href="#">Share</a> |
-  <a href="#">Edit Photos</a> |
+  <%= link_to "Edit Photos", [@graffiti.bathroom,@graffiti,:photos] %>  |
   <%= link_to "Edit Content", edit_bathroom_graffiti_path(@graffiti) %>
 </div>
 

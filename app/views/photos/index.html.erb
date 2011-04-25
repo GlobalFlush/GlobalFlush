@@ -1,12 +1,16 @@
-<% if @photos.empty? then%>
-<h1>No photos</h1>
-<% else %>
 
-<h1>Photos for <%=  @photos.first.imageable.name %></h1>
+<h1>Photos for <%=  @obj.name %></h1>
 
 
 <% @photos.each do |photo| %>
-  <%= link_to image_tag(photo.image.url(:small)), photo %>
-  <%= link_to %>
+  <%= link_to image_tag(photo.image.url(:small)), [photo.imageable,photo] %>
+  <%= link_to 'Destroy', [photo.imageable,photo], :confirm => 'Are you sure?', :method => :delete %>
 <br />
-<% end end%>
+<% end %>
+
+<%  if@photos.empty? then %>
+<p>There are no photos.</p>
+<% end %>
+<%= link_to "Add Photo", new_polymorphic_path([@obj,Photo.new]) %><br />
+<%= link_to "Back to " + @obj.class.to_s, @obj %><br />
+<%=  current_user.admin %>
