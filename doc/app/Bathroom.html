@@ -65,6 +65,15 @@
 
 			<!-- Method Quickref -->
 			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-i-name">#name</a></li>
+					
+				</ul>
+			</div>
+			
 
 			<!-- Included Modules -->
 			
@@ -106,10 +115,6 @@
 				
 					<li><a href="./Bathroom.html">Bathroom</a></li>
 				
-					<li><a href="./BathroomPhoto.html">BathroomPhoto</a></li>
-				
-					<li><a href="./BathroomPhotosController.html">BathroomPhotosController</a></li>
-				
 					<li><a href="./BathroomPhotosHelper.html">BathroomPhotosHelper</a></li>
 				
 					<li><a href="./BathroomSpec.html">BathroomSpec</a></li>
@@ -126,9 +131,7 @@
 				
 					<li><a href="./Graffiti.html">Graffiti</a></li>
 				
-					<li><a href="./GraffitiPhoto.html">GraffitiPhoto</a></li>
-				
-					<li><a href="./GraffitiPhotosController.html">GraffitiPhotosController</a></li>
+					<li><a href="./GraffitiController.html">GraffitiController</a></li>
 				
 					<li><a href="./HomeController.html">HomeController</a></li>
 				
@@ -143,6 +146,10 @@
 					<li><a href="./PasswordResetsController.html">PasswordResetsController</a></li>
 				
 					<li><a href="./PasswordResetsHelper.html">PasswordResetsHelper</a></li>
+				
+					<li><a href="./Photo.html">Photo</a></li>
+				
+					<li><a href="./PhotosController.html">PhotosController</a></li>
 				
 					<li><a href="./Rating.html">Rating</a></li>
 				
@@ -185,7 +192,7 @@ relationship with comments, e.i. a bathroom can have many comments. <a
 href="Bathroom.html">Bathroom</a> has a one to many relationship with
 ratings, e.i. a bathroom cna have many ratings. <a
 href="Bathroom.html">Bathroom</a> has a one to many relationship with
-graffitis, e.i. a bathroom can have many graffitis. <a
+graffiti, e.i. a bathroom can have many graffiti. <a
 href="Bathroom.html">Bathroom</a> has a one to one relationship with
 address, e.i. a bathroom can only have one address. <a
 href="Bathroom.html">Bathroom</a> has a one to many relationship with
@@ -216,6 +223,46 @@ attributes:
 
 		<!-- Methods -->
 		
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="name-method" class="method-detail ">
+				<a name="method-i-name"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">name</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="name-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/bathroom.rb, line 38</span>
+38:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">name</span>
+39:     <span class="ruby-keyword kw">self</span>[<span class="ruby-value">:title</span>]
+40:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
 
 	</div>
 
