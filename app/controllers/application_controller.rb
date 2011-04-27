@@ -71,9 +71,12 @@ class ApplicationController < ActionController::Base
   # Return the admin status of the current user
   # if the user is not log in, return false
   def is_admin
-    unless current_user.admin
-      flash[:notice] = "You must be an admin to use this feature"
-      redirect_to :back
+    if current_user
+      return current_user.admin
+    else
+#      flash[:notice] = "You must be an admin to use this feature"
+      return false
     end
-  end 
+  end
+  
 end
