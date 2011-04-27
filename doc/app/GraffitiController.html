@@ -193,7 +193,10 @@
 		<h1 class="class">GraffitiController</h1>
 
 		<div id="description">
-			
+			<p>
+<a href="Graffiti.html">Graffiti</a> Controller Handles CRUD of graffiti
+</p>
+
 		</div>
 
 		<!-- Constants -->
@@ -221,23 +224,25 @@
 
 				<div class="method-description">
 					
-					
+					<p>
+POST /graffiti
+</p>
 					
 
 					
 					<div class="method-source-code"
 						id="create-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/graffiti_controller.rb, line 9</span>
- 9:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
-10:     <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:graffiti</span>])
-11:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@graffiti</span>.<span class="ruby-identifier">save</span>
-12:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Graffiti has been added!&quot;</span>
-13:       <span class="ruby-identifier">redirect_to</span> [<span class="ruby-ivar">@graffiti</span>.<span class="ruby-identifier">bathroom</span>,<span class="ruby-ivar">@graffiti</span>]
-14:     <span class="ruby-keyword kw">else</span>
-15:       <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>
-16:     <span class="ruby-keyword kw">end</span>
-17:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/graffiti_controller.rb, line 13</span>
+13:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
+14:     <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:graffiti</span>])
+15:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@graffiti</span>.<span class="ruby-identifier">save</span>
+16:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Graffiti has been added!&quot;</span>
+17:       <span class="ruby-identifier">redirect_to</span> [<span class="ruby-ivar">@graffiti</span>.<span class="ruby-identifier">bathroom</span>,<span class="ruby-ivar">@graffiti</span>]
+18:     <span class="ruby-keyword kw">else</span>
+19:       <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>
+20:     <span class="ruby-keyword kw">end</span>
+21:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -261,17 +266,19 @@
 
 				<div class="method-description">
 					
-					
+					<p>
+GET /graffiti/:id
+</p>
 					
 
 					
 					<div class="method-source-code"
 						id="edit-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/graffiti_controller.rb, line 31</span>
-31:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">edit</span>
-32:     <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-33:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/graffiti_controller.rb, line 38</span>
+38:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">edit</span>
+39:     <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+40:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -295,21 +302,23 @@
 
 				<div class="method-description">
 					
-					
+					<p>
+GET /graffiti/:bathroom_id
+</p>
 					
 
 					
 					<div class="method-source-code"
 						id="index-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/graffiti_controller.rb, line 19</span>
-19:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
-20:     <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">params</span>[<span class="ruby-value">:bathroom_id</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">then</span>
-21:       <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value str">&quot;bathroom_id = ?&quot;</span>,<span class="ruby-identifier">params</span>[<span class="ruby-value">:bathroom_id</span>])
-22:     <span class="ruby-keyword kw">else</span>
-23:       <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">:all</span>,<span class="ruby-value">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'updated_at DESC'</span>)
-24:     <span class="ruby-keyword kw">end</span>
-25:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/graffiti_controller.rb, line 24</span>
+24:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
+25:     <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">params</span>[<span class="ruby-value">:bathroom_id</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">then</span>
+26:       <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value str">&quot;bathroom_id = ?&quot;</span>,<span class="ruby-identifier">params</span>[<span class="ruby-value">:bathroom_id</span>])
+27:     <span class="ruby-keyword kw">else</span>
+28:       <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">:all</span>,<span class="ruby-value">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'updated_at DESC'</span>)
+29:     <span class="ruby-keyword kw">end</span>
+30:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -333,18 +342,20 @@
 
 				<div class="method-description">
 					
-					
+					<p>
+GET /graffiti/:bathroom_id
+</p>
 					
 
 					
 					<div class="method-source-code"
 						id="new-source">
 <pre>
-   <span class="ruby-comment cmt"># File app/controllers/graffiti_controller.rb, line 4</span>
-4:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>
-5:     <span class="ruby-ivar">@bathroom</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:bathroom_id</span>])
-6:     <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">new</span>
-7:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/graffiti_controller.rb, line 7</span>
+ 7:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>
+ 8:     <span class="ruby-ivar">@bathroom</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:bathroom_id</span>])
+ 9:     <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">new</span>
+10:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -368,17 +379,19 @@
 
 				<div class="method-description">
 					
-					
+					<p>
+GET /graffiti/:id
+</p>
 					
 
 					
 					<div class="method-source-code"
 						id="show-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/graffiti_controller.rb, line 27</span>
-27:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show</span>
-28:     <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-29:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/graffiti_controller.rb, line 33</span>
+33:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show</span>
+34:     <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+35:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -402,27 +415,29 @@
 
 				<div class="method-description">
 					
-					
+					<p>
+PUT /graffiti/:id
+</p>
 					
 
 					
 					<div class="method-source-code"
 						id="update-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/graffiti_controller.rb, line 35</span>
-35:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update</span>
-36:     <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-37:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-38:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@graffiti</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:graffiti</span>])
-39:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span>([<span class="ruby-ivar">@graffiti</span>.<span class="ruby-identifier">bathroom</span>,<span class="ruby-ivar">@graffiti</span>], <span class="ruby-value">:notice</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'Graffiti was successfully updated.'</span>) }
-40:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">head</span> <span class="ruby-value">:ok</span> }
-41:       <span class="ruby-keyword kw">else</span>
-42:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;edit&quot;</span> }
-43:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">render</span> <span class="ruby-value">:xml</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@graffiti</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:unprocessable_entity</span> }
-44:       <span class="ruby-keyword kw">end</span>
-45:     <span class="ruby-keyword kw">end</span>
-46: 
-47:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/graffiti_controller.rb, line 43</span>
+43:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update</span>
+44:     <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+45:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+46:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@graffiti</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:graffiti</span>])
+47:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span>([<span class="ruby-ivar">@graffiti</span>.<span class="ruby-identifier">bathroom</span>,<span class="ruby-ivar">@graffiti</span>], <span class="ruby-value">:notice</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'Graffiti was successfully updated.'</span>) }
+48:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">head</span> <span class="ruby-value">:ok</span> }
+49:       <span class="ruby-keyword kw">else</span>
+50:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;edit&quot;</span> }
+51:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">render</span> <span class="ruby-value">:xml</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@graffiti</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:unprocessable_entity</span> }
+52:       <span class="ruby-keyword kw">end</span>
+53:     <span class="ruby-keyword kw">end</span>
+54: 
+55:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

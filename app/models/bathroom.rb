@@ -35,10 +35,12 @@ class Bathroom < ActiveRecord::Base
   attr_accessible :comments_attributes, :ratings_attributes, :graffiti_attributes, :address_attributes, :bathroom_specs_attributes, :photos_attributes,
                   :title, :gender, :description, :user_id, :hidden, :moderated
 
+  # Return the title of the bathroom
   def name
     self[:title]
   end
 
+  # Search function, perform a full text search on the address and ratings
   named_scope :search_by_address, lambda { |keyword, gender, order|
     {
         :joins => [:address, :ratings],

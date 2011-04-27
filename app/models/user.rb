@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :comments, :allow_destroy => true
   accepts_nested_attributes_for :photos, :allow_destroy => true
 
+  # Call the action mailer(Notifier) to deliver the password_reset email
   def deliver_password_reset_instructions!
     reset_perishable_token!
     Notifier.deliver_password_reset_instructions(self)
