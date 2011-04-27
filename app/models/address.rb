@@ -12,8 +12,6 @@
 # - timestamp: the date of creation and update
 class Address < ActiveRecord::Base
   belongs_to :bathroom
-
-  
   
   # toString function for combining the address attributes into one string
   def to_s

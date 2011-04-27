@@ -1,3 +1,5 @@
+# Photos controllers
+# Handles CRUD of bathroom photos and graffiti photos
 class PhotosController < ApplicationController
   before_filter :require_user, :only => [:new, :create, :destroy]
   before_filter :is_admin, :only => :destroy
@@ -9,6 +11,7 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
   end
 
+# GET /graffiti_photos/:graffiti_id
   def new
     @photo = Photo.new
     if !params[:graffiti_id].nil? then
@@ -21,6 +24,7 @@ class PhotosController < ApplicationController
 
   end
 
+  # POST /graffiti_photos
   def create
     @photo = Photo.new(params[:photo])
     if @photo.save
@@ -35,6 +39,7 @@ class PhotosController < ApplicationController
     end
   end
 
+  # GET /graffiti_photos
   def index
     if !params[:graffiti_id].nil? then
       @obj = Graffiti.find(params[:graffiti_id])
@@ -47,6 +52,7 @@ class PhotosController < ApplicationController
     end
   end
 
+  # DELETE /graffiti_photos/:id
   def destroy
     @photo = Photo.find(params[:id])
     @photo.destroy
