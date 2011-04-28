@@ -1,9 +1,5 @@
 <%= form.label :login %><br />
-<% if form.object.login.nil? %>
-    <%= form.text_field :login %><br />
-<% else %>
-    <%= form.label form.object.login %><br />
-<% end %>
+<%= form.text_field :login, :value => form.object.login, :disabled => !form.object.new_record? %><br />
 
 <br />
 <%= form.label :email %><br />

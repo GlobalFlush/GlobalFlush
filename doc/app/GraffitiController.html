@@ -5,7 +5,7 @@
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-	<title>Class: PasswordResetsController</title>
+	<title>Class: GraffitiController</title>
 
 	<link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
 
@@ -38,8 +38,8 @@
 				<div class="section-body">
 					<ul>
 					
-						<li><a href="./app/controllers/password_resets_controller_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="app/controllers/password_resets_controller.rb">app/controllers/password_resets_controller.rb</a></li>
+						<li><a href="./app/controllers/graffiti_controller_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="app/controllers/graffiti_controller.rb">app/controllers/graffiti_controller.rb</a></li>
 					
 					</ul>
 				</div>
@@ -73,9 +73,11 @@
 					
 					<li><a href="#method-i-edit">#edit</a></li>
 					
-					<li><a href="#method-i-load_user_using_perishable_token">#load_user_using_perishable_token</a></li>
+					<li><a href="#method-i-index">#index</a></li>
 					
 					<li><a href="#method-i-new">#new</a></li>
+					
+					<li><a href="#method-i-show">#show</a></li>
 					
 					<li><a href="#method-i-update">#update</a></li>
 					
@@ -188,12 +190,11 @@
 	</div>
 
 	<div id="documentation">
-		<h1 class="class">PasswordResetsController</h1>
+		<h1 class="class">GraffitiController</h1>
 
 		<div id="description">
 			<p>
-Password Reset Controller It contains all CRUD pages of for password
-resets functionality Require no user log in for all actions
+<a href="Graffiti.html">Graffiti</a> Controller Handles CRUD of graffiti
 </p>
 
 		</div>
@@ -224,8 +225,7 @@ resets functionality Require no user log in for all actions
 				<div class="method-description">
 					
 					<p>
-POST /password_resets To find the user by email. Deliver the password
-reset instructions email if the user is found Else shows the error
+POST /graffiti
 </p>
 					
 
@@ -233,19 +233,16 @@ reset instructions email if the user is found Else shows the error
 					<div class="method-source-code"
 						id="create-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/password_resets_controller.rb, line 18</span>
-18:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
-19:     <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_email</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:email</span>])
-20:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@user</span>
-21:       <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">deliver_password_reset_instructions!</span>
-22:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Instructions to reset your password have been emailed to you. &quot;</span> <span class="ruby-operator">+</span>
-23:         <span class="ruby-value str">&quot;Please check your email.&quot;</span>
-24:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_url</span>
-25:     <span class="ruby-keyword kw">else</span>
-26:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;No user was found with that email address&quot;</span>
-27:       <span class="ruby-identifier">render</span> <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:new</span>
-28:     <span class="ruby-keyword kw">end</span>
-29:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/graffiti_controller.rb, line 13</span>
+13:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
+14:     <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:graffiti</span>])
+15:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@graffiti</span>.<span class="ruby-identifier">save</span>
+16:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Graffiti has been added!&quot;</span>
+17:       <span class="ruby-identifier">redirect_to</span> [<span class="ruby-ivar">@graffiti</span>.<span class="ruby-identifier">bathroom</span>,<span class="ruby-ivar">@graffiti</span>]
+18:     <span class="ruby-keyword kw">else</span>
+19:       <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>
+20:     <span class="ruby-keyword kw">end</span>
+21:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -270,7 +267,7 @@ reset instructions email if the user is found Else shows the error
 				<div class="method-description">
 					
 					<p>
-GET /password_resets/:id/edit Form for reset the password
+GET /graffiti/:id
 </p>
 					
 
@@ -278,10 +275,50 @@ GET /password_resets/:id/edit Form for reset the password
 					<div class="method-source-code"
 						id="edit-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/password_resets_controller.rb, line 33</span>
-33:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">edit</span>
-34:     <span class="ruby-identifier">render</span>
-35:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/graffiti_controller.rb, line 38</span>
+38:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">edit</span>
+39:     <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+40:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="index-method" class="method-detail ">
+				<a name="method-i-index"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">index</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+GET /graffiti/:bathroom_id
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="index-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/graffiti_controller.rb, line 24</span>
+24:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
+25:     <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">params</span>[<span class="ruby-value">:bathroom_id</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">then</span>
+26:       <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value str">&quot;bathroom_id = ?&quot;</span>,<span class="ruby-identifier">params</span>[<span class="ruby-value">:bathroom_id</span>])
+27:     <span class="ruby-keyword kw">else</span>
+28:       <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">:all</span>,<span class="ruby-value">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'updated_at DESC'</span>)
+29:     <span class="ruby-keyword kw">end</span>
+30:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -306,7 +343,7 @@ GET /password_resets/:id/edit Form for reset the password
 				<div class="method-description">
 					
 					<p>
-GET /password_resets/new The new password reset page
+GET /graffiti/:bathroom_id
 </p>
 					
 
@@ -314,10 +351,47 @@ GET /password_resets/new The new password reset page
 					<div class="method-source-code"
 						id="new-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/password_resets_controller.rb, line 10</span>
-10:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>
-11:     <span class="ruby-identifier">render</span>
-12:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/graffiti_controller.rb, line 7</span>
+ 7:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>
+ 8:     <span class="ruby-ivar">@bathroom</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:bathroom_id</span>])
+ 9:     <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">new</span>
+10:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="show-method" class="method-detail ">
+				<a name="method-i-show"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">show</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+GET /graffiti/:id
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="show-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/graffiti_controller.rb, line 33</span>
+33:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show</span>
+34:     <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+35:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -342,8 +416,7 @@ GET /password_resets/new The new password reset page
 				<div class="method-description">
 					
 					<p>
-PUT /password_resets/:id Update the user password and save it Return back
-to user homepage if successful
+PUT /graffiti/:id
 </p>
 					
 
@@ -351,67 +424,20 @@ to user homepage if successful
 					<div class="method-source-code"
 						id="update-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/password_resets_controller.rb, line 40</span>
-40:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update</span>
-41:     <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">password</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:user</span>][<span class="ruby-value">:password</span>]
-42:     <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">password_confirmation</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:user</span>][<span class="ruby-value">:password_confirmation</span>]
-43:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">save</span>
-44:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Password successfully updated&quot;</span>
-45:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">user_url</span>
-46:     <span class="ruby-keyword kw">else</span>
-47:       <span class="ruby-identifier">render</span> <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:edit</span>
-48:     <span class="ruby-keyword kw">end</span>
-49:   <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
-
-				
-
-				
-			</div>
-
-		
-		</div>
-	
-		<div id="private-instance-method-details" class="method-section section">
-			<h3 class="section-header">Private Instance Methods</h3>
-
-		
-			<div id="load-user-using-perishable-token-method" class="method-detail ">
-				<a name="method-i-load_user_using_perishable_token"></a>
-
-				<div class="method-heading">
-				
-					<span class="method-name">load_user_using_perishable_token</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
-
-				<div class="method-description">
-					
-					<p>
-Private function Find user by perishable token which is passed from the
-url
-</p>
-					
-
-					
-					<div class="method-source-code"
-						id="load-user-using-perishable-token-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/controllers/password_resets_controller.rb, line 54</span>
-54:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">load_user_using_perishable_token</span>
-55:       <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_using_perishable_token</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-56:       <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@user</span>
-57:         <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;We're sorry, but we could not locate your account.&quot;</span> <span class="ruby-operator">+</span>
-58:           <span class="ruby-value str">&quot;If you are having issues try copying and pasting the URL &quot;</span> <span class="ruby-operator">+</span>
-59:           <span class="ruby-value str">&quot;from your email into your browser or restarting the &quot;</span> <span class="ruby-operator">+</span>
-60:           <span class="ruby-value str">&quot;reset password process.&quot;</span>
-61:         <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_url</span>
-62:       <span class="ruby-keyword kw">end</span>
-63:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/graffiti_controller.rb, line 43</span>
+43:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update</span>
+44:     <span class="ruby-ivar">@graffiti</span> = <span class="ruby-constant">Graffiti</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+45:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+46:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@graffiti</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:graffiti</span>])
+47:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span>([<span class="ruby-ivar">@graffiti</span>.<span class="ruby-identifier">bathroom</span>,<span class="ruby-ivar">@graffiti</span>], <span class="ruby-value">:notice</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'Graffiti was successfully updated.'</span>) }
+48:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">head</span> <span class="ruby-value">:ok</span> }
+49:       <span class="ruby-keyword kw">else</span>
+50:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;edit&quot;</span> }
+51:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">render</span> <span class="ruby-value">:xml</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@graffiti</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:unprocessable_entity</span> }
+52:       <span class="ruby-keyword kw">end</span>
+53:     <span class="ruby-keyword kw">end</span>
+54: 
+55:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

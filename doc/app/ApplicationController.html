@@ -73,6 +73,8 @@
 					
 					<li><a href="#method-i-current_user_session">#current_user_session</a></li>
 					
+					<li><a href="#method-i-is_admin">#is_admin</a></li>
+					
 					<li><a href="#method-i-mailer_set_url_options">#mailer_set_url_options</a></li>
 					
 					<li><a href="#method-i-redirect_back_or_default">#redirect_back_or_default</a></li>
@@ -127,10 +129,6 @@
 				
 					<li><a href="./Bathroom.html">Bathroom</a></li>
 				
-					<li><a href="./BathroomPhoto.html">BathroomPhoto</a></li>
-				
-					<li><a href="./BathroomPhotosController.html">BathroomPhotosController</a></li>
-				
 					<li><a href="./BathroomPhotosHelper.html">BathroomPhotosHelper</a></li>
 				
 					<li><a href="./BathroomSpec.html">BathroomSpec</a></li>
@@ -147,9 +145,7 @@
 				
 					<li><a href="./Graffiti.html">Graffiti</a></li>
 				
-					<li><a href="./GraffitiPhoto.html">GraffitiPhoto</a></li>
-				
-					<li><a href="./GraffitiPhotosController.html">GraffitiPhotosController</a></li>
+					<li><a href="./GraffitiController.html">GraffitiController</a></li>
 				
 					<li><a href="./HomeController.html">HomeController</a></li>
 				
@@ -164,6 +160,10 @@
 					<li><a href="./PasswordResetsController.html">PasswordResetsController</a></li>
 				
 					<li><a href="./PasswordResetsHelper.html">PasswordResetsHelper</a></li>
+				
+					<li><a href="./Photo.html">Photo</a></li>
+				
+					<li><a href="./PhotosController.html">PhotosController</a></li>
 				
 					<li><a href="./Rating.html">Rating</a></li>
 				
@@ -326,6 +326,48 @@ Return the current user session
 23:     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@current_user_session</span> <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">defined?</span>(<span class="ruby-ivar">@current_user_session</span>)
 24:     <span class="ruby-ivar">@current_user_session</span> = <span class="ruby-constant">UserSession</span>.<span class="ruby-identifier">find</span>
 25:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="is-admin-method" class="method-detail ">
+				<a name="method-i-is_admin"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">is_admin</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Return the admin status of the current user if the user is not log in,
+return false
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="is-admin-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/application_controller.rb, line 73</span>
+73:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_admin</span>
+74:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">current_user</span>
+75:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">admin</span>
+76:     <span class="ruby-keyword kw">else</span>
+77: <span class="ruby-comment cmt">#      flash[:notice] = &quot;You must be an admin to use this feature&quot;</span>
+78:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
+79:     <span class="ruby-keyword kw">end</span>
+80:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

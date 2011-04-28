@@ -115,10 +115,6 @@
 				
 					<li><a href="./Bathroom.html">Bathroom</a></li>
 				
-					<li><a href="./BathroomPhoto.html">BathroomPhoto</a></li>
-				
-					<li><a href="./BathroomPhotosController.html">BathroomPhotosController</a></li>
-				
 					<li><a href="./BathroomPhotosHelper.html">BathroomPhotosHelper</a></li>
 				
 					<li><a href="./BathroomSpec.html">BathroomSpec</a></li>
@@ -135,9 +131,7 @@
 				
 					<li><a href="./Graffiti.html">Graffiti</a></li>
 				
-					<li><a href="./GraffitiPhoto.html">GraffitiPhoto</a></li>
-				
-					<li><a href="./GraffitiPhotosController.html">GraffitiPhotosController</a></li>
+					<li><a href="./GraffitiController.html">GraffitiController</a></li>
 				
 					<li><a href="./HomeController.html">HomeController</a></li>
 				
@@ -152,6 +146,10 @@
 					<li><a href="./PasswordResetsController.html">PasswordResetsController</a></li>
 				
 					<li><a href="./PasswordResetsHelper.html">PasswordResetsHelper</a></li>
+				
+					<li><a href="./Photo.html">Photo</a></li>
+				
+					<li><a href="./PhotosController.html">PhotosController</a></li>
 				
 					<li><a href="./Rating.html">Rating</a></li>
 				
@@ -227,7 +225,7 @@ index action
 <pre>
    <span class="ruby-comment cmt"># File app/controllers/map_controller.rb, line 5</span>
 5:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
-6:                 <span class="ruby-ivar">@bathrooms</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">search_by_address</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:keyword</span>])
+6:                 <span class="ruby-ivar">@bathrooms</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">search_by_address</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:keyword</span>], <span class="ruby-value str">'%'</span>,<span class="ruby-value str">'bathrooms.updated_at DESC'</span>)
 7:                 
 8:                 <span class="ruby-ivar">@bathrooms_with_address_ratings</span> = <span class="ruby-ivar">@bathrooms</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">b</span>, <span class="ruby-identifier">b</span>.<span class="ruby-identifier">address</span>, <span class="ruby-identifier">b</span>.<span class="ruby-identifier">ratings</span>] }
 9:         <span class="ruby-keyword kw">end</span></pre>

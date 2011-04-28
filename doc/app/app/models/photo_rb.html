@@ -6,7 +6,7 @@
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-	<title>File: graffiti_photos_controller.rb [Rails Application Documentation]</title>
+	<title>File: photo.rb [Rails Application Documentation]</title>
 
 	<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet" />
 
@@ -24,7 +24,7 @@
 	<div id="metadata">
 		<dl>
 			<dt class="modified-date">Last Modified</dt>
-			<dd class="modified-date">2011-04-18 18:23:10 -0400</dd>
+			<dd class="modified-date">2011-04-27 19:35:18 -0400</dd>
 
 			
 			<dt class="requires">Requires</dt>
@@ -44,10 +44,18 @@
 		<div class="description">
 			<h2>Description</h2>
 			<p>
-<a href="../../Graffiti.html">Graffiti</a> Photo Controller Manage the CRD
-of graffiti photos log in is only required for new create and destroy
-action
+<a href="../../Photo.html">Photo</a> is a class  <a
+href="../../Photo.html">Photo</a> has a one to many relationship with
+users, e.i. a photo can only belong to one user but a user can have many
+photos <a href="../../Photo.html">Photo</a> have the following
+attributes:
 </p>
+<pre>
+ * user_id: the id fo the user the photo is associated with
+ * imagable_id: look up id
+ * imagable_type: the type of a photo, either a bathroom photo or a graffiti
+ * moderated: flag for admin and mod usage
+ * timestamp: the date of creation and update</pre>
 
 		</div>
 		

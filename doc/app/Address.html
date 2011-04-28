@@ -115,10 +115,6 @@
 				
 					<li><a href="./Bathroom.html">Bathroom</a></li>
 				
-					<li><a href="./BathroomPhoto.html">BathroomPhoto</a></li>
-				
-					<li><a href="./BathroomPhotosController.html">BathroomPhotosController</a></li>
-				
 					<li><a href="./BathroomPhotosHelper.html">BathroomPhotosHelper</a></li>
 				
 					<li><a href="./BathroomSpec.html">BathroomSpec</a></li>
@@ -135,9 +131,7 @@
 				
 					<li><a href="./Graffiti.html">Graffiti</a></li>
 				
-					<li><a href="./GraffitiPhoto.html">GraffitiPhoto</a></li>
-				
-					<li><a href="./GraffitiPhotosController.html">GraffitiPhotosController</a></li>
+					<li><a href="./GraffitiController.html">GraffitiController</a></li>
 				
 					<li><a href="./HomeController.html">HomeController</a></li>
 				
@@ -152,6 +146,10 @@
 					<li><a href="./PasswordResetsController.html">PasswordResetsController</a></li>
 				
 					<li><a href="./PasswordResetsHelper.html">PasswordResetsHelper</a></li>
+				
+					<li><a href="./Photo.html">Photo</a></li>
+				
+					<li><a href="./PhotosController.html">PhotosController</a></li>
 				
 					<li><a href="./Rating.html">Rating</a></li>
 				
@@ -238,17 +236,17 @@ toString function for combining the address attributes into one string
 					<div class="method-source-code"
 						id="to-s-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/address.rb, line 19</span>
-19:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>
-20:     <span class="ruby-identifier">addr_a</span> = [<span class="ruby-identifier">inside_location</span>, <span class="ruby-identifier">street_address</span>, <span class="ruby-identifier">city</span>, <span class="ruby-identifier">state</span>, <span class="ruby-identifier">zip</span>, <span class="ruby-identifier">country</span>]
-21:     <span class="ruby-identifier">addr_a</span>.<span class="ruby-identifier">to_s</span>
-22: 
-23:     <span class="ruby-identifier">addr_s</span> = <span class="ruby-identifier">addr_a</span>[<span class="ruby-value">0</span>]
-24:     (<span class="ruby-identifier">addr_a</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>).<span class="ruby-identifier">times</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
-25:       <span class="ruby-identifier">addr_s</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">', '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">addr_a</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">addr_a</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>].<span class="ruby-identifier">nil?</span>
-26:     <span class="ruby-keyword kw">end</span>
-27:     <span class="ruby-identifier">addr_s</span>
-28:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/models/address.rb, line 17</span>
+17:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>
+18:     <span class="ruby-identifier">addr_a</span> = [<span class="ruby-identifier">inside_location</span>, <span class="ruby-identifier">street_address</span>, <span class="ruby-identifier">city</span>, <span class="ruby-identifier">state</span>, <span class="ruby-identifier">zip</span>, <span class="ruby-identifier">country</span>]
+19:     <span class="ruby-identifier">addr_a</span>.<span class="ruby-identifier">to_s</span>
+20: 
+21:     <span class="ruby-identifier">addr_s</span> = <span class="ruby-identifier">addr_a</span>[<span class="ruby-value">0</span>]
+22:     (<span class="ruby-identifier">addr_a</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>).<span class="ruby-identifier">times</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+23:       <span class="ruby-identifier">addr_s</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">', '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">addr_a</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">addr_a</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>].<span class="ruby-identifier">nil?</span>
+24:     <span class="ruby-keyword kw">end</span>
+25:     <span class="ruby-identifier">addr_s</span>
+26:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

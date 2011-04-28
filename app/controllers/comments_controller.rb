@@ -19,9 +19,11 @@ class CommentsController < ApplicationController
 
     @comment.user_id = @current_user.id
     if @comment.save and @rating.save
-      redirect_to "bathroom" << @comment.bathroom_id
+#      redirect_to "bathroom" << @comment.bathroom_id
+      redirect_to :back
     else
-      render
+      flash[:notice] = "Comment body cannot be empty, OR, rating cannot be empty"
+      redirect_to :back
     end
   end
 end

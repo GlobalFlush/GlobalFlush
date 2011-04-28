@@ -1,3 +1,11 @@
+#Photo is a class 
+#Photo has a one to many relationship with users, e.i. a photo can only belong to one user but a user can have many photos
+#Photo have the following attributes:
+# - user_id: the id fo the user the photo is associated with
+# - imagable_id: look up id
+# - imagable_type: the type of a photo, either a bathroom photo or a graffiti
+# - moderated: flag for admin and mod usage
+# - timestamp: the date of creation and update
 class Photo < ActiveRecord::Base
   belongs_to :user
   belongs_to :imageable, :polymorphic => true
