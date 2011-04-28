@@ -27,7 +27,7 @@
       <%= submit_tag "Search", :name => nil, :id=>"search" %>
   <% end %>
   
-  <div class="home_button" id="via_map">via Map</div>
+  <div class="home_button" id="via_map"><%= link_to 'via Map', '/map' %></div>
   <div class="home_button" id="via_browse"><%= link_to 'via Browse', bathrooms_url%></div>
 </div>
 <h3>Newest Bathrooms</h3>
