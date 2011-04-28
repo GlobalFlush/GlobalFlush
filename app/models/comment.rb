@@ -18,4 +18,10 @@ class Comment < ActiveRecord::Base
   accepts_nested_attributes_for :rating, :allow_destroy => true
   #determines which attributes are accessible from controllers
   attr_accessible :rating_attributes, :user_id, :bathroom_id, :body, :moderated, :created_at
+
+  validates_presence_of :bathroom_id
+  validates_presence_of :user_id
+  validates_presence_of :body
+
+
 end

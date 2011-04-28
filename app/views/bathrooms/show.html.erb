@@ -251,6 +251,7 @@ function update_hidden(){
 <div style="clear:both;"></div>
 <div id="add_comment" >
 <%= form_for :comment, :url => comments_path , :html => {:name => "comment_rating"} do |f| %>
+  <%= f.error_messages %>
   <%= f.text_area :body,:style => "float:left" %>
   <%= f.hidden_field :bathroom_id, :value => @bathroom.id %>
   <br />
