@@ -13,4 +13,3 @@
 <% end %>
 <%= link_to "Add Photo", new_polymorphic_path([@obj,Photo.new]) %><br />
 <%= link_to "Back to " + @obj.class.to_s, @obj %><br />
-<%=  current_user.admin %>
