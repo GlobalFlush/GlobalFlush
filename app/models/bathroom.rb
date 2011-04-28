@@ -49,7 +49,8 @@ class Bathroom < ActiveRecord::Base
   # Search function, perform a full text search on the address and ratings
   named_scope :search_by_address, lambda { |keyword, gender, order|
     {
-        :joins => [:address, :ratings],
+        :joins => :address,
+        :include => :ratings,
         :conditions => ['gender LIKE ? AND (inside_location LIKE ? OR street_address LIKE ? OR city LIKE ? OR state LIKE ? OR zip LIKE ? OR country LIKE ? OR title LIKE ?)', "#{gender}", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"],
         :order => order
     }
