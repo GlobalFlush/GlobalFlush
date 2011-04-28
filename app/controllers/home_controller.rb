@@ -32,6 +32,10 @@ class HomeController < ApplicationController
     if params[:male] != '1' && params[:female] == '1'
       gender = 'Female'
     end
+	if params[:male] == '1' && params[:female] == '1'
+	 gender = '%'
+	end
+	
     sort_order = params[:sort] || "bathrooms.updated_at DESC"
 
     @bathrooms = Bathroom.search_by_address(params[:keyword], gender, sort_order)

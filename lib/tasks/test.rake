@@ -3,6 +3,16 @@ namespace :test do
   task :insert_data => :environment do
     puts "## Inserting sample data to the database"
 
+
+    admin = User.find_or_create_by_login("admin")
+    admin.login = "admin"
+    admin.email = "admin@hotmail.com"
+    admin.password = "123456"
+    admin.password_confirmation = "123456"
+    admin.admin = true
+    admin.save!
+
+    puts "\t- inserted user #{admin.login}"
     
     user = User.find_or_create_by_login("testing")
     user.login = "testing"
@@ -15,6 +25,7 @@ namespace :test do
 
     bathroom = Bathroom.new
     bathroom.gender = "Male"
+    bathroom.description = "this is a bathroom"
     bathroom.hidden = false
     bathroom.user_id = user.id
 
@@ -30,6 +41,8 @@ namespace :test do
     bathroom.title = "RPI Union - \"#{bathroom.address.inside_location} - #{bathroom.gender.to_s}\""
 
     bathroom.save!
+    puts "\t- inserted bathroom #{bathroom.title}"
+    
 
     #BathroomSpec.create(:key => "spec 1", :value => "value 1", :bathroom_id => bathroom.id)
     #BathroomSpec.create(:key => "spec 2", :value => "value 2", :bathroom_id => bathroom.id)
@@ -54,6 +67,7 @@ namespace :test do
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
+    bathroom.description = "this is a bathroom"    
     bathroom.user_id = user.id
 
     bathroom.build_address
@@ -68,6 +82,7 @@ namespace :test do
     bathroom.title = "Rite	Aid Hoosick - \"#{bathroom.address.inside_location} - #{bathroom.gender.to_s}\""
 
     bathroom.save!
+    puts "\t- inserted bathroom #{bathroom.title}"    
 
     #BathroomSpec.create(:key => "spec 1", :value => "value 1", :bathroom_id => bathroom.id)
     #BathroomSpec.create(:key => "spec 2", :value => "value 2", :bathroom_id => bathroom.id)
@@ -90,6 +105,7 @@ namespace :test do
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
+    bathroom.description = "this is a bathroom"    
     bathroom.user_id = user.id
 
     bathroom.build_address
@@ -104,6 +120,7 @@ namespace :test do
     bathroom.title = "Brunswick Walmart - \"#{bathroom.address.inside_location} - #{bathroom.gender.to_s}\""
 
     bathroom.save!
+    puts "\t- inserted bathroom #{bathroom.title}"    
 
     #BathroomSpec.create(:key => "spec 1", :value => "value 1", :bathroom_id => bathroom.id)
     #BathroomSpec.create(:key => "spec 2", :value => "value 2", :bathroom_id => bathroom.id)
@@ -126,6 +143,7 @@ namespace :test do
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
+    bathroom.description = "this is a bathroom"    
     bathroom.user_id = user.id
 
     bathroom.build_address
@@ -140,6 +158,7 @@ namespace :test do
     bathroom.title = "Brunswick Price Chopper - \"#{bathroom.address.inside_location} - #{bathroom.gender.to_s}\""
 
     bathroom.save!
+    puts "\t- inserted bathroom #{bathroom.title}"    
 
     #BathroomSpec.create(:key => "spec 1", :value => "value 1", :bathroom_id => bathroom.id)
     #BathroomSpec.create(:key => "spec 2", :value => "value 2", :bathroom_id => bathroom.id)
@@ -162,6 +181,7 @@ namespace :test do
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
+    bathroom.description = "this is a bathroom"    
     bathroom.user_id = user.id
 
     bathroom.build_address
@@ -176,6 +196,7 @@ namespace :test do
     bathroom.title = "Walgreens Hoosick - \"#{bathroom.address.inside_location} - #{bathroom.gender.to_s}\""
 
     bathroom.save!
+    puts "\t- inserted bathroom #{bathroom.title}"    
 
     #BathroomSpec.create(:key => "spec 1", :value => "value 1", :bathroom_id => bathroom.id)
     #BathroomSpec.create(:key => "spec 2", :value => "value 2", :bathroom_id => bathroom.id)
@@ -198,6 +219,7 @@ namespace :test do
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
+    bathroom.description = "this is a bathroom"    
     bathroom.user_id = user.id
 
     bathroom.build_address
@@ -212,6 +234,7 @@ namespace :test do
     bathroom.title = "Crossgates Mall Cinema 1F - \"#{bathroom.address.inside_location} - #{bathroom.gender.to_s}\""
 
     bathroom.save!
+    puts "\t- inserted bathroom #{bathroom.title}"    
 
     #BathroomSpec.create(:key => "spec 1", :value => "value 1", :bathroom_id => bathroom.id)
     #BathroomSpec.create(:key => "spec 2", :value => "value 2", :bathroom_id => bathroom.id)
@@ -234,6 +257,7 @@ namespace :test do
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
+    bathroom.description = "this is a bathroom"
     bathroom.user_id = user.id
 
     bathroom.build_address
@@ -248,6 +272,7 @@ namespace :test do
     bathroom.title = "Crossgates Mall Cafeteria 2F - \"#{bathroom.address.inside_location} - #{bathroom.gender.to_s}\""
 
     bathroom.save!
+    puts "\t- inserted bathroom #{bathroom.title}"    
 
     #BathroomSpec.create(:key => "spec 1", :value => "value 1", :bathroom_id => bathroom.id)
     #BathroomSpec.create(:key => "spec 2", :value => "value 2", :bathroom_id => bathroom.id)
@@ -270,6 +295,7 @@ namespace :test do
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
+    bathroom.description = "this is a bathroom"
     bathroom.user_id = user.id
 
     bathroom.build_address
@@ -284,6 +310,7 @@ namespace :test do
     bathroom.title = "Barns & Noble Colonie Centre - \"#{bathroom.address.inside_location} - #{bathroom.gender.to_s}\""
 
     bathroom.save!
+    puts "\t- inserted bathroom #{bathroom.title}"
 
     #BathroomSpec.create(:key => "spec 1", :value => "value 1", :bathroom_id => bathroom.id)
     #BathroomSpec.create(:key => "spec 2", :value => "value 2", :bathroom_id => bathroom.id)
@@ -306,6 +333,7 @@ namespace :test do
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
+    bathroom.description = "this is a bathroom"    
     bathroom.user_id = user.id
 
     bathroom.build_address
@@ -320,6 +348,7 @@ namespace :test do
     bathroom.title = "Starbucks Latham - \"#{bathroom.address.inside_location} - #{bathroom.gender.to_s}\""
 
     bathroom.save!
+    puts "\t- inserted bathroom #{bathroom.title}"
 
     #BathroomSpec.create(:key => "spec 1", :value => "value 1", :bathroom_id => bathroom.id)
     #BathroomSpec.create(:key => "spec 2", :value => "value 2", :bathroom_id => bathroom.id)
@@ -343,6 +372,7 @@ namespace :test do
     bathroom.gender = "Male"
     bathroom.hidden = false
     bathroom.user_id = user.id
+    bathroom.description = "this is a bathroom"    
 
     bathroom.build_address
     bathroom.address.inside_location = "At the end"
@@ -356,6 +386,7 @@ namespace :test do
     bathroom.title = "Panera Bread Latham Farm - \"#{bathroom.address.inside_location} - #{bathroom.gender.to_s}\""
 
     bathroom.save!
+    puts "\t- inserted bathroom #{bathroom.title}"
 
     #BathroomSpec.create(:key => "spec 1", :value => "value 1", :bathroom_id => bathroom.id)
     #BathroomSpec.create(:key => "spec 2", :value => "value 2", :bathroom_id => bathroom.id)
@@ -378,6 +409,7 @@ namespace :test do
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
+    bathroom.description = "this is a bathroom"    
     bathroom.user_id = user.id
 
     bathroom.build_address
@@ -392,6 +424,7 @@ namespace :test do
     bathroom.title = "RPI VCC - \"#{bathroom.address.inside_location} - #{bathroom.gender.to_s}\""
 
     bathroom.save!
+    puts "\t- inserted bathroom #{bathroom.title}"
 
     #BathroomSpec.create(:key => "spec 1", :value => "value 1", :bathroom_id => bathroom.id)
     #BathroomSpec.create(:key => "spec 2", :value => "value 2", :bathroom_id => bathroom.id)
@@ -414,6 +447,7 @@ namespace :test do
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
+    bathroom.description = "this is a bathroom"
     bathroom.user_id = user.id
 
     bathroom.build_address
@@ -428,6 +462,7 @@ namespace :test do
     bathroom.title = "RPI Library 4F - \"#{bathroom.address.inside_location} - #{bathroom.gender.to_s}\""
 
     bathroom.save!
+    puts "\t- inserted bathroom #{bathroom.title}"
 
     #BathroomSpec.create(:key => "spec 1", :value => "value 1", :bathroom_id => bathroom.id)
     #BathroomSpec.create(:key => "spec 2", :value => "value 2", :bathroom_id => bathroom.id)
@@ -450,6 +485,7 @@ namespace :test do
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
+    bathroom.description = "this is a bathroom"
     bathroom.user_id = user.id
 
     bathroom.build_address
@@ -464,6 +500,7 @@ namespace :test do
     bathroom.title = "RPI Sage 2000 Level - \"#{bathroom.address.inside_location} - #{bathroom.gender.to_s}\""
 
     bathroom.save!
+    puts "\t- inserted bathroom #{bathroom.title}"
 
     #BathroomSpec.create(:key => "spec 1", :value => "value 1", :bathroom_id => bathroom.id)
     #BathroomSpec.create(:key => "spec 2", :value => "value 2", :bathroom_id => bathroom.id)
@@ -486,6 +523,7 @@ namespace :test do
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
+    bathroom.description = "this is a bathroom"
     bathroom.user_id = user.id
 
     bathroom.build_address
@@ -500,6 +538,7 @@ namespace :test do
     bathroom.title = "RPI 87 Gym - \"#{bathroom.address.inside_location} - #{bathroom.gender.to_s}\""
 
     bathroom.save!
+    puts "\t- inserted bathroom #{bathroom.title}"
 
     #BathroomSpec.create(:key => "spec 1", :value => "value 1", :bathroom_id => bathroom.id)
     #BathroomSpec.create(:key => "spec 2", :value => "value 2", :bathroom_id => bathroom.id)
@@ -522,6 +561,7 @@ namespace :test do
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
+    bathroom.description = "this is a bathroom"
     bathroom.user_id = user.id
 
     bathroom.build_address
@@ -536,6 +576,7 @@ namespace :test do
     bathroom.title = "RPI DCC - \"#{bathroom.address.inside_location} - #{bathroom.gender.to_s}\""
 
     bathroom.save!
+    puts "\t- inserted bathroom #{bathroom.title}"
 
     #BathroomSpec.create(:key => "spec 1", :value => "value 1", :bathroom_id => bathroom.id)
     #BathroomSpec.create(:key => "spec 2", :value => "value 2", :bathroom_id => bathroom.id)
@@ -558,6 +599,7 @@ namespace :test do
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
+    bathroom.description = "this is a bathroom"
     bathroom.user_id = user.id
 
     bathroom.build_address
@@ -572,6 +614,7 @@ namespace :test do
     bathroom.title = "RPI Mueller Center - \"#{bathroom.address.inside_location} - #{bathroom.gender.to_s}\""
 
     bathroom.save!
+    puts "\t- inserted bathroom #{bathroom.title}"
 
     #BathroomSpec.create(:key => "spec 1", :value => "value 1", :bathroom_id => bathroom.id)
     #BathroomSpec.create(:key => "spec 2", :value => "value 2", :bathroom_id => bathroom.id)
@@ -594,6 +637,7 @@ namespace :test do
     bathroom = Bathroom.new
     bathroom.gender = "Male"
     bathroom.hidden = false
+    bathroom.description = "this is a bathroom"
     bathroom.user_id = user.id
 
     bathroom.build_address
@@ -608,6 +652,7 @@ namespace :test do
     bathroom.title = "RPI Armory - \"#{bathroom.address.inside_location} - #{bathroom.gender.to_s}\""
 
     bathroom.save!
+    puts "\t- inserted bathroom #{bathroom.title}"
 
     #BathroomSpec.create(:key => "spec 1", :value => "value 1", :bathroom_id => bathroom.id)
     #BathroomSpec.create(:key => "spec 2", :value => "value 2", :bathroom_id => bathroom.id)
@@ -632,6 +677,7 @@ namespace :test do
 	bathroom = Bathroom.new
 	bathroom.gender = "Female"
 	bathroom.hidden = false
+  bathroom.description = "this is a bathroom"  
 	bathroom.user_id = user.id
 	
 	bathroom.build_address
@@ -646,6 +692,7 @@ namespace :test do
 	bathroom.title = "RPI Union - \"#{bathroom.address.inside_location} - #{bathroom.gender.to_s}\""
 	
 	bathroom.save!
+    puts "\t- inserted bathroom #{bathroom.title}"
 
     #BathroomSpec.create(:key => "Number of Stalls", :value => "4", :bathroom_id => bathroom.id)
     #BathroomSpec.create(:key => "Number of Sinks", :value => "3", :bathroom_id => bathroom.id)
