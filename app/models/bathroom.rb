@@ -35,6 +35,12 @@ class Bathroom < ActiveRecord::Base
   attr_accessible :comments_attributes, :ratings_attributes, :graffiti_attributes, :address_attributes, :bathroom_specs_attributes, :photos_attributes,
                   :title, :gender, :description, :user_id, :hidden, :moderated
 
+
+  validates_presence_of :title
+  validates_presence_of :gender
+  validates_presence_of :description
+
+
   # Return the title of the bathroom
   def name
     self[:title]

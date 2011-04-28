@@ -12,6 +12,8 @@
 # - timestamp: the date of creation and update
 class Address < ActiveRecord::Base
   belongs_to :bathroom
+
+  validates_presence_of :street_address, :city, :state, :country, :zip, :longitude, :latitude, :inside_location
   
   # toString function for combining the address attributes into one string
   def to_s
