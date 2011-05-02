@@ -1,4 +1,6 @@
-<h1>Photos for <%= @obj.name %></h1>
+<% if !@obj.nil? %>
+  <h1>Photos for <%= @obj.name %></h1>
+<% end %>
 
 
 <% @photos.each do |photo| %>
@@ -14,5 +16,7 @@
 <% if @photos.empty? then %>
     <p>There are no photos.</p>
 <% end %>
-<%= link_to "Add Photo", new_polymorphic_path([@obj, Photo.new]) %><br />
-<%= link_to "Back to " + @obj.class.to_s, @obj %><br />
+<% if !@obj.nil? %>
+  <%= link_to "Add Photo", new_polymorphic_path([@obj, Photo.new]) %><br />
+  <%= link_to "Back to " + @obj.class.to_s, @obj %><br />
+<% end %>
