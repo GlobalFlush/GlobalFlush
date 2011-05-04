@@ -187,14 +187,7 @@ function update_hidden(){
   <% end %>
 </h1>
 
-<div id="left_column">
-  <div id="mapbox">
-    <div id="map">
-    </div>
-  </div>
-</div>
-
-<div id="images">
+<div id="right_column">
   <h3>Photos</h3>
   <% @bathroom.photos.limit(2).each do |photo| %>
     <div><a href="<%= photo.image.url %>"><%= image_tag photo.image.url(:small),:height=>133,:width=>200 %></a></div>
@@ -205,7 +198,7 @@ function update_hidden(){
   <%= link_to 'Add Photo', new_bathroom_photo_path(@bathroom) %>
     <h3>Graffiti</h3>
   <% if !@bathroom.graffiti.empty? then %>
-    
+
       <% @bathroom.graffiti.limit(2).each do |graffiti| %>
         <% if graffiti.photos.empty? then %>
           <div><%= link_to image_tag("/images/no_image.png",:width=>200,:height=>133),[@bathroom,graffiti] %></div>
@@ -218,6 +211,17 @@ function update_hidden(){
     <% end %>
   <% end %>
   <%=  link_to 'Add Graffiti',new_bathroom_graffiti_path(@bathroom) %>
+</div>
+
+<div id="left_main">
+
+<div id="top_block">
+
+<div id="left_column">
+  <div id="mapbox">
+    <div id="map">
+    </div>
+  </div>
 </div>
 
 <h2>Location</h2>
@@ -243,12 +247,9 @@ function update_hidden(){
     </ul>
   </div>
 </div>
+</div>
 
-
-<div style="clear:both;"></div>
-
-<h2 class="full">Write a Review</h2>
-<div style="clear:both;"></div>
+<h2>Write a Review</h2>
 <div id="add_comment" >
 <%= form_for :comment, :url => comments_path , :html => {:name => "comment_rating"} do |f| %>
   <%= f.error_messages %>
@@ -299,7 +300,7 @@ function update_hidden(){
   </div>
 <% end %>
 </div>
-<h2 class="full">Reviews</h2>
+<h2 class="">Reviews</h2>
 <% @bathroom.comments.each do |comment| %>
   <div class="review">
     <div class="username"><%= link_to comment.user.login, comment.user %></div>
@@ -307,3 +308,4 @@ function update_hidden(){
     <p><%= comment.body %></p>
   </div>
 <% end %>
+</div>
