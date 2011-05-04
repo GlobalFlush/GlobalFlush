@@ -233,11 +233,13 @@ Return user to previous page.
 19: 
 20:     <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">user_id</span> = <span class="ruby-ivar">@current_user</span>.<span class="ruby-identifier">id</span>
 21:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">save</span> <span class="ruby-keyword kw">and</span> <span class="ruby-ivar">@rating</span>.<span class="ruby-identifier">save</span>
-22:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-value str">&quot;bathroom&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">bathroom_id</span>
-23:     <span class="ruby-keyword kw">else</span>
-24:       <span class="ruby-identifier">render</span>
-25:     <span class="ruby-keyword kw">end</span>
-26:   <span class="ruby-keyword kw">end</span></pre>
+22: <span class="ruby-comment cmt">#      redirect_to &quot;bathroom&quot; &lt;&lt; @comment.bathroom_id</span>
+23:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:back</span>
+24:     <span class="ruby-keyword kw">else</span>
+25:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Comment body cannot be empty, OR, rating cannot be empty&quot;</span>
+26:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:back</span>
+27:     <span class="ruby-keyword kw">end</span>
+28:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
