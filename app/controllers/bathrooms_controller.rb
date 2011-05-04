@@ -39,6 +39,7 @@ class BathroomsController < ApplicationController
       flash[:notice] = "Bathroom created!"
       redirect_to bathroom_path(@bathroom.id)
     else
+	 @bathroom.title = params[:bathroom][:title]
       render :new
     end
   end
