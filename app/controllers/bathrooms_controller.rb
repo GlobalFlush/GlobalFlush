@@ -32,14 +32,11 @@ class BathroomsController < ApplicationController
       @bathroom.photos.build(params[:bathroom][:photos])
     end
 
-    # Temporary method to construct the title
-    @bathroom.title = "#{params[:bathroom][:title]} - #{@bathroom.address.inside_location} - #{@bathroom.gender.to_s}"
     @bathroom.user_id = @current_user.id
     if @bathroom.save
       flash[:notice] = "Bathroom created!"
       redirect_to bathroom_path(@bathroom.id)
     else
-	 @bathroom.title = params[:bathroom][:title]
       render :new
     end
   end

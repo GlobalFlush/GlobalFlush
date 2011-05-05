@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110424185420) do
+ActiveRecord::Schema.define(:version => 20110505005919) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street_address"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(:version => 20110424185420) do
     t.string   "longitude"
     t.string   "latitude"
     t.integer  "bathroom_id"
-    t.string   "inside_location"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "zip"
@@ -40,10 +39,11 @@ ActiveRecord::Schema.define(:version => 20110424185420) do
     t.string   "gender"
     t.integer  "user_id"
     t.text     "description"
-    t.boolean  "hidden",      :default => true
-    t.integer  "moderated",   :default => 0
+    t.boolean  "hidden",          :default => true
+    t.integer  "moderated",       :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "inside_location"
   end
 
   create_table "comments", :force => true do |t|

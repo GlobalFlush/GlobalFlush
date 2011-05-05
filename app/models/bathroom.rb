@@ -14,6 +14,8 @@
 # - hidden: flag for admin and mod usage that hides the bathroom from website
 # - moderated: flag for admin and mod usage
 # - timestamp: the date of creation and update
+# - inside_location: location of the bathroom inside the building
+
 class Bathroom < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_many :ratings, :dependent => :destroy
@@ -39,11 +41,12 @@ class Bathroom < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :gender
   validates_presence_of :description
+  validates_presence_of :inside_location
 
 
   # Return the title of the bathroom
   def name
-    self[:title]
+    title + " - " + inside_location + " - " + gender
   end
 
   # Search function, perform a full text search on the address and ratings

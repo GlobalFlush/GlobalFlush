@@ -174,8 +174,6 @@ body
 #mapbox_create
 {
   float:left;
-  height:400px;
-  width:500px;
   margin-bottom:20px;
   margin-top:20px;
   margin-right:20px;
@@ -183,7 +181,7 @@ body
 #map_create
 {
   height:400px;
-  width:500px;
+  width:600px;
 }
 #create_address
 {
