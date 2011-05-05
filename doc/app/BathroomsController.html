@@ -253,13 +253,14 @@ and indicates the errors
 34: 
 35:     <span class="ruby-comment cmt"># Temporary method to construct the title</span>
 36:     <span class="ruby-ivar">@bathroom</span>.<span class="ruby-identifier">title</span> = <span class="ruby-node">&quot;#{params[:bathroom][:title]} - #{@bathroom.address.inside_location} - #{@bathroom.gender.to_s}&quot;</span>
-37:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@bathroom</span>.<span class="ruby-identifier">save</span>
-38:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Bathroom created!&quot;</span>
-39:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">bathroom_path</span>(<span class="ruby-ivar">@bathroom</span>.<span class="ruby-identifier">id</span>)
-40:     <span class="ruby-keyword kw">else</span>
-41:       <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>
-42:     <span class="ruby-keyword kw">end</span>
-43:   <span class="ruby-keyword kw">end</span></pre>
+37:     <span class="ruby-ivar">@bathroom</span>.<span class="ruby-identifier">user_id</span> = <span class="ruby-ivar">@current_user</span>.<span class="ruby-identifier">id</span>
+38:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@bathroom</span>.<span class="ruby-identifier">save</span>
+39:       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-value str">&quot;Bathroom created!&quot;</span>
+40:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">bathroom_path</span>(<span class="ruby-ivar">@bathroom</span>.<span class="ruby-identifier">id</span>)
+41:     <span class="ruby-keyword kw">else</span>
+42:       <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>
+43:     <span class="ruby-keyword kw">end</span>
+44:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -293,14 +294,14 @@ admin Redirect back to the bathrooms page afterwards
 					<div class="method-source-code"
 						id="destroy-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/bathrooms_controller.rb, line 84</span>
-84:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy</span>
-85:     <span class="ruby-ivar">@bathroom</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-86:     <span class="ruby-ivar">@bathroom</span>.<span class="ruby-identifier">destroy</span>
-87:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-88:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">bathrooms_url</span> }
-89:     <span class="ruby-keyword kw">end</span>
-90:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/bathrooms_controller.rb, line 85</span>
+85:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy</span>
+86:     <span class="ruby-ivar">@bathroom</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+87:     <span class="ruby-ivar">@bathroom</span>.<span class="ruby-identifier">destroy</span>
+88:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+89:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">bathrooms_url</span> }
+90:     <span class="ruby-keyword kw">end</span>
+91:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -333,10 +334,10 @@ GET /bathrooms/:id/edit Page for editing a single bathroom.
 					<div class="method-source-code"
 						id="edit-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/bathrooms_controller.rb, line 60</span>
-60:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">edit</span>
-61:     <span class="ruby-ivar">@bathroom</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-62:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/bathrooms_controller.rb, line 61</span>
+61:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">edit</span>
+62:     <span class="ruby-ivar">@bathroom</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+63:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -370,11 +371,11 @@ descending updated_at time
 					<div class="method-source-code"
 						id="index-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/bathrooms_controller.rb, line 47</span>
-47:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
-48:     <span class="ruby-ivar">@bathrooms</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">:all</span>,<span class="ruby-value">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'updated_at DESC'</span>)
-49:     <span class="ruby-ivar">@is_admin</span> = <span class="ruby-identifier">is_admin</span>
-50:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/bathrooms_controller.rb, line 48</span>
+48:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
+49:     <span class="ruby-ivar">@bathrooms</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">:all</span>,<span class="ruby-value">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'updated_at DESC'</span>)
+50:     <span class="ruby-ivar">@is_admin</span> = <span class="ruby-identifier">is_admin</span>
+51:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -452,10 +453,10 @@ GET /bathrooms/:id Page for showing a single bathroom.
 					<div class="method-source-code"
 						id="show-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/bathrooms_controller.rb, line 54</span>
-54:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show</span>
-55:     <span class="ruby-ivar">@bathroom</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-56:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/bathrooms_controller.rb, line 55</span>
+55:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show</span>
+56:     <span class="ruby-ivar">@bathroom</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+57:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -489,20 +490,20 @@ bathroom page if updates successfully
 					<div class="method-source-code"
 						id="update-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/bathrooms_controller.rb, line 67</span>
-67:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update</span>
-68:     <span class="ruby-ivar">@bathroom</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-69:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-70:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@bathroom</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:bathroom</span>]) <span class="ruby-comment cmt">#&amp;&amp; @bathroom.address.update_attributes(params[:bathroom][:address])</span>
-71:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span>(<span class="ruby-ivar">@bathroom</span>, <span class="ruby-value">:notice</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'Bathroom was successfully updated.'</span>) }
-72:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">head</span> <span class="ruby-value">:ok</span> }
-73:       <span class="ruby-keyword kw">else</span>
-74:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;edit&quot;</span> }
-75:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">render</span> <span class="ruby-value">:xml</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@bathroom</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:unprocessable_entity</span> }
-76:       <span class="ruby-keyword kw">end</span>
-77:     <span class="ruby-keyword kw">end</span>
-78:     
-79:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File app/controllers/bathrooms_controller.rb, line 68</span>
+68:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update</span>
+69:     <span class="ruby-ivar">@bathroom</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+70:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+71:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@bathroom</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:bathroom</span>]) <span class="ruby-comment cmt">#&amp;&amp; @bathroom.address.update_attributes(params[:bathroom][:address])</span>
+72:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span>(<span class="ruby-ivar">@bathroom</span>, <span class="ruby-value">:notice</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'Bathroom was successfully updated.'</span>) }
+73:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">head</span> <span class="ruby-value">:ok</span> }
+74:       <span class="ruby-keyword kw">else</span>
+75:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;edit&quot;</span> }
+76:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">render</span> <span class="ruby-value">:xml</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@bathroom</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:unprocessable_entity</span> }
+77:       <span class="ruby-keyword kw">end</span>
+78:     <span class="ruby-keyword kw">end</span>
+79:     
+80:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
