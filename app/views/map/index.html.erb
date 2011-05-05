@@ -62,7 +62,7 @@
 		else {
 			var rating = results[i][2][0].rating.overall;
 		}
-		var info = createInfo(results[i][0].bathroom.title,
+		var info = createInfo(results[i][0].bathroom.name,
 								results[i][1].address.inside_location+"\n"+
 									results[i][1].address.street_address+"\n"+
 									results[i][1].address.city+", "+
@@ -79,10 +79,10 @@
 	}
   }
   //setup the infowindow content
-  function createInfo(title, address, description, rating)
+  function createInfo(name, address, description, rating)
   {
 	var contentString = "<div>"+
-							"<h3>"+title+"</h1>"+
+							"<h3>"+name+"</h1>"+
 							"<p>"+address+"</p>"+
 							"<p>"+description+"</p>"+
 							"<p>"+rating+"</p>"+

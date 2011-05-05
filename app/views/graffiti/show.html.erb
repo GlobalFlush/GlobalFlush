@@ -9,7 +9,7 @@
     $("#vcarousel li img").click(function(){
       $("#main_image").attr("src",this.src.replace("small","medium"));
       $("#main_link").attr("href",this.src.replace("small","original"));
-    });
+    }); 
   });
   
 </script>
@@ -40,5 +40,5 @@
 <h2 class="full">Description</h2>
 <p><%= @graffiti.description %></p>
 <h2 class="full">Location</h2>
-<p>Bathroom: <%= link_to @graffiti.bathroom.title, @graffiti.bathroom %></p>
+<p>Bathroom: <%= link_to @graffiti.bathroom.name, @graffiti.bathroom %></p>
 <p>Address: <%= @graffiti.bathroom.address.to_s %></p>
