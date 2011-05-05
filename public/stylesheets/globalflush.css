@@ -1,4 +1,8 @@
-
+*
+{
+  margin:0;
+  padding:0;
+}
 /* MAIN LAYOUT STYLES */
 
 body
@@ -133,7 +137,10 @@ body
 }
 
 /* Bathroom Show Page/Add Page */
-
+#left_main
+{
+  width:700px;
+}
 #left_column
 {
   width:300px;
@@ -163,6 +170,25 @@ body
 {
   height:300px;
   width:300px;
+}
+#mapbox_create
+{
+  float:left;
+  height:400px;
+  width:500px;
+  margin-bottom:20px;
+  margin-top:20px;
+  margin-right:20px;
+}
+#map_create
+{
+  height:400px;
+  width:500px;
+}
+#create_address
+{
+  margin-top:20px;
+  float:left;
 }
 #tools
 {
@@ -203,35 +229,37 @@ body
   line-height:60px;
   background-image:url(/images/h1_tile.png);
 }
-#images div
+#right_column div
 {
   width:208px;
   height:141px;
   background-image: url(/images/image_shadow.png);
-  margin-bottom:12px;
+  margin-top:12px;
 }
 #content h2
 {
   display:inline-block;
-  margin:0px 00px 20px 0px;
+  margin:0px 0px 20px 0px;
   height:40px;
   padding:0px 20px 0px 20px;
-  max-width:920px;
-  min-width:340px;
   line-height:40px;
   background-image:url(/images/h2_tile.png);
 }
 #content h3
 {
   background-image:url(/images/h3.gif);
-  margin-bottom:0px;
   height:30px;
   line-height: 30px;
+  margin-top:20px;
   text-align:center;
 }
-#left_column h2
+#left_main h2
 {
-  min-width:260px;
+  min-width:660px;
+}
+#top_block h2
+{
+  min-width:340px;
 }
 #content p
 {
@@ -246,12 +274,13 @@ body
   border: 2px solid #000000;
 
 }
-#images
+#right_column
 {
   float:right;
-  width:208px;
-  margin-right: -8px;
+  width:200px;
+  margin-right: 0px;
   height:100%;
+  margin-top:-20px;
 }
 img
 {

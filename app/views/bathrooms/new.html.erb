@@ -19,7 +19,7 @@
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       center: your_city
     };
-    map = new google.maps.Map(document.getElementById("map_add"),
+    map = new google.maps.Map(document.getElementById("map_create"),
     mapOptions);
 	//initialize marker
 	marker = new google.maps.Marker({
@@ -48,7 +48,7 @@
 	{
 		your_city = results[0].geometry.location;
 		map.setCenter(your_city);
-		map.setZoom(15);
+		map.setZoom(30);
 		marker.setPosition(your_city);
 		google.maps.event.addListener(marker, 'dragend', updateAddress);
 		//document.getELementById("add").disabled = false;
@@ -111,6 +111,11 @@
     <%= f.text_area :description %><br />
 
     <h3>Address</h3>
+    <div id="mapbox_create">
+      <div id="map_create">
+      </div>
+    </div>
+    <div id="create_address">
     <%= f.fields_for :address do |a| %>
         <%= a.label :inside_location %><br />
         <%= a.text_field :inside_location, :id => "inside" %><br />
@@ -127,12 +132,9 @@
 		<%= a.hidden_field :latitude, :id => "lat" %><br />
 		<%= a.hidden_field :longitude, :id => "long" %><br />
     <% end %>
-	
-	<button type="button" onclick="getGPS(this)">Check Address</button>
-	<div id="mapbox_add">
-		<div id="map_add">
-		</div>
-	</div>
+    <button type="button" onclick="getGPS(this)">Check Address</button>
+    </div>
+    <div style="clear:both" />
     <h3>Details</h3>
     <table>
     <tr>
