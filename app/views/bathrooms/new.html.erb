@@ -29,6 +29,14 @@
 	  position: your_city
 	});
 	google.maps.event.addListener(marker, 'dragend', updateAddress);
+	geocoder.geocode({'latLng':marker.getPosition()}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+			geocoder.geocode({'address':getAddressComponent(results[0], "locality")+", "+getAddressComponent(results[0], "administrative_area_level_1")+", "+getAddressComponent(results[0], "country")}, markMap);
+		}
+		else {
+			alert("Geocoder failed because:" + status);
+		}
+	});
   }
   //use geocoder to get the gps coordinate using address
   function getGPS()
@@ -104,7 +112,7 @@
     <br/>
 
     <%= f.label :gender %><br />
-    <%= select("bathroom", "gender", %w[Male Female], {}, {:include_blank => true}) %><br />
+    <%= select("bathroom", "gender", %w[Male Female Unisex], {}, {:include_blank => true}) %><br />
     <br/>
 
     <%= f.label :description %><br />

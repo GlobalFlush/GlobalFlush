@@ -349,23 +349,27 @@ href="Bathroom.html">Bathroom</a> model
 32:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:male</span>] <span class="ruby-operator">!=</span> <span class="ruby-value str">'1'</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:female</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">'1'</span>
 33:       <span class="ruby-identifier">gender</span> = <span class="ruby-value str">'Female'</span>
 34:     <span class="ruby-keyword kw">end</span>
-35:     <span class="ruby-identifier">sort_order</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:sort</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;bathrooms.updated_at DESC&quot;</span>
-36: 
-37:     <span class="ruby-ivar">@bathrooms</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">search_by_address</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:keyword</span>], <span class="ruby-identifier">gender</span>, <span class="ruby-identifier">sort_order</span>)
-38:     
-39:     <span class="ruby-ivar">@addresses</span> = <span class="ruby-ivar">@bathrooms</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">address</span> }
-40:     <span class="ruby-ivar">@ratings</span> = <span class="ruby-ivar">@bathrooms</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">ratings</span> }
-41: 
-42:     <span class="ruby-ivar">@bathrooms_with_address_ratings</span> = <span class="ruby-ivar">@bathrooms</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">b</span>, <span class="ruby-identifier">b</span>.<span class="ruby-identifier">address</span>, <span class="ruby-identifier">b</span>.<span class="ruby-identifier">ratings</span>] }
-43: 
-44:     
-45:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-46:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> }
-47:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">render</span> <span class="ruby-value">:xml</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@bathrooms_with_address_ratings</span> }
-48:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@bathrooms_with_address_ratings</span> }
-49:     <span class="ruby-keyword kw">end</span>
-50:     
-51:   <span class="ruby-keyword kw">end</span></pre>
+35:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:male</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">'1'</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:female</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">'1'</span>
+36:          <span class="ruby-identifier">gender</span> = <span class="ruby-value str">'%'</span>
+37:         <span class="ruby-keyword kw">end</span>
+38:         
+39:     <span class="ruby-identifier">sort_order</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:sort</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;bathrooms.updated_at DESC&quot;</span>
+40: 
+41:     <span class="ruby-ivar">@bathrooms</span> = <span class="ruby-constant">Bathroom</span>.<span class="ruby-identifier">search_by_address</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:keyword</span>], <span class="ruby-identifier">gender</span>, <span class="ruby-identifier">sort_order</span>)
+42:     
+43:     <span class="ruby-ivar">@addresses</span> = <span class="ruby-ivar">@bathrooms</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">address</span> }
+44:     <span class="ruby-ivar">@ratings</span> = <span class="ruby-ivar">@bathrooms</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">ratings</span> }
+45: 
+46:     <span class="ruby-ivar">@bathrooms_with_address_ratings</span> = <span class="ruby-ivar">@bathrooms</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">b</span>, <span class="ruby-identifier">b</span>.<span class="ruby-identifier">address</span>, <span class="ruby-identifier">b</span>.<span class="ruby-identifier">ratings</span>] }
+47: 
+48:     
+49:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+50:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> }
+51:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">render</span> <span class="ruby-value">:xml</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@bathrooms_with_address_ratings</span> }
+52:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@bathrooms_with_address_ratings</span> }
+53:     <span class="ruby-keyword kw">end</span>
+54:     
+55:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
