@@ -1,7 +1,7 @@
 <h1>Search Bathrooms</h1>
 
-<%= params.inspect %>
-<%= current_keyword = params[:keyword] %>
+<%#= params.inspect %>
+<% current_keyword = params[:keyword] %>
 
 <div id="search_form">
   <%# form_tag search_url, :method => 'get' do %>
@@ -31,9 +31,11 @@
           <%= radio_button_tag :sort, 'ratings.overall ASC', params[:sort] == 'ratings.overall ACS' %>Low to high
           <br/>
 
-          Distance:
-          <%= radio_button_tag :sort,  'distance DESC', params[:sort] == 'distance DESC'%>Furthest to closest
-          <%= radio_button_tag :sort,  'distance ASC', params[:sort] == 'distance ACS' %>Closest to furthest
+          <!--Distance:-->
+          <%#= radio_button_tag :sort,  'distance DESC', params[:sort] == 'distance DESC'%>
+          <!--Furthest to closest-->
+          <%#= radio_button_tag :sort,  'distance ASC', params[:sort] == 'distance ACS' %>
+          <!--Closest to furthest-->
           <br/>
 
           <%= submit_tag "Search", :name => nil %>
