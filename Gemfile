@@ -35,3 +35,7 @@ gem 'paperclip', '~> 2.3'
 gem 'authlogic'
 gem 'rails3-generators'
 gem "haml-rails"
+
+group :development, :test do
+ gem 'rspec-rails'
+end

@@ -1,0 +1,40 @@
+$ rake spec:models
+........FFF.
+
+Failures:
+
+  1) UserSession should create a new instance given valid attributes
+     Failure/Error: UserSession.create!(@valid_attributes)
+     NoMethodError:
+       undefined method `request' for #<RSpec::Core::ExampleGroup::Nested_9:0x4f
+2be50>
+     # ./spec/models/user_session_spec.rb:24:in `block (2 levels) in <top (requi
+red)>'
+
+  2) UserSession can be instantiated
+     Failure/Error: user.save!
+     NoMethodError:
+       undefined method `params' for #<RSpec::Core::ExampleGroup::Nested_9:0x4f2
+be50>
+     # ./spec/models/user_session_spec.rb:18:in `block (2 levels) in <top (requi
+red)>'
+
+  3) UserSession can be saved successfully
+     Failure/Error: user.save!
+     NoMethodError:
+       undefined method `params' for #<RSpec::Core::ExampleGroup::Nested_9:0x4f2
+be50>
+     # ./spec/models/user_session_spec.rb:18:in `block (2 levels) in <top (requi
+red)>'
+
+Finished in 0.631 seconds
+12 examples, 3 failures
+
+==========================================================================================
+
+$ rake spec:controllers
+
+...............
+
+Finished in 2.19 seconds
+15 examples, 0 failures
